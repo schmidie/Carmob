@@ -2,10 +2,11 @@ package conn
 
 class TransportationMean {
 
-    String name
-    Integer average_speed
+    String name             // what transMean 
+    Integer average_speed   // the average_speed of the transMean
     
     static constraints = {
-        //name blank:false
+        name (blank:false)
+        average_speed (nullable:true)
     }
 }

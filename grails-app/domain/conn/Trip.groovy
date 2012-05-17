@@ -5,8 +5,8 @@ class Trip {
     //String start
     //String end
     //we shoud get start end , etc. from the connections
-    
+    String name
     static constraints = {
-
+        name blank:false
     }
 }

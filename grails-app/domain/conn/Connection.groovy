@@ -16,17 +16,17 @@ class Connection {
     
     static constraints = {
         
-        distance nullable:true
+        distance (nullable:true)
         
         //belongsTo nullable:true
         //hasMany nullable:true
         
-        transMean nullable:false
+        transMean (nullable:false)
         
-        start blank:false
-        end blank:false
+        start (blank:false)
+        end (blank:false)
         
-        start_time nullable:false   // we can calculate with the average speed the end time (e.g. bikes)
-        end_time nullable:true
+        start_time (nullable:false)   // we can calculate with the average speed the end time (e.g. bikes)
+        end_time (nullable:true)
     }
 }

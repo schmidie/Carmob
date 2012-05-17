@@ -1,7 +1,5 @@
 package conn
 
-
-
 import grails.test.mixin.*
 import org.junit.*
 

@@ -6,7 +6,7 @@ class Tripmanagement {
    
     
     static constraints = {
-        hasMany nullable:true
+        //hasMany nullable:true
     }
 
 

@@ -18,8 +18,8 @@ class Connection {
         
         distance nullable:true
         
-        belongsTo nullable:true
-        hasMany nullable:true
+        //belongsTo nullable:true
+        //hasMany nullable:true
         
         transMean nullable:false
         

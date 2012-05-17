@@ -7,7 +7,6 @@ class Trip {
     //we shoud get start end , etc. from the connections
     
     static constraints = {
-        
-        hasMany nullable:true
+
     }
 }

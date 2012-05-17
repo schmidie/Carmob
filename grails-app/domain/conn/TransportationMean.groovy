@@ -6,6 +6,6 @@ class TransportationMean {
     Integer average_speed
     
     static constraints = {
-        name blank:false
+        //name blank:false
     }
 }

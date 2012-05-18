@@ -6,7 +6,9 @@ import grails.converters.*
 class TripmanagementController {
 
     def index() { }
+
     
+    // all the transportation means
     def transportation_mean_collection = [
         new TransportationMean(name:"Fahrrad", average_speed:17).save(),
         new TransportationMean(name:"Auto", average_speed:50).save(),

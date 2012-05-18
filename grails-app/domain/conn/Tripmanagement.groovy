@@ -8,6 +8,10 @@ class Tripmanagement {
     static constraints = {
         //hasMany nullable:true
     }
+    
+    def getTrips={
+        trips
+    }
 
 
 }

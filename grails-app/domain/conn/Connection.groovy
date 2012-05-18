@@ -12,6 +12,8 @@ class Connection {
     Date start_time
     Date end_time
     
+    Boolean regular
+    
     Integer distance
     
     static constraints = {
@@ -20,6 +22,8 @@ class Connection {
         
         //belongsTo nullable:true
         //hasMany nullable:true
+        
+        regular (nullable:false)
         
         transMean (nullable:false)
         

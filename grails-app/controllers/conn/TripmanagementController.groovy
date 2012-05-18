@@ -6,7 +6,7 @@ import grails.converters.*
 class TripmanagementController {
 
     def index() { }
-
+    //static scaffold = Tripmanagement
     
     // all the transportation means
     def transportation_mean_collection = [

@@ -7,10 +7,20 @@
 
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Empfohlene Routen</title>
+    <meta name="layout" content="bootstrap"/>
+    <title>CARMOB</title>
   </head>
+
   <body>
+    <div class="row-fluid">
+    
+    <section id="main" class="span9">
+              
     <h1>Empfohlene Routen</h1>
+        <div class="hero-unit">
+        </div>
+    </section>
+    
+    </div>
   </body>
 </html>

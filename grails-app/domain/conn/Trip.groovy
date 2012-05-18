@@ -1,6 +1,9 @@
 package conn
 
 class Trip {
+    
+    Collection connections
+    
     static hasMany = [connections:Connection]
     //String start
     //String end

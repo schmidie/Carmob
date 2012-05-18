@@ -3,7 +3,12 @@ package conn
 class BootStrap {
 
     def init = { servletContext ->
-              
+        
+        new Angle(  name:"zu Hause",         
+            address:"herrmann",         
+            post_code:"12053",        
+            city:"Berlin").save()
+        
         /*  
         new Angle(  name:"zu Hause",         
             address:"herrmann",         

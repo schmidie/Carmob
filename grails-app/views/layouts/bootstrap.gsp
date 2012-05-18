@@ -23,8 +23,9 @@
 	</head>
 
 	<body>
-
+          
 		<nav class="navbar navbar-fixed-top">
+
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					
@@ -33,9 +34,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
+                                  
+
 					
 					<a class="brand" href="${createLink(uri: '/')}">CARMOB</a>
 
+                                        
 					<div class="nav-collapse">
 						<ul class="nav">							
 							<li<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}">Home</a></li>

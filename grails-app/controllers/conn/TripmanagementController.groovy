@@ -28,5 +28,12 @@ class TripmanagementController {
         render transportation_mean_collection as JSON
     }
     
+    def generate_connection(String start, String end, TransportationMean tm) {
+        // TODO: get from googlemaps
+        def distance = 10   // kilometer
+        
+        (distance/tm.average_speed)*60
+        
+    }
     
 }

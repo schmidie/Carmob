@@ -2,5 +2,7 @@ package conn
 
 class IndexController {
 
-    def index() { }
+    def index() {
+
+       }
 }

@@ -17,12 +17,12 @@
         <div class="span2">
 
 
-          <form class="well form-vertical" action="../Tripmanagement/">
+          <form id="search_frm" class="well form-vertical" action="../Tripmanagement/index?start=&end=&date=&time=">
 
 
             <div class="btn-group" data-toggle="buttons-radio">
               <button class="btn">Jetzt los</button>
-              <input type="text" class="btn span1" placeholder="10:00">
+              <input name="time" type="text" class="btn span1" placeholder="10:00">
             </div>
 
             </br>

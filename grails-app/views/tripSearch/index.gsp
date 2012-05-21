@@ -67,7 +67,7 @@
                           <div class="tab-pane fade active in" id="location1">                   
 
                             <div class="btn-group" data-toggle="buttons-radio">
-                              <g:findAll in="${angles}" expr="it.city == 'Berlin'">
+                              <g:findAll in="${angles}" expr="it != null && it.city == 'Berlin'">
                                 <button class="btn span3">${it.name}</button>
                               </g:findAll>
                             </div>
@@ -76,7 +76,7 @@
                           <div class="tab-pane fade" id="location2">
 
                             <div class="btn-group" data-toggle="buttons-radio">        
-                              <g:findAll in="${angles}" expr="it.city == 'Wolfsburg'">
+                              <g:findAll in="${angles}" expr="it != null && it.city == 'Wolfsburg'">
                                 <button class="btn span3">${it.name}</button>
                               </g:findAll>
                             </div>
@@ -107,7 +107,7 @@
                   <div id="endTabContent" class="tab-content span3">
                     <div class="tab-pane fade active in" id="location3">
                       <div class="btn-group" data-toggle="buttons-radio"> 
-                        <g:findAll in="${angles}" expr="it.city == 'Wolfsburg'">
+                        <g:findAll in="${angles}" expr="it != null && it.city == 'Wolfsburg'">
                           <button class="btn span3">${it.name}</button>
                         </g:findAll>
                       </div>
@@ -115,7 +115,7 @@
                     </div>
                     <div class="tab-pane fade" id="location4">
                       <div class="btn-group" data-toggle="buttons-radio">         
-                        <g:findAll in="${angles}" expr="it.city == 'Berlin'">
+                        <g:findAll in="${angles}" expr="it != null && it.city == 'Berlin'">
                           <button class="btn span3">${it.name}</button>
                         </g:findAll>
                       </div>

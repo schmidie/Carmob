@@ -2,6 +2,7 @@ package conn
 
 class Connection {
 
+    
     static belongsTo = Trip
     static hasMany = [trips:Trip]
     
@@ -16,14 +17,18 @@ class Connection {
     
     Integer distance
     
+    String area
+    
     static constraints = {
+        
+        area (blank:false)
         
         distance (nullable:true)
         
         //belongsTo nullable:true
         //hasMany nullable:true
         
-        regular (nullable:false)
+        regular (nullable:true)
         
         transMean (nullable:false)
         

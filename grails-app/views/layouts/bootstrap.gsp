@@ -15,7 +15,7 @@
 		<![endif]-->
 
 		<r:require modules="scaffolding"/>
-
+                <r:require modules="bootstrap"/>
 		<!-- Le fav and touch icons -->
 		
 		<g:layoutHead/>

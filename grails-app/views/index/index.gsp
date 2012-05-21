@@ -6,42 +6,113 @@
   </head>
 
   <body>
-    <div class="row-fluid">
-      <aside id="application-status" class="span3">
-        <div class="well sidebar-nav">
-          <h3>Infos</h3>
+  <auth:ifLoggedIn>
+    Sie sind derzeit eingeloggt als: <auth:user/>
+    <h2>Logout</h2>
+    <auth:form authAction="logout" success="[controller:'index', action:'index']" error="[controller:'index', action:'index']" class="form-horizontal">
+      <div class="form-actions">
+      <g:actionSubmit value="Log out" class="btn btn-primary"/>
+      </div>
+    </auth:form>
+  </auth:ifLoggedIn>
 
-          <h5>Installed Plugins</h5>
-          <ul>
-            <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-              <li>${plugin.name} - ${plugin.version}</li>
-            </g:each>
-          </ul>
-        </div>
-      </aside>
+  <auth:ifUnconfirmed>
+    Um die Registrierung abzuschließen, bestätigen Sie Ihre E-Mail Adresse.
+    <g:link action="reconfirm">Senden Sie mir bitte eine weitere Bestätigungsmail.</g:link>
+  </auth:ifUnconfirmed>
 
-      <section id="main" class="span9">
+  <auth:ifNotLoggedIn>
+    <g:if test="${flash.authenticationFailure}">
+      Ihr Login/Registrierung ist fehlgeschlagen:
+      <g:message code="authentication.failure.${flash.authenticationFailure.result}"/><br/>
+    </g:if>
 
-        <div class="hero-unit">
-          <h1>Welcome to CARMOB</h1>
-
-          <p>comming soon</p>
-
-          <p></p>
-        </div>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <h2>Controller</h2>
-            <ul class="nav nav-list">
-              <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                <li><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
-              </g:each>
-            </ul>
+    <p>Sie sind nicht eingeloggt. Bitte loggen Sie sich ein:</p>
+    <h2>Log in</h2>
+    <auth:form authAction="login" success="[controller:'index', action:'index']" error="[ controller:'index', action:'index']" class="form-horizontal">
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="login">Benutzername:</label>
+          <div class="controls">
+            <g:textField name="login" value="${flash.loginForm?.login?.encodeAsHTML()}" class="span3"/>
+            <span class="help-block"">
+                  <g:hasErrors bean="${flash.loginFormErrors}" field="login">
+                <g:renderErrors bean="${flash.loginFormErrors}" as="list" field="login"/>
+              </g:hasErrors>
+            </span>
           </div>
         </div>
+        <div class="control-group">
+          <label class="control-label" for="password">Passwort:</label>
+          <div class="controls">
+            <input name="password" value="" type="password" class="span3"/>
+            <span class="help-block"">
+                  <g:hasErrors bean="${flash.loginFormErrors}" field="password">
+                <g:renderErrors bean="${flash.loginFormErrors}" as="list" field="password"/>
+              </g:hasErrors>
+             
+            </span>
+          </div>
+        </div>
+        <div class="form-actions">
+            <g:actionSubmit value="Log in" class="btn btn-primary"/>
+         </div>
+        
+      </fieldset>
+    </auth:form>
 
-      </section>
-    </div>
-  </body>
+    <h2>Registrieren</h2>
+    <auth:form authAction="signup" success="[controller:'index', action:'index']" error="[controller:'index', action:'index']" class="form-horizontal">
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="login">Benutzername:</label>
+          <div class="controls">
+            <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span3"/>
+            <span class="help-block"">
+                  <g:hasErrors bean="${flash.signupFormErrors}" field="login">
+                <g:renderErrors bean="${flash.signupFormErrors}" as="list" field="login"/>
+              </g:hasErrors>
+            </span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="email">Email:</label>
+          <div class="controls">
+            <g:textField name="email" value="${flash.signupForm?.email?.encodeAsHTML()}" class="span3"/>
+            <span class="help-block">
+              <g:hasErrors bean="${flash.signupFormErrors}" field="email">
+                <g:renderErrors bean="${flash.signupFormErrors}" as="list" field="email"/>
+              </g:hasErrors>
+            </span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="password">Passwort:</label>
+          <div class="controls">
+            <input name="password" value="" type="password" class="span3"/>
+            <span class="help-block">
+              <g:hasErrors bean="${flash.signupFormErrors}" field="password">
+                <g:renderErrors bean="${flash.signupFormErrors}" as="list" field="password"/>
+              </g:hasErrors>
+            </span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="passwordConfirm">Passwort wiederholen:</label>
+          <div class="controls">
+            <input name="passwordConfirm" value="" type="password" class="span3"/>
+            <span class="help-block">
+              <g:hasErrors bean="${flash.signupFormErrors}" field="passwordConfirm">
+                <g:renderErrors bean="${flash.signupFormErrors}" as="list" field="passwordConfirm"/>
+              </g:hasErrors>
+            </span>
+          </div>
+        </div>
+        <div class="form-actions">
+        <g:actionSubmit value="Sign up" class="btn btn-primary"/>
+        </div>
+      </fieldset>
+    </auth:form>
+  </auth:ifNotLoggedIn>
+</body>
 </html>

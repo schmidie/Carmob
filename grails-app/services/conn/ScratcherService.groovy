@@ -39,7 +39,8 @@ class ScratcherService {
 
         //for (connection in connections){
         //    tr1.addToConnections(connection)
-       // }
+       // } 
+       // bla
 
         return connections
         

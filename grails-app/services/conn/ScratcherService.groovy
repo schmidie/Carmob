@@ -8,10 +8,6 @@ class ScratcherService {
     def getTrips(String start, String end,String date, String time) {
 
         
-        def baseURL = "http://mobile.bahn.de/bin/mobil/query2.exe/dox?"
-        def connectionListURL = "${baseURL}REQ0JourneyStopsS0A=1&REQ0JourneyStopsS0G=${start}&REQ0JourneyStopsS0ID=&REQ0JourneyStopsZ0A=1&REQ0JourneyStopsZ0G=${end}REQ0JourneyDate=${date}&REQ0JourneyStopsZ0ID=&REQ0JourneyTime=${time}&start=Suchen"
-        
-        
         
         //get the Db stuff and so on Bsp:
         /*

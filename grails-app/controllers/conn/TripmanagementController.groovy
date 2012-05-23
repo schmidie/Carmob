@@ -35,34 +35,45 @@ class TripmanagementController {
     def scratcherService = new ScratcherService()
         
     def scratch = {
-        
-        //def result = scratcherService.getTrips(params.start, params.end);
-        //render result as JSON
-        
+        //URL erstellen
         def baseURL = "http://mobile.bahn.de/bin/mobil/query2.exe/dox?"
-        def urlString = "${baseURL}REQ0JourneyStopsS0A=1&REQ0JourneyStopsS0G=${params.start}&REQ0JourneyStopsS0ID=&REQ0JourneyStopsZ0A=1&REQ0JourneyStopsZ0G=${params.end}REQ0JourneyDate=${params.date}&REQ0JourneyStopsZ0ID=&REQ0JourneyTime=${params.time}&start=Suchen"
+        def urlString = "${baseURL}REQ0JourneyStopsS0A=1&REQ0JourneyStopsS0G=${params.start}&REQ0JourneyStopsS0ID=&REQ0JourneyStopsZ0A=1&REQ0JourneyStopsZ0G=${params.end}REQ0JourneyDate=${params.date}&REQ0JourneyStopsZ0ID=&REQ0JourneyTime=${params.time}&start=Suchen.html"
+        urlString = urlString.replace(" ","%20").replace("&amp;","&")
         
-        @Grab(group='org.ccil.cowan.tagsoup',
-          module='tagsoup', version='1.2' )
-	def tagsoupParser = new org.ccil.cowan.tagsoup.Parser()
-        def slurper = new XmlSlurper(tagsoupParser)
-        def htmlParser = slurper.parse(urlString)
+        //html Inhalt einlesen
+        def URL url = new URL(urlString)
+        def URLConnection urlc = url.openConnection()
+        def BufferedReader reader = new BufferedReader( new InputStreamReader(urlc.getInputStream() ))
         
-        def String pipe
+        //Inhalt nach weiterführendem "Verbindungs"-Link durchsuchen
+        def String inputLine 
+        def matcher
+        def String tripLink
+        while ((inputLine = reader.readLine()) != null ) {                      //gehe alle HTML-Zeilen durch
+            if (inputLine ==~ /(.+)href=\"([^"]+)(.+)/) {                       //wenn ein href="..." vorkommt
+                matcher = inputLine =~ /(.+)href=\"([^"]+)(.+)/                 //matche auf seinen inhalt
+                if (matcher[0][2] ==~ /(.+)co=C0(.+)/ ) tripLink = matcher[0][2]//kommt co=C0 vor
+            }                                                                   //dann speicher es als gültigen Link
+        }
+        reader.close()
         
-        //htmlParser.depthFirst().each { render it.attributes()}
+        //Alle weiterführenden "Verbingungs"-Links erstellen
+        def tripLinkList = []
+        tripLinkList.add(tripLink.replace("co=C0-4","co=C0-0").replace("&amp;","&"))
+        tripLinkList.add(tripLink.replace("co=C0-4","co=C0-1").replace("&amp;","&"))
+        tripLinkList.add(tripLink.replace("co=C0-4","co=C0-2").replace("&amp;","&"))
+        tripLinkList.add(tripLink.replace("co=C0-4","co=C0-3").replace("&amp;","&"))
+        tripLinkList.add(tripLink)
         
-        htmlParser.depthFirst().each { if (!it.@action.isEmpty()) pipe = it.attributes().get('action')}
         
-        def matcher = pipe =~ /(\w+)\?ld=(\d+)&n=(\S+)&i=(\S+)&rt=(\S+)/
+        url = new URL(tripLinkList.get(0) )
+        urlc = url.openConnection()
+        reader = new BufferedReader( new InputStreamReader(urlc.getInputStream() ))        
         
-        def ldString = matcher[0][2]
-        def iString = matcher[0][4]
-       
-        
-        def routeURL = "http://mobile.bahn.de/bin/mobil/query2.exe/dox?ld=${ldString}&n=1&i=${iString}&rt=1&use_realtime_filter=1&co=C0-0&vca&"
-        
-        render routeURL
+        while ((inputLine = reader.readLine()) != null ) {
+            render inputLine
+        }
+        reader.close()
     }
         
     def transportation_mean = {

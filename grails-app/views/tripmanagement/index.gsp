@@ -33,7 +33,7 @@
                   
                   <div class="btn-group" data-toggle="buttons-radio">
                     <g:findAll in="${connections_filtered}" expr="it != null && it.area == 'local_start'">
-                      <button class="btn span3">${it.transMean.name}</button>
+                      <button class="btn btn-info span3">${it.transMean.name} </br><i class="icon-time"></i> ${(it.distance/it.transMean.average_speed)*60} Minuten</button>
                     </g:findAll>
                   </div>
                   
@@ -44,7 +44,7 @@
 
                     <div class="btn-group" data-toggle="buttons-radio">
                     <g:findAll in="${connections_filtered}" expr="it != null && it.area == 'intercity'">
-                      <button class="btn span3">${it.transMean.name}</button>
+                      <button class="btn btn-info span3">${it.transMean.name} </br><i class="icon-time"></i> ${(it.distance/it.transMean.average_speed)*60} Minuten</button>
                     </g:findAll>
                   </div>
                   
@@ -55,7 +55,7 @@
 
                   <div class="btn-group" data-toggle="buttons-radio">
                     <g:findAll in="${connections_filtered}" expr="it != null && it.area == 'local_end'">
-                      <button class="btn span3">${it.transMean.name}</button>
+                      <button class="btn btn-info span3">${it.transMean.name} </br><i class="icon-time"></i> ${(it.distance/it.transMean.average_speed)*60} Minuten</button>
                     </g:findAll>
                   </div>
                   

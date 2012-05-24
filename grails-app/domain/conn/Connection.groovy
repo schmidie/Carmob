@@ -27,7 +27,7 @@ class Connection {
         start_time   (nullable:false)   // we can calculate with the average speed the end time (e.g. bikes)
         end_time     (nullable:true)
         regular      (nullable:true)
-        distance     (nullable:true)
+        distance     (nullable:false)
         area         (blank:false)
         
         // belongsTo nullable:true

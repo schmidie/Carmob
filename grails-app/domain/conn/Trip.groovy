@@ -1,21 +1,19 @@
 package conn
 
-// entity
 class Trip {
     
-    // attributes
+    Collection connections
+    
+    //relations
+    static hasMany = [connections:Connection]
+    
+    //attributes
     String name
-    // String start
-    // String end
+    //String start
+    //String end
+    //we shoud get start end , etc. from the connections
     
-    // Note: We shoud get "start", "end", etc. from the connections!
-    
-    // relations
-    static hasMany = [
-        connections : Connection
-    ]
-        
-    // constriants
+    //constraints
     static constraints = {
         name (blank:false)
     }
@@ -28,5 +26,4 @@ class Trip {
         }
         dTime
     }
-    
 }

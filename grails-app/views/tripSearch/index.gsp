@@ -12,7 +12,6 @@
   </head>
   <body>
 
-    <div class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
 
@@ -47,9 +46,9 @@
           <div id="RouteTabContent" class="tab-content" align="center">
             <div class="tab-pane fade active in" id="tab1">
 
-              <div class="row-fluid">
+              <div class="row-fluid span10">
 
-                <div class="span3" >
+                <div class="span5" >
 
                   <table class="table-bordered"> 
                     
@@ -91,7 +90,7 @@
 
 
 
-                <div class="span3" >
+                <div class="span5" >
                   
                   
                   <table class="table-bordered"> 
@@ -133,9 +132,9 @@
               </br></br></br>
 
               <div class="row-fluid">
-                <form action="../Angle/index">
-
-                  <button class="btn span3" type="submit">Neuen Standort anlegen</button>
+                <form class="pull-left" action="../Angle/index">
+                  </br>
+                  <button class="btn btn-info" type="submit">Neuen Standort anlegen</button>
 
                 </form>
               </div>

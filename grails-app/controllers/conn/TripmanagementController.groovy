@@ -212,6 +212,17 @@ class TripmanagementController {
         render transportation_mean_collection as JSON
     }
     
+    def filter = {
+        def shortest_trip = null
+        def triplist = Trip.list()
+        triplist.each(){
+            if(shortest_trip == null || it.duration() < shortest_trip.duration()){
+                shortest_trip = it
+            }
+        }
+        render shortest_trip as JSON
+    }
+    
     def generate_connection(String start, String end, TransportationMean tm) {
         // TODO: get from googlemaps
         def distance = 10   // kilometer

@@ -7,24 +7,40 @@
 
   <body>
   <auth:ifLoggedIn>
-   
-     <div class="hero-unit">
-        <h2>Hallo, <auth:user/>!</h2>
-        <p>Du kannst zur Zeit folgende Aktionen durchführen:</p>
 
-        <img src="images/logo.png" align="center">
+    <div class="hero-unit">
+      <table>
+        <tr>
+          <td>
+            <ul class="thumbnails">
+              <li>
+                <a class="thumbnail">
+                  <img src="images/logo.png">
+                </a>
+              </li>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td valign="top"> <h2>Hallo, <auth:user/>!</h2> </td>
+              </tr>
+              <tr>
+                <td> Das Benutzerprofil ist in Bearbeitung </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-        
-        <h3>Route planen</h3>
-        
-     </div>
-    
+    </div>
+
+
   </auth:ifLoggedIn>
-  
-    <auth:ifUnconfirmed>
-      Um die Registrierung abzuschließen, bestätigen Sie Ihre E-Mail Adresse.
-      <g:link action="reconfirm">Senden Sie mir bitte eine weitere Bestätigungsmail.</g:link>
-    </auth:ifUnconfirmed>
+
+  <auth:ifUnconfirmed>
+    Um die Registrierung abzuschließen, bestätigen Sie Ihre E-Mail Adresse.
+    <g:link action="reconfirm">Senden Sie mir bitte eine weitere Bestätigungsmail.</g:link>
+  </auth:ifUnconfirmed>
 
 </body>
 </html>

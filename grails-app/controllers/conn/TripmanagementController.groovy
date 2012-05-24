@@ -28,12 +28,26 @@ class TripmanagementController {
         new TransportationMean(name:"Auto", average_speed:50).save(),
         new TransportationMean(name:"Taxi", average_speed:50).save()
     ]
+
+    
     
     // give back all transportation means
     def transportation_mean = {
         render transportation_mean_collection as JSON
     }
-    
+    def trips = {
+        Trip.list().each() {
+            it.delete()
+        }
+        def c1 = new Connection(transMean: new TransportationMean(name:"Fahrrad", average_speed:17).save(),
+        start: "Wiesbadener Str. 9", end: "Berliner HBF", start_time: new Date(), end_time: new Date(),regular:false, distance: 20, area:"Berlin").save()
+        def c2 = new Connection(transMean: new TransportationMean(name:"Taxi", average_speed:50).save(),
+        start: "Wolfburger HBF", end: "VW FE", start_time: new Date(), end_time: new Date(),regular:false, distance: 10, area:"Wolfsburg").save()
+        def trip = new Trip(name: "berlin_wolfsburg").save()
+        trip.addToConnections(c1)
+        trip.addToConnections(c2)
+        render trip as JSON
+    }
     def scratcherService = new ScratcherService()
         
     def scratch = {
@@ -83,5 +97,15 @@ class TripmanagementController {
         
         (distance/tm.average_speed)*60
     }
-   
+        
+    def filter = {
+        def shortest_trip = null
+        def triplist = Trip.list()
+        triplist.each(){
+            if(shortest_trip == null || it.duration() < shortest_trip.duration()){
+                shortest_trip = it
+            }
+        }
+        render shortest_trip as JSON
+    }
 }

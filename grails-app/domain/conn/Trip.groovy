@@ -20,4 +20,13 @@ class Trip {
         name (blank:false)
     }
     
+    // methods
+    def duration() {
+        def dTime = 0
+        connections.each(){
+            dTime += it.end_time.time - it.start_time.time
+        }
+        dTime
+    }
+    
 }

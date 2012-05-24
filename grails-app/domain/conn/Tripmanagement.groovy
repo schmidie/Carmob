@@ -14,5 +14,5 @@ class Tripmanagement {
     
     // constraints
     // - none yet
-    
+
 }

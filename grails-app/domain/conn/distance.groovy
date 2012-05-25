@@ -3,14 +3,14 @@ package conn
 import grails.converters.*
 import org.codehaus.groovy.grails.web.json.*
 
-import groovyx.net.http.HTTPBuilder
-import static groovyx.net.http.Method.GET
-import static groovyx.net.http.ContentType.TEXT
+//import groovyx.net.http.HTTPBuilder
+//import static groovyx.net.http.Method.GET
+//import static groovyx.net.http.ContentType.TEXT
 import org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
 class GeocodeService {
-
+/*
 	GrailsApplication grailsApplication
     static transactional = false
     
@@ -21,9 +21,8 @@ class GeocodeService {
     static final String mode = "walking" // driving, walking or bicycling.
     static final String sensor = false // requested parameter for google maps api
     
-    /**
-     * Calculates distance between origin and destination
-     */
+     *      * Calculates distance between origin and destination
+
     int distance(String originAddress, String originCity, String destinationAddress, String destinationCity) {
     	// Get access to grails taglibs
     	ApplicationTagLib g = grailsApplication.mainContext.getBean('org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib')
@@ -50,9 +49,9 @@ class GeocodeService {
     	return distance
     }
     
-    /**
+
      * Overloaded method for distance with 4 parameters. This calculates distance inside one city
-     */
+
     int distance(String originAddress, String destinationAddress, String city) {
     	 return distance(originAddress, city, destinationAddress, city)
     }
@@ -74,5 +73,5 @@ class GeocodeService {
     		}
     	}
     	return result
-    }
+    }*/
 }

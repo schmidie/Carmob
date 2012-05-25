@@ -59,23 +59,21 @@
                         <div id="startTabContent" class="tab-content span2">
                           <div class="tab-pane fade active in" id="location1">                   
 
-                            <form action="#">
                             <div id="button_from" class="btn-group" data-toggle="buttons-radio">
                               <g:findAll in="${angles}" expr="it != null && it.city == 'Berlin'">
                                 <button name="von_btn" class="btn span2" value="${it.name}">${it.name}</button>
                               </g:findAll>
                             </div>
-                            </form>
-
+                           
                           </div>
                           <div class="tab-pane fade" id="location2">
-                            <form action="#">
+                            
                             <div id="button_from" class="btn-group" data-toggle="buttons-radio">        
                               <g:findAll in="${angles}" expr="it != null && it.city == 'Wolfsburg'">
                                 <button  name="von_btn" class="btn span2" value="${it.name}" >${it.name}</button>
                               </g:findAll>
                             </div>
-                            </form>
+                            
 
                           </div>
 
@@ -103,26 +101,26 @@
                   <div id="endTabContent" class="tab-content span2">
                     <div class="tab-pane fade active in" id="location3">
                       
-                      <form action="#">
+                      
                       <div id="button_to" class="btn-group" data-toggle="buttons-radio"> 
                         <g:findAll in="${angles}" expr="it != null && it.city == 'Wolfsburg'">
                           <button name="nach_btn" class="btn span2" value="${it.name}">${it.name}</button>
                         </g:findAll>
                       </div>
-                      </form>
+                      
 
                     </div>
                     
                     
                     <div class="tab-pane fade" id="location4">
                       
-                      <form action="#">
+                      
                       <div id="button_to" class="btn-group" data-toggle="buttons-radio">         
                         <g:findAll in="${angles}" expr="it != null && it.city == 'Berlin'">
                           <button name="nach_btn" class="btn span2" value="${it.name}">${it.name}</button>
                         </g:findAll>
                       </div>
-                      </form>
+                      
 
                     </div>
 

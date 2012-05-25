@@ -1,11 +1,9 @@
 package conn
 
-
 import grails.converters.*
 
 class TripmanagementController {
   
-    
     static enum Area{
         local_start,
         intercity,
@@ -23,7 +21,8 @@ class TripmanagementController {
             }  
         
     }
-    //static scaffold = Tripmanagement
+    
+    // static scaffold = Tripmanagement
     
     // all the transportation means -> TODO: dynamic
     def transportation_mean_collection = [
@@ -36,15 +35,17 @@ class TripmanagementController {
     def scratcherService = new ScratcherService()
         
     def scratch = { //start,end,date,time ->
-        //von wolfsburg nach helmholtzstr. (carmeq)
-        //http://localhost:8080/carmob/tripmanagement/scratch?start=Wolfsburg%20Hbf&end=Helmholtzstr.%20Berlin&date=25.06.2012&time=16:00
-        //von wolfsburg nach Hermannstraße (privat)
-        //http://localhost:8080/carmob/tripmanagement/scratch?start=Wolfsburg%20Hbf&end=Hermannstra%C3%9Fe%20Berlin&date=25.06.2012&time=14:00
-        //von Helmholtzstr. (carmeq) nach Wolfsburg
-        //http://localhost:8080/carmob/tripmanagement/scratch?start=Helmholtzstr.%20Berlin&end=Wolfsburg%20Hauptbahnhof&date=25.06.2012&time=09:00
-
         
-
+        // Zum Testen der Funktion:
+        
+        // von wolfsburg nach helmholtzstr. (carmeq)
+        // http://localhost:8080/carmob/tripmanagement/scratch?start=Wolfsburg%20Hbf&end=Helmholtzstr.%20Berlin&date=25.06.2012&time=16:00
+         
+        // von wolfsburg nach Hermannstraße (privat)
+        // http://localhost:8080/carmob/tripmanagement/scratch?start=Wolfsburg%20Hbf&end=Hermannstra%C3%9Fe%20Berlin&date=25.06.2012&time=14:00
+        
+        // von Helmholtzstr. (carmeq) nach Wolfsburg
+        // http://localhost:8080/carmob/tripmanagement/scratch?start=Helmholtzstr.%20Berlin&end=Wolfsburg%20Hauptbahnhof&date=25.06.2012&time=09:00
         
 //        if (start == null) render "startparameter fehlt"; return null
 //        if (end == null) render "endparameter fehlt"; return null
@@ -68,7 +69,9 @@ class TripmanagementController {
         while ((inputLine = reader.readLine()) != null ) {                      //gehe alle HTML-Zeilen durch
             if (inputLine ==~ /(.+)href=\"([^"]+)(.+)/) {                       //wenn ein href="..." vorkommt
                 matcher = inputLine =~ /(.+)href=\"([^"]+)(.+)/                 //matche auf seinen inhalt
-                if (matcher[0][2] ==~ /(.+)co=C0(.+)/ ) tripLink = matcher[0][2]//kommt co=C0 vor
+                if (matcher[0][2] ==~ /(.+)co=C0(.+)/ ){
+                    tripLink = matcher[0][2]                                    //kommt co=C0 vor
+                } 
             }                                                                   //dann speicher es als gültigen Link
         }
         reader.close()
@@ -194,8 +197,7 @@ class TripmanagementController {
                     tempDate_arrival.setYear( "1".concat((matcher[0][2] =~ /(\d\d).(\d\d).(\d\d)/ )[0][3]).toInteger() )
                     //todo: Date aendern, 1900Problem
                     tempConnection.setEnd_time(tempDate_arrival)
-                    
-                        
+
                     tempConnectionList.add(tempConnection) 
                     tempConnection = null
                 }
@@ -254,6 +256,70 @@ class TripmanagementController {
         render transportation_mean_collection as JSON
     }
     
+    // creates some trips fpr testing the filter-method
+    def create_tripsample = {
+        Trip.list().each() {
+            it.delete()
+        }
+        
+        def sampleConnection_1 = new Connection(
+            transMean: new TransportationMean(
+                name:"Fahrrad",
+                average_speed:17
+            ).save(),
+            start: "Wiesbadener Str. 9",
+            end: "Berliner HBF",
+            start_time: new Date(),
+            end_time: new Date(),
+            regular:false,
+            distance: 20,
+            area:"Berlin"
+        ).save()
+        
+        def sampleConnection_2 = new Connection(
+            transMean: new TransportationMean(
+                            name:"Bahn",
+                            average_speed:150
+                       ).save(),
+            start: "Berliner HBF",
+            end: "Wolfburger HBF",
+            start_time: new Date(),
+            end_time: new Date(),
+            regular:false,
+            distance: 200,
+            area:"Germany"
+        ).save()
+        
+        def sampleConnection_3 = new Connection(
+            transMean: new TransportationMean(
+                            name:"Taxi",
+                            average_speed:50
+                       ).save(),
+            start: "Wolfburger HBF",
+            end: "VW FE",
+            start_time: new Date(),
+            end_time: new Date(),
+            regular:false,
+            distance: 10,
+            area:"Wolfsburg"
+        ).save()
+        
+        def sampleTrip_1 = new Trip(name: "berlin_wolfsburg").save()
+        sampleTrip_1.addToConnections(sampleConnection_1)
+        sampleTrip_1.addToConnections(sampleConnection_2)
+        
+        def sampleTrip_2 = new Trip(name: "berlin_wolfsburg").save()
+        sampleTrip_2.addToConnections(sampleConnection_1)
+        sampleTrip_2.addToConnections(sampleConnection_2)
+        sampleTrip_2.addToConnections(sampleConnection_3)
+        
+        def sampleTrips = [sampleTrip_1, sampleTrip_2]
+        
+        // test-output
+        render sampleTrips as JSON
+    }
+    
+    // filters the shortest_trip
     def filter = {
         def shortest_trip = null
         def triplist = Trip.list()
@@ -262,15 +328,17 @@ class TripmanagementController {
                 shortest_trip = it
             }
         }
+        
+        // test-output
         render shortest_trip as JSON
     }
     
-    def generate_connection(String start, String end, TransportationMean tm) {
-        // TODO: get from googlemaps
-        def distance = 10   // kilometer
-        
-        (distance/tm.average_speed)*60
-        
-    }
+//    def generate_connection(String start, String end, TransportationMean tm) {
+//        // TODO: get from googlemaps
+//        def distance = 10   // kilometer
+//        
+//        (distance/tm.average_speed)*60
+//        
+//    }
     
 }

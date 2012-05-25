@@ -1,19 +1,21 @@
 package conn
 
+// entity
 class Trip {
     
-    Collection connections
-    
-    //relations
-    static hasMany = [connections:Connection]
-    
-    //attributes
+    // attributes
     String name
-    //String start
-    //String end
-    //we shoud get start end , etc. from the connections
+    Collection connections
+    // String start
+    // String end
+    // We shoud get start, end, etc. from the connections!
     
-    //constraints
+    // relations
+    static hasMany = [
+        connections:Connection
+    ]
+    
+    // constraints
     static constraints = {
         name (blank:false)
     }

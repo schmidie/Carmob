@@ -35,16 +35,25 @@ class TripmanagementController {
 
     def scratcherService = new ScratcherService()
         
-    def scratch = { start,end,date,time ->
+    def scratch = { //start,end,date,time ->
+        //von wolfsburg nach helmholtzstr. (carmeq)
+        //http://localhost:8080/carmob/tripmanagement/scratch?start=Wolfsburg%20Hbf&end=Helmholtzstr.%20Berlin&date=25.06.2012&time=16:00
+        //von wolfsburg nach Hermannstraße (privat)
+        //http://localhost:8080/carmob/tripmanagement/scratch?start=Wolfsburg%20Hbf&end=Hermannstra%C3%9Fe%20Berlin&date=25.06.2012&time=14:00
+        //von Helmholtzstr. (carmeq) nach Wolfsburg
+        //http://localhost:8080/carmob/tripmanagement/scratch?start=Helmholtzstr.%20Berlin&end=Wolfsburg%20Hauptbahnhof&date=25.06.2012&time=09:00
+
         
-        if (start == null) render "startparameter fehlt"; return null
-        if (end == null) render "endparameter fehlt"; return null
-        if (date == null) render "dateparameter fehlt"; return null
-        if (time == null) render "timeparameter fehlt"; return null
+
+        
+//        if (start == null) render "startparameter fehlt"; return null
+//        if (end == null) render "endparameter fehlt"; return null
+//        if (date == null) render "dateparameter fehlt"; return null
+//        if (time == null) render "timeparameter fehlt"; return null
         
         //URL erstellen
         def baseURL = "http://mobile.bahn.de/bin/mobil/query2.exe/dox?"
-        def urlString = "${baseURL}REQ0JourneyStopsS0A=1&REQ0JourneyStopsS0G=${start}&REQ0JourneyStopsS0ID=&REQ0JourneyStopsZ0A=1&REQ0JourneyStopsZ0G=${end}REQ0JourneyDate=${date}&REQ0JourneyStopsZ0ID=&REQ0JourneyTime=${time}&start=Suchen.html"
+        def urlString = "${baseURL}REQ0JourneyStopsS0A=1&REQ0JourneyStopsS0G=${params.start}&REQ0JourneyStopsS0ID=&REQ0JourneyStopsZ0A=1&REQ0JourneyStopsZ0G=${params.end}REQ0JourneyDate=${params.date}&REQ0JourneyStopsZ0ID=&REQ0JourneyTime=${params.time}&start=Suchen.html"
         urlString = urlString.replace(" ","%20").replace("&amp;","&")
         
         //html Inhalt einlesen
@@ -186,6 +195,7 @@ class TripmanagementController {
                     //todo: Date aendern, 1900Problem
                     tempConnection.setEnd_time(tempDate_arrival)
                     
+                        
                     tempConnectionList.add(tempConnection) 
                     tempConnection = null
                 }
@@ -201,7 +211,39 @@ class TripmanagementController {
         reader.close()
         tempTrip = new Trip()
         tempTrip.setConnections(tempConnectionList)
+        
+        tempTrip.getConnections().each() {
+            render it.getTransMean().getName()
+                        render " "
+            render it.getStart()
+                        render " "
+            render it.getStart_time()
+                        render " "
+            render it.getEnd()
+                        render " "
+            render it.getEnd_time()
+                        render " "
+            }
+            
         tripList.add(tempTrip)
+        }
+        
+        tripList.each() {
+            
+            it.getConnections().each {
+            render it.getTransMean().getName()
+                        render " "
+            render it.getStart()
+                        render " "
+            render it.getStart_time()
+                        render " "
+            render it.getEnd()
+                        render " "
+            render it.getEnd_time()
+                        render " "
+            }
+            render "#..................................#"
+            
         }
         
         return tripList

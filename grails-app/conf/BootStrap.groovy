@@ -4,40 +4,21 @@ class BootStrap {
 
     def init = { servletContext ->
         
-        new Angle(  name:"zu Hause",         
-            address:"herrmann",         
-            post_code:"12053",        
-            city:"Berlin").save()
+        // Standorte
         
-        /*  
-        new Angle(  name:"zu Hause",         
-            address:"herrmann",         
-            post_code:"12053",        
-            city:"Berlin").save
-
-        if(!Trip.count()){
-            new Trip()
-                .addToConnections(
-                    new Connection(
-                        transMean:new TransportationMean(name:'Fahrrad').save,
-                        start:"Hermannstr 100",
-                        end:"Hermannplatz",
-                        start_time: new Date(),
-                        end_time:new Date()+1)
-                        .save)
-                .addToConnections(
-                    new Connection(
-                        transMean:new TransportationMean(name:'Auto').save,
-                        start:"Hermannplatz",
-                        end:"HBF Berlin",
-                        start_time: new Date()+1,
-                        end_time:new Date()+2)
-                        .save)
-                .save
-            }
-            */
+        // Berlin
+        new Angle(name:"zu Hause", address:"Hermannstrasse 256",  
+            post_code:"12049", city:"Berlin").save()
+        
+        new Angle(name:"Carmeq (Berlin)", address:"Carnotstrasse 4",  
+            post_code:"10587", city:"Berlin").save()
+        
+        // Wolfsburg
+        new Angle(name:"Carmeq (Wolfsburg)", address:"Major-Hirst-Strasse 11",  
+            post_code:"38442", city:"Wolfsburg").save()
 
     }
-    def destroy = {
-    }
+    
+    def destroy = { }
+
 }

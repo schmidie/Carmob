@@ -11,7 +11,14 @@ import org.junit.*
 @TestFor(TransportationMean)
 class TransportationMeanTests {
 
-    void testSomething() {
-       fail "Implement me"
+    void testQuery() {
+        def transportationmeans = [
+            new TransportationMean(name: "Taxi", average_speed: "50"),
+            new TransportationMean(name: "Fahrrad", average_speed: "17")
+        ]
+    
+        transportationmeans*.save()
+    
+        assertEquals 2, TransportationMean.list().size()
     }
 }

@@ -1,7 +1,4 @@
-/**
- * Compute distance in Google Earth KML path file from a path
- * @author Marc DEXET ( marcdexet [at] gmail [dot] org )
-*/
+
 package conn
 import grails.converters.*
 

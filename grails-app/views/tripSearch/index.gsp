@@ -7,6 +7,8 @@
 
 <html>
   <head>
+        
+    <resource:dateChooser />
     <meta name="layout" content="bootstrap"/>
     <title>CARMOB</title>
     <script type="text/javascript">
@@ -191,10 +193,10 @@
             <strong>Datum:</strong>
             </br>
 
-            <g:datePicker name="myDate" value="${new Date()}"
-            precision="day"  years="[2012]"/>
-            </br>
-            
+            <g:form>
+              <richui:dateChooser name="date" format="dd.MM.yyyy"/>
+            </g:form>
+
             <input name="von" type="hidden" value="">
             <input name="nach" type="hidden" value="">
 

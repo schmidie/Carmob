@@ -7,26 +7,29 @@
 
 <html>
   <head>
+    <resource:timeline />
     <meta name="layout" content="bootstrap"/>
     <title>CARMOB</title>
-    
-
   </head>
+  <body onload="initTimeline();">
 
-  <body>
+<richui:timeline style="height: 350px; width: 450px; border: 1px solid #aaa" startDate="${new Date() - 70}" 
+            datasource="http://localhost:8080/tripmanagement/events" eventBandSpanHighlightDecorators="[[date: new Date() + 7, startDate: new Date(), endDate: new Date() + 100, color: '#FFFF00', opacity: 50, startLabel: 'Sample', endLabel: 'End sample'], [date: new Date() + 14, startDate: new Date() + 20, endDate: new Date() + 25, color: '#0000FF', opacity: 50, startLabel: 'Sample', endLabel: 'End sample']]" />
 
     <div class="container-fluid">
       <div class="row-fluid span12">
 
-         <h2>Empfohlene Routen</h2>
-
-                                
+       <h2>Empfohlene Routen</h2>
+                          
         <g:each var="m_trip" in="${trips}">
           
             <div class="accordion-group">              
               <div class="accordion-heading"> 
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${m_trip.name.replaceAll(' ', '')}">
-                  ${m_trip.name}
+                  ${m_trip.name}: &nbsp;&nbsp;&nbsp;
+                  <g:findAll in="${m_trip.connections}" expr="it != null">
+                    <i class="icon-star-empty"></i>${it.transMean.name},
+                  </g:findAll>
                 </a>
               </div>
               <div id="${m_trip.name.replaceAll(' ', '')}" class="accordion-body collapse in">

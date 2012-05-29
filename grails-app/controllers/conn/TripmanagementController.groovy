@@ -52,8 +52,6 @@ class TripmanagementController {
                 startDate = new SimpleDateFormat("MMM dd yyyy HH:mm:ss", Locale.US).format(new Date() + 40) + " GMT" 
                 String endDate = new SimpleDateFormat("MMM dd yyyy HH:mm:ss", Locale.US).format(new Date() + 45) + " GMT" 
                 event('start': startDate, 'end': endDate, 'title':"Hello again", 'link':"http://localhost:8080/carmob/connection/list", "This is another description")
-
-                event('start': startDate, 'title':"Hello again", 'link':"http://localhost:8080/carmob/connection/list", textColor: "#FF0000", color: "#FFFF00", icon:"http://simile.mit.edu/timeline/api/images/dark-red-circle.png", "This is another description") 
             } 
         } 
     }

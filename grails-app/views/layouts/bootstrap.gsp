@@ -46,7 +46,7 @@
         <auth:ifLoggedIn>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><g:link controller="TripSearch" action="index"> <i class="icon-edit"></i> planen</g:link></li>
+              <li><g:link controller="TripSearch" action="index"> <i class="icon-edit icon-white"></i> planen</g:link></li>
             </ul>
           </div>
           <div class="nav pull-right">

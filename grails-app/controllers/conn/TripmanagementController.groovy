@@ -13,32 +13,33 @@ class TripmanagementController {
     }
         
     // for testing
-    def trips
+    
+    //the filtered trips from the user search data
+    def trips = [:]
+    
+    //the possible transMeans
     def transportation_mean_collection
+    
+    // the current user
+    def m_user
     
     def index() { 
         // Just for testing TODO: dynamic!
         //scratch(params.start,params.end,params.date,params.time)
+      
          if(Trip.count()){
-                trips = Trip.list()
+             trips = Trip.list()
             }  
             
         if(TransportationMean.count()){
             transportation_mean_collection = TransportationMean.list()
         }
         
+        m_user = User
+        
     }
     
-    // static scaffold = Tripmanagement
-    
-    // all the transportation means -> TODO: dynamic
-    //def transportation_mean_collection = [
-    //    new TransportationMean(name:"Fahrrad", average_speed:17).save(),
-    //    new TransportationMean(name:"Auto", average_speed:50).save(),
-    //    new TransportationMean(name:"Taxi", average_speed:50).save()
-    //]
-    
-    
+    // for testing
     def events = { 
         render(contentType: "text/xml") { 
             data()

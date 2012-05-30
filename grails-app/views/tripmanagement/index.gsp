@@ -13,9 +13,9 @@
   </head>
   <body onload="initTimeline();">
 
-<richui:timeline style="height: 350px; width: 450px; border: 1px solid #aaa" startDate="${new Date() - 70}" 
+<!--<richui:timeline style="height: 350px; width: 450px; border: 1px solid #aaa" startDate="${new Date() - 70}" 
             datasource="http://localhost:8080/tripmanagement/events" eventBandSpanHighlightDecorators="[[date: new Date() + 7, startDate: new Date(), endDate: new Date() + 100, color: '#FFFF00', opacity: 50, startLabel: 'Sample', endLabel: 'End sample'], [date: new Date() + 14, startDate: new Date() + 20, endDate: new Date() + 25, color: '#0000FF', opacity: 50, startLabel: 'Sample', endLabel: 'End sample']]" />
-
+-->
     <div class="container-fluid">
       <div class="row-fluid span12">
 
@@ -52,8 +52,13 @@
 
                             <div class="btn-group" data-toggle="buttons-radio">
                               <g:findAll in="${m_trip.connections}" expr="it != null && it.area == 'local_start'">
-                                <button class="btn btn-info span${(((it.distance/it.transMean.average_speed)*60)/12).toInteger()}">${it.transMean.name} </br><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten</button>
-                                </br>
+                                <!--<button class="btn btn-info span${(((it.distance/it.transMean.average_speed)*60)/12).toInteger()}">${it.transMean.name} </br><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten</button>-->
+                                <label class="radio">
+                                  <input type="radio" name="optionsRadios1" id="optionsRadios1" value="option1" checked="">
+                                  <g:img dir="images" file="${it.transMean.name}.png" width="20" height="20"/><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten
+                                </label>
+                                <!--<button class="btn btn-info"> <g:img dir="images" file="${it.transMean.name}.png" width="20" height="20"/><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten</button>-->
+                               </br>
                               </g:findAll>
                             </div>
 
@@ -63,8 +68,13 @@
 
                             <div class="btn-group" data-toggle="buttons-radio">
                               <g:findAll in="${m_trip.connections}" expr="it != null && it.area == 'intercity'">
-                                <button class="btn btn-info span${(((it.distance/it.transMean.average_speed)*60)/12).toInteger()}">${it.transMean.name} </br><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten</button>
+                               <label class="radio">
+                                 <input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1" checked="">
+                                   
+                                 <g:img dir="images" file="${it.transMean.name}.png" width="20" height="20"/><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten
+                                </label>
                                 </br>
+
                               </g:findAll>
                             </div>
 
@@ -74,8 +84,12 @@
 
                             <div class="btn-group" data-toggle="buttons-radio">
                               <g:findAll in="${m_trip.connections}" expr="it != null && it.area == 'local_end'">
-                                <button class="btn btn-info span${(((it.distance/it.transMean.average_speed)*60)/12).toInteger()}">${it.transMean.name} </br><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten</button>
+                                <label class="radio">
+                                  <input type="radio" name="optionsRadios3" id="optionsRadios1" value="option1" checked="">
+                                  <g:img dir="images" file="${it.transMean.name}.png" width="20" height="20"/><i class="icon-time"></i> ${((it.distance/it.transMean.average_speed)*60).toInteger()} Minuten
+                                </label>
                                 </br>
+
                               </g:findAll>
                             </div>
 

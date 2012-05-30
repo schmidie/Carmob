@@ -184,9 +184,12 @@
           <form name="search_frm" class="well form-vertical" action="../Tripmanagement/index?">
 
 
+
             <strong>Zeit:</strong>             
             </br>
-
+              <span class="add-on">
+                <i class="icon-time"></i>
+              </span>
             <input name="time" type="text" class="span1" value=""> Uhr
             </br>
 
@@ -194,13 +197,19 @@
             </br>
 
             <g:form>
-              <richui:dateChooser name="date" format="dd.MM.yyyy"/>
+              <span class="add-on">
+                <i class="icon-calendar"></i>
+              </span>
+              <richui:dateChooser name="date" class="span1" format="dd.MM.yyyy"/>
             </g:form>
+
+                                    
+            
+            <button class="btn" type="submit">weiter</button>
 
             <input name="von" type="hidden" value="">
             <input name="nach" type="hidden" value="">
 
-            <button class="btn" type="submit">weiter</button>
 
           </form>
        </div>

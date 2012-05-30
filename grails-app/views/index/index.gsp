@@ -15,7 +15,7 @@
             <ul class="thumbnails">
               <li>
                 <a class="thumbnail">
-                  <img src="images/logo.png">
+                  <g:img dir="images" file="logo.png" width="40" height="40"/>
                 </a>
               </li>
           </td>

@@ -7,7 +7,9 @@ class Tripmanagement {
     // - none yet
     
     // relations
-    static hasMany = [trips:Trip]
+    //static hasMany = [trips:Trip]
+    Collection trips
+    
     static constraints = {
         // hasMany nullable:true
     }

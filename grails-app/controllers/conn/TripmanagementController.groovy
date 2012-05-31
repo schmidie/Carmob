@@ -82,12 +82,14 @@ class TripmanagementController {
     
     def save_trip(){
         //if(trips.count()){
-            trips.each(){
-                if(it.name == 29){
-                    it.save()
-                }
-           // }
-        }
+        trips.each(){
+                if(it.name == ${params.name}){
+                   it.save()
+        //            render(view: "index")
+               }
+            }
+        //}
+        [params: {params.name}]
     }
         
     def scratch() { //start,end,date,time ->
@@ -316,6 +318,7 @@ class TripmanagementController {
             //render "#..................................#"
             
         }*/
+        
         
        //return trips
         render(view: "scratch", model: [trips: trips, start: {params.start}, end: {params.end}, date: {params.date}, time: {params.time}])

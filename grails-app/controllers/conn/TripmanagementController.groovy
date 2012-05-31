@@ -6,6 +6,8 @@ import grails.converters.*
 
 class TripmanagementController {
   
+    def authenticationService
+    
     static enum Area{
         local_start,
         intercity,
@@ -15,7 +17,7 @@ class TripmanagementController {
     // for testing
     
     //the filtered trips from the user search data
-    def trips = [:]
+    def trips = []
     
     //the possible transMeans
     def transportation_mean_collection
@@ -27,15 +29,20 @@ class TripmanagementController {
         // Just for testing TODO: dynamic!
         //scratch(params.start,params.end,params.date,params.time)
       
+         //trips = scratch("Wolfsburg Hbf","Hermannstraße Berlin", "25.06.2012", "14:00")
+        /*
          if(Trip.count()){
              trips = Trip.list()
-            }  
+           }  
             
         if(TransportationMean.count()){
             transportation_mean_collection = TransportationMean.list()
         }
-        
-        m_user = User
+        */
+             
+            redirect action: 'scratch', params: params
+
+        //m_user = User
         
     }
     
@@ -57,10 +64,33 @@ class TripmanagementController {
         } 
     }
     
+    def getTransMean(String name){
+        
+        if (name.contains("ICE")||name.contains("RE")||name.contains("IC"))
+            return "DB"
+        else if (name.contains("Bus"))
+            return "Bus"
+        else if (name.contains("U"))
+            return "U-Bahn"
+        else if (name.contains("S"))
+            return "S-Bahn"
+        else 
+            return "TODO"
+    }
 
     def scratcherService = new ScratcherService()
+    
+    def save_trip(){
+        //if(trips.count()){
+            trips.each(){
+                if(it.name == 29){
+                    it.save()
+                }
+           // }
+        }
+    }
         
-    def scratch = { //start,end,date,time ->
+    def scratch() { //start,end,date,time ->
         
         // Zum Testen der Funktion:
         
@@ -109,8 +139,7 @@ class TripmanagementController {
         tripLinkList.add(tripLink.replace("co=C0-4","co=C0-2").replace("&amp;","&"))
         tripLinkList.add(tripLink.replace("co=C0-4","co=C0-3").replace("&amp;","&"))
         tripLinkList.add(tripLink)
-        
-        def tripList = []
+
         tripLinkList.each() {
         
         url = new URL(it)
@@ -171,6 +200,7 @@ class TripmanagementController {
                     scratcherState=5
                     tempMean = new TransportationMean()
                     tempMean.setName(matcher[0][2])
+
                     tempConnection.setTransMean( tempMean )
                 }
                 break
@@ -238,9 +268,20 @@ class TripmanagementController {
         }
         reader.close()
         tempTrip = new Trip()
-        tempTrip.setConnections(tempConnectionList)
         
-        tempTrip.getConnections().each() {
+        //sort the list
+        def s = tempConnectionList.size()
+        def tempConnectionList2 = []
+        while(s-- > 0){
+            tempConnectionList2.add(tempConnectionList.pop())
+        }
+        
+            
+        tempTrip.setConnections(tempConnectionList2)
+        tempTrip.setName(tempTrip.duration().toString())
+
+            
+        /*tempTrip.getConnections().each() {
             render it.getTransMean().getName()
                         render " "
             render it.getStart()
@@ -251,12 +292,14 @@ class TripmanagementController {
                         render " "
             render it.getEnd_time()
                         render " "
-            }
+            }*/
             
-        tripList.add(tempTrip)
+            
+        trips.add(tempTrip)
+
         }
         
-        tripList.each() {
+        /*trips.each() {
             
             it.getConnections().each {
             render it.getTransMean().getName()
@@ -270,11 +313,13 @@ class TripmanagementController {
             render it.getEnd_time()
                         render " "
             }
-            render "#..................................#"
+            //render "#..................................#"
             
-        }
+        }*/
         
-        return tripList
+       //return trips
+        render(view: "scratch", model: [trips: trips, start: {params.start}, end: {params.end}, date: {params.date}, time: {params.time}])
+
     }
         
     def transportation_mean = {

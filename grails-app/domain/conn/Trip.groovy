@@ -1,5 +1,8 @@
 package conn
 
+import groovy.time.*
+
+
 // entity
 class Trip {
     
@@ -22,10 +25,13 @@ class Trip {
     
     // methods
     def duration() {
-        def dTime = 0
+        def minutes=0
+        
         connections.each(){
-            dTime += it.end_time.time - it.start_time.time
+            TimeDuration tmp = TimeCategory.minus(it.end_time, it.start_time)
+            minutes += tmp.minutes
+            //dTime += it.end_time.time - it.start_time.time
         }
-        dTime
+        minutes
     }
 }

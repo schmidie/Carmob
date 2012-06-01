@@ -8,23 +8,69 @@ class BootStrap {
         
         if(!Angle.count()){
             // Berlin        
-            new Angle(name:"zu Hause", address:"Hermannstrasse 256",  
-                post_code:"12049", city:"Berlin").save()
+            //new Angle(name:"zu Hause", address:"Hermannstrasse 256",  
+            //    post_code:"12049", city:"Berlin").save()
 
+            //new Angle(name:"Hbhf Berlin", address:"Europaplatz 1",  
+            //    post_code:"10557", city:"Berlin").save()
+            
+            //new Angle(name:"Bhf Berlin-Spandau", address:"Segefelder Straße 1",  
+            //    post_code:"13597", city:"Berlin").save()
+            
             new Angle(name:"Carmeq (Berlin)", address:"Carnotstrasse 4",  
                 post_code:"10587", city:"Berlin").save()
 
             // Wolfsburg
-            new Angle(name:"Carmeq (Wolfsburg)", address:"Major-Hirst-Strasse 11",  
+            new Angle(name:"Carmeq - Autovision (Wolfsburg)", address:"Major-Hirst-Strasse 11",  
                 post_code:"38442", city:"Wolfsburg").save()
              
-            new Angle(name:"zu Hause 2", address:"Helmholtzstr.",  
-                post_code:"12054", city:"Berlin").save()
-            
-            new Angle(name:"WB HBF", address:"Wolfsburg 20Hauptbahnhof",  
+            new Angle(name:"VW TE (Hopfengarten)", address:"Hopfengarten 37-47",  
                 post_code:"38442", city:"Wolfsburg").save()
-
             
+            new Angle(name:"VW TE (Rübenkamp)", address:"Rübenkamp 2",  
+                post_code:"38442", city:"Wolfsburg").save()
+            
+            new Angle(name:"VW AutoUni/Mobile/LifeCampus", address:"Herrmann-Münch-Strasse 1",  
+                post_code:"38440", city:"Wolfsburg").save()
+            
+            new Angle(name:"VW FE (LKW Wache)", address:"VW Nordstrasse",  
+                post_code:"38440", city:"Wolfsburg").save()
+            
+            new Angle(name:"VW FE (Fussgänger Wache)", address:"VW Nordstrasse",  
+                post_code:"38440", city:"Wolfsburg").save()
+
+            new Angle(name:"VW HMI (Fa. Volke)", address:"Daimlerstraße 35",  
+                post_code:"38446", city:"Wolfsburg").save()
+            
+            new Angle(name:"VW Isenbüttel", address:"Am Krainhop",  
+                post_code:"38550", city:"Isenbüttel").save()
+            
+            new Angle(name:"VW Prüfgelände Ehra", address:"",  
+                post_code:"38468", city:"Ehra-Lessien").save()
+            
+            // Ingolstadt
+            new Angle(name:"Carmeq (Ingolstadt)", address:"Sachsstrasse 14b",  
+                post_code:"85080", city:"Gaimersheim").save()
+            
+            new Angle(name:"Audi TE", address:"Tor 9",  
+                post_code:"85055", city:"Ingolstadt").save()
+            
+            new Angle(name:"Audi Forum", address:"Ettinger Strasse",  
+                post_code:"85057", city:"Ingolstadt").save()
+            
+            // Stuttgart
+            new Angle(name:"Carmeq (Stuttgart)", address:"König Strasse 43b",  
+                post_code:"70173", city:"Stuttgart").save()
+            
+            new Angle(name:"Porsche Weissach", address:"Porschestrasse",  
+                post_code:"71287", city:"Weissach").save()
+            
+            // Prag
+            new Angle(name:"e4t Prag", address:"Novodvorská 994/138",  
+                post_code:"147 00", city:"Praha 4-Branîk").save()
+            
+            new Angle(name:"Skoda Werk", address:"Mladá Boleslav",  
+                post_code:"", city:"CZ").save()
         }
         
         //Transmeans

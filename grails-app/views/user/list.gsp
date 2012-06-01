@@ -44,13 +44,17 @@
 					<thead>
 						<tr>
 						
+							<g:sortableColumn property="auto" title="${message(code: 'user.auto.label', default: 'Auto')}" />
+						
+							<g:sortableColumn property="bahn_card_100" title="${message(code: 'user.bahn_card_100.label', default: 'Bahncard100')}" />
+						
+							<g:sortableColumn property="bahn_card_50" title="${message(code: 'user.bahn_card_50.label', default: 'Bahncard50')}" />
+						
 							<g:sortableColumn property="email" title="${message(code: 'user.email.label', default: 'Email')}" />
 						
+							<g:sortableColumn property="fahrrad" title="${message(code: 'user.fahrrad.label', default: 'Fahrrad')}" />
+						
 							<g:sortableColumn property="login" title="${message(code: 'user.login.label', default: 'Login')}" />
-						
-							<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Password')}" />
-						
-							<g:sortableColumn property="status" title="${message(code: 'user.status.label', default: 'Status')}" />
 						
 							<th></th>
 						</tr>
@@ -59,13 +63,17 @@
 					<g:each in="${userInstanceList}" var="userInstance">
 						<tr>
 						
+							<td><g:formatBoolean boolean="${userInstance.auto}" /></td>
+						
+							<td><g:formatBoolean boolean="${userInstance.bahn_card_100}" /></td>
+						
+							<td><g:formatBoolean boolean="${userInstance.bahn_card_50}" /></td>
+						
 							<td>${fieldValue(bean: userInstance, field: "email")}</td>
 						
+							<td><g:formatBoolean boolean="${userInstance.fahrrad}" /></td>
+						
 							<td>${fieldValue(bean: userInstance, field: "login")}</td>
-						
-							<td>${fieldValue(bean: userInstance, field: "password")}</td>
-						
-							<td>${fieldValue(bean: userInstance, field: "status")}</td>
 						
 							<td class="link">
 								<g:link action="show" id="${userInstance.id}" class="btn btn-small">Show &raquo;</g:link>

@@ -42,10 +42,38 @@
 
 				<dl>
 				
+					<g:if test="${userInstance?.auto}">
+						<dt><g:message code="user.auto.label" default="Auto" /></dt>
+						
+							<dd><g:formatBoolean boolean="${userInstance?.auto}" /></dd>
+						
+					</g:if>
+				
+					<g:if test="${userInstance?.bahn_card_100}">
+						<dt><g:message code="user.bahn_card_100.label" default="Bahncard100" /></dt>
+						
+							<dd><g:formatBoolean boolean="${userInstance?.bahn_card_100}" /></dd>
+						
+					</g:if>
+				
+					<g:if test="${userInstance?.bahn_card_50}">
+						<dt><g:message code="user.bahn_card_50.label" default="Bahncard50" /></dt>
+						
+							<dd><g:formatBoolean boolean="${userInstance?.bahn_card_50}" /></dd>
+						
+					</g:if>
+				
 					<g:if test="${userInstance?.email}">
 						<dt><g:message code="user.email.label" default="Email" /></dt>
 						
 							<dd><g:fieldValue bean="${userInstance}" field="email"/></dd>
+						
+					</g:if>
+				
+					<g:if test="${userInstance?.fahrrad}">
+						<dt><g:message code="user.fahrrad.label" default="Fahrrad" /></dt>
+						
+							<dd><g:formatBoolean boolean="${userInstance?.fahrrad}" /></dd>
 						
 					</g:if>
 				
@@ -67,6 +95,15 @@
 						<dt><g:message code="user.status.label" default="Status" /></dt>
 						
 							<dd><g:fieldValue bean="${userInstance}" field="status"/></dd>
+						
+					</g:if>
+				
+					<g:if test="${userInstance?.trips}">
+						<dt><g:message code="user.trips.label" default="Trips" /></dt>
+						
+							<g:each in="${userInstance.trips}" var="t">
+							<dd><g:link controller="trip" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></dd>
+							</g:each>
 						
 					</g:if>
 				

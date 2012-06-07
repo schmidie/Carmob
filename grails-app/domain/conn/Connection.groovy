@@ -12,7 +12,7 @@ class Connection {
     Boolean regular
     Integer distance
     String area
-    
+    //committest
     // relations
     static belongsTo = Trip
     static hasMany = [

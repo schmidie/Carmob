@@ -5,6 +5,7 @@ class TransportationMean {
 
     // attributes
     String name
+    String direction
     Integer average_speed
     
     // relations

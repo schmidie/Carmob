@@ -3,6 +3,7 @@ package conn
 import java.text.SimpleDateFormat
 
 import grails.converters.*
+import org.xml.sax.*
 
 class TripmanagementController {
   
@@ -18,7 +19,6 @@ class TripmanagementController {
     
     //the filtered trips from the user search data
     def trips = []
-    def selected_trip
     
     //the possible transMeans
     def transportation_mean_collection
@@ -83,20 +83,130 @@ class TripmanagementController {
     
     def save_trip(){
         //if(trips.count()){
-        
         trips.each(){
-                if(it.name == params.name){
-                   selected_trip = it
+                if(it.name == ${params.name}){
                    it.save()
-                   render(view: "index")
+        //            render(view: "index")
                }
             }
         //}
-        //render(view: "list", model: params.name)
-        [params: params.name]
+        [params: {params.name}]
+    }
+    
+    def scratch() {
+        
+        //hopfengarten = "Fallersleben Bahnhofstraße, Wolfsburg"
+        //carnotstraße = "Helmholtzstr., Berlin"
+        
+        
+        def originID = getLocationId(params.start)
+        def destID = getLocationId(params.end)
+        
+        //render originID
+        //render " + "
+        //render destID
+        
+        //buildTripList(originID,destID)
+        
+        def baseURL = "http://demo.hafas.de/bin/pub/carmeq/rest.exe"
+        def authKey = "carmeq"
+        def urlString = "${baseURL}/trip?authKey=${authKey}&originId=${originID}&destId=${destID}&time=${params.time}&date=${params.date}"
+        def InputSource xmlsource = new InputSource(urlString)
+        
+        def Connection tempConnection
+        def TransportationMean tempMean
+        def GregorianCalendar tempTime
+        def Trip tempTrip
+        def tempConnectionList = []
+        def matcher
+        
+        def tripListXML = new XmlParser().parse(xmlsource)
+        tripListXML.Trip.each{
+            
+            it.LegList.Leg.each{
+                tempConnection = new Connection()
+            
+                tempMean = new TransportationMean()
+                tempMean.setName(it.@name)
+                tempMean.setDirection(it.@direction)
+            
+                tempConnection.setStart(it.Origin.@name)
+                tempConnection.setEnd(it.Destination.@name)
+            
+                tempTime = new GregorianCalendar()
+                def hour, minute, day, month, year
+            
+                matcher = it.Destination.@time =~ /\[([^:]*):(.*)\]/
+                hour = matcher[0][1].toInteger() 
+                minute = matcher[0][2].toInteger()
+                matcher = it.Destination.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
+                day = matcher[0][1].toInteger()
+                month = matcher[0][2].toInteger()
+                year = matcher[0][3].toInteger() + 2000
+                tempTime.set(year,month,day,hour,minute)
+                tempConnection.setEnd_time(tempTime)
+                tempTime = null
+                tempTime = new GregorianCalendar()
+            
+                matcher = it.Origin.@time =~ /\[([^:]*):(.*)\]/
+                hour = matcher[0][1].toInteger() 
+                minute = matcher[0][2].toInteger()
+                matcher = it.Origin.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
+                day = matcher[0][1].toInteger()
+                month = matcher[0][2].toInteger()
+                year = matcher[0][3].toInteger() + 2000
+                tempTime.set(year,month,day,hour,minute)
+                tempConnection.setStart_time(tempTime)
+            
+                tempConnection.setTransMean(tempMean)
+                
+                tempConnectionList.add(tempConnection) 
+                tempConnection = null
+                
+            }
+            
+            tempTrip = new Trip()
+        
+            //sort the list
+            def s = tempConnectionList.size()
+            def tempConnectionList2 = []
+            while(s-- > 0){
+            tempConnectionList2.add(tempConnectionList.pop() )
+            }
+        
+            
+        tempTrip.setConnections(tempConnectionList2)
+        tempTrip.setName(tempTrip.duration().toString())
+        
+        trips.add(tempTrip)
+        }
+        
+        
+        
+        render(view: "scratch", model: [trips: trips, start: {params.start}, end: {params.end}, date: {params.date}, time: {params.time}])
+
+    }
+    
+    
+    
+    def String getLocationId(String name) {
+        
+        def result
+        
+        def baseURL = "http://demo.hafas.de/bin/pub/carmeq/rest.exe"
+        def authKey = "carmeq"
+        def urlString = "${baseURL}/location.name?authKey=${authKey}&input=${name} "
+        def InputSource xmlsource = new InputSource(urlString)
+        
+        def locationXML = new XmlParser().parse(xmlsource)
+        locationXML.StopLocation.each{
+            if ((it.@name).equals(name) )  result = it.@id
+        }
+        
+        return result
     }
         
-    def scratch() { //start,end,date,time ->
+    def old_scratch() { //start,end,date,time ->
         
         // Zum Testen der Funktion:
         

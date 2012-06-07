@@ -18,6 +18,7 @@ class TripmanagementController {
     
     //the filtered trips from the user search data
     def trips = []
+    def selected_trip
     
     //the possible transMeans
     def transportation_mean_collection
@@ -82,14 +83,17 @@ class TripmanagementController {
     
     def save_trip(){
         //if(trips.count()){
+        
         trips.each(){
-                if(it.name == ${params.name}){
+                if(it.name == params.name){
+                   selected_trip = it
                    it.save()
-        //            render(view: "index")
+                   render(view: "index")
                }
             }
         //}
-        [params: {params.name}]
+        //render(view: "list", model: params.name)
+        [params: params.name]
     }
         
     def scratch() { //start,end,date,time ->

@@ -11,7 +11,7 @@
     <title>Saved </title>
   </head>
   <body>
-    <h1>Saved</h1>
+    <h1>Saved ${params.name}</h1>
     
   <g:each var="m_trip" in="${trips}">
     <p>${m_trip.name}</p>

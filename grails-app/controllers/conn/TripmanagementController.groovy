@@ -7,6 +7,7 @@ import grails.converters.*
 class TripmanagementController {
   
     def authenticationService
+    //def authenticationService
     
     static enum Area{
         local_start,
@@ -84,16 +85,21 @@ class TripmanagementController {
     def save_trip(){
         //if(trips.count()){
         
-        trips.each(){
-                if(it.name == params.name){
-                   selected_trip = it
-                   it.save()
-                   render(view: "index")
-               }
+        for (tempTrip in TempTrip.list()){
+                if(tempTrip.user == auth.user().toString()){
+                    for (trip in tempTrip.trips){
+                        if(trip.name == params.name){
+                            //selected_trip = it
+                            trip.save()
+                            //render(view: "index")
+                            [params: trip.name]
+                        }
+                    }  
+                }
             }
         //}
         //render(view: "list", model: params.name)
-        [params: params.name]
+        //[params: params.name]
     }
         
     def scratch() { //start,end,date,time ->
@@ -282,7 +288,13 @@ class TripmanagementController {
             tempConnectionList2.add(tempConnectionList.pop())
         }
         
+        
             
+        // test
+        //def t7 = TransportationMean.findByName("Fahrrad")
+        //def c7 = new Connection(transMean: t7, start: "Wolfsburg HBF", end: "Wolfsburg FE Werk", start_time: new Date(),end_time: new Date()+1, distance: 5, area: "local_end").save()
+
+        //tempConnectionList2
         tempTrip.setConnections(tempConnectionList2)
         tempTrip.setName(tempTrip.duration().toString())
 
@@ -300,6 +312,8 @@ class TripmanagementController {
                         render " "
             }*/
             
+        // save the scratched trips in the TempTrip Model
+
             
         trips.add(tempTrip)
 
@@ -323,6 +337,10 @@ class TripmanagementController {
             
         }*/
         
+           // new TempTrip()
+           // .setUser(auth.user().toString())
+           // .setTrips(trips)
+           // .save()
         
        //return trips
         render(view: "scratch", model: [trips: trips, start: {params.start}, end: {params.end}, date: {params.date}, time: {params.time}])

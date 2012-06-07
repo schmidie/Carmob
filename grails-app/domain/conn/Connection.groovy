@@ -7,12 +7,12 @@ class Connection {
     TransportationMean transMean
     String start
     String end
-    Date start_time
-    Date end_time
+    GregorianCalendar start_time
+    GregorianCalendar end_time
     Boolean regular
     Integer distance
     String area
-    
+    //committest
     // relations
     static belongsTo = Trip
     static hasMany = [

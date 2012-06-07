@@ -12,5 +12,10 @@
   </head>
   <body>
     <h1>Saved</h1>
+    
+  <g:each var="m_trip" in="${trips}">
+    <p>${m_trip.name}</p>
+  </g:each>
+    
   </body>
 </html>

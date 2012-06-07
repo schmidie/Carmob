@@ -7,8 +7,8 @@ class Connection {
     TransportationMean transMean
     String start
     String end
-    Date start_time
-    Date end_time
+    Calendar start_time
+    Calendar end_time
     Boolean regular
     Integer distance
     String area

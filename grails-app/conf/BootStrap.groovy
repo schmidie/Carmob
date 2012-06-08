@@ -17,14 +17,14 @@ class BootStrap {
             //new Angle(name:"Bhf Berlin-Spandau", address:"Segefelder Straße 1",  
             //    post_code:"13597", city:"Berlin").save()
             
-            new Angle(name:"Carmeq (Berlin)", address:"Carnotstrasse 4",  
+            new Angle(name:"Carmeq (Berlin)", address:"Helmholtzstr., Berlin",  
                 post_code:"10587", city:"Berlin").save()
 
             // Wolfsburg
             new Angle(name:"Carmeq - Autovision (Wolfsburg)", address:"Major-Hirst-Strasse 11",  
                 post_code:"38442", city:"Wolfsburg").save()
              
-            new Angle(name:"VW TE (Hopfengarten)", address:"Hopfengarten 37-47",  
+            new Angle(name:"VW TE (Hopfengarten)", address:"Fallersleben Bahnhofstraße, Wolfsburg",  
                 post_code:"38442", city:"Wolfsburg").save()
             
             new Angle(name:"VW TE (Rübenkamp)", address:"Rübenkamp 2",  
@@ -102,20 +102,20 @@ class BootStrap {
             def c6 = new Connection(transMean: t6, start: "Wolfsburg HBF", end: "Wolfsburg FE Werk", start_time: new Date(), distance: 5, area: "local_end").save()
             def c7 = new Connection(transMean: t7, start: "Wolfsburg HBF", end: "Wolfsburg FE Werk", start_time: new Date(), distance: 5, area: "local_end").save()
 
-
-            //Trips
-            new Trip(name: "FE Werk")
-                .addToConnections(c1)
-                .addToConnections(c2)
-                .addToConnections(c3)
-                .save()
-
-            new Trip(name: "XY Werk")
-                .addToConnections(c4)
-                .addToConnections(c5)
-                .addToConnections(c6)
-                .addToConnections(c7)
-                .save()
+//          Hier entsteht ein Laufzeitfehler weil addToConnections() mit null-objekten aufgerufen wird
+//            //Trips
+//            new Trip(name: "FE Werk")
+//                .addToConnections(c1)
+//                .addToConnections(c2)
+//                .addToConnections(c3)
+//                .save()
+//
+//            new Trip(name: "XY Werk")
+//                .addToConnections(c4)
+//                .addToConnections(c5)
+//                .addToConnections(c6)
+//                .addToConnections(c7)
+//                .save()
             
         }
             

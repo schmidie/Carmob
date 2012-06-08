@@ -53,7 +53,7 @@
                               <div class="controls">
                                 <g:findAll in="${angles}" expr="it != null && it.city == 'Berlin'">
                                 <label class="radio">
-                                  <input type="radio" name="start" id="start" value="${it.address} ${it.city}">
+                                  <input type="radio" name="start" id="start" value="${it.address}">
                                   ${it.name}
                                 </label> 
                                 </g:findAll>
@@ -69,7 +69,7 @@
                               <div class="controls">
                                 <g:findAll in="${angles}" expr="it != null && it.city == 'Wolfsburg'">
                                 <label class="radio">
-                                  <input type="radio" name="start" id="start" value="${it.address} ${it.city}">
+                                  <input type="radio" name="start" id="start" value="${it.address}">
                                   ${it.name}
                                 </label> 
                                 </g:findAll>
@@ -106,7 +106,7 @@
                         <div class="controls">
                           <g:findAll in="${angles}" expr="it != null && it.city == 'Wolfsburg'">
                             <label class="radio">
-                              <input type="radio" name="end" id="end" value="${it.address} ${it.post_code} ${it.city}">
+                              <input type="radio" name="end" id="end" value="${it.address}">
                                 ${it.name}
                             </label> 
                           </g:findAll>
@@ -123,7 +123,7 @@
                               <div class="controls">
                                 <g:findAll in="${angles}" expr="it != null && it.city == 'Berlin'">
                                 <label class="radio">
-                                  <input type="radio" name="end" id="end" value="${it.address} ${it.post_code} ${it.city}">
+                                  <input type="radio" name="end" id="end" value="${it.address}">
                                   ${it.name}
                                 </label> 
                                 </g:findAll>

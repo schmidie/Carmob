@@ -4,43 +4,37 @@ import grails.converters.*
 
 
 
-class distance_duration {
+class Trip_tipps {
  //api test   maps.googleapis.com/maps/api/directions/json?origin=amrumerstrasse+berlin&destination=appenzellerstrasse+berlin&region=de&mode=driving&sensor=false
     private static final String apiUrl='maps.googleapis.com/maps/api/directions/json?'
     
     static String mode = "" // driving, walking or bicycling.
     static final String sensor = false // requested parameter for google maps api
-   
+    static final destinationID = "Berlin Hauptbahnhof (S+U), Berlin"
+    def originID = getLocationId(params.start)
      /**
      * Calculates distance between origin and destination
      */
-    
-    int distance(String originAddress, String originCity, String destinationAddress, String destinationCity) {
-        
        
+    int distance(String origin,String destination ) {
+        
+       //if "origincity== berlin"
+       //if distance <=7 km mode == walking
        if (mode == "walking"){
-            Map<String, String> query = [
-            "walking":mode,
-            "sensor":sensor, 
-            "origin":originAddress.encodeAsURL() + "," + originCity.encodeAsURL(),
-            "destination":destinationAddress.encodeAsURL() + "," + destinationCity.encodeAsURL()]}
+            def url = "${apiUrl}origin=${originID}&destination=${destinationID}&mode=walking&sensor=false"
+           }
+        
         
         else if (mode == "Auto"||mode == "Taxi"){
-            Map<String, String> query = [
-            "driving":mode,
-            "sensor":sensor, 
-            "origin":originAddress.encodeAsURL() + "," + originCity.encodeAsURL(),
-            "destination":destinationAddress.encodeAsURL() + "," + destinationCity.encodeAsURL()]}
-        
-        else if (mode == "Fahrrad"){
-            Map<String, String> query = [
-            "bicycling":mode,
-            "sensor":sensor, 
-            "origin":originAddress.encodeAsURL() + "," + originCity.encodeAsURL(),
-            "destination":destinationAddress.encodeAsURL() + "," + destinationCity.encodeAsURL()]}
+            def url = "${apiUrl}origin=${originID}&destination=${destinationID}&mode=driving&sensor=false" 
+        }
         
         
-            String json = makeAPIRequest(url,query)
+        else  (mode == "Fahrrad"){
+            def url = "${apiUrl}origin=${originID}&destination=${destinationID}&mode=bicyclin&sensor=false" 
+        }
+        
+            String json = makeAPIRequest(url)
 
             Map results = JSON.parer(json)
 
@@ -52,8 +46,8 @@ class distance_duration {
                 // Take the first route and first group of data from legs, which is the summary
                 distance = results.routes[0].legs[0].distance.value as int //m.
                 duration = results.routes[0].legs[1].duration.value as int // sec.
-                distance=distance/1000   
-                duration=duration/60
+                distance=distance/1000   //km
+                duration=duration/60    //minutes
             }
     return Distance_Duration
        
@@ -65,7 +59,7 @@ class distance_duration {
     	 return distance(originAddress, city, destinationAddress, city)
     }
     
-    private String makeAPIRequest(String url,  Map<String, String> query) {
+    private String makeAPIRequest(String url) {
     	url = new URL()
         urlc = url.openConnection()
     	String result = ""

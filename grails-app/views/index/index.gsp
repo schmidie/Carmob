@@ -7,24 +7,8 @@
 
   <body>
   <auth:ifLoggedIn>
-
-    <div style="float:left; width:55%;">
-      <form class="well">
-        <g:img dir="images" file="logo.png" width="120" height="120"/>
-        
-        <div style="float:right">
-          <h2>Willkommen <auth:user/>!</h2>
-        </div>
-        
-        <br />
-        <center><u><b>Zeit bis zur nächsten Reise</u>:</b></center>
-        <center><h3>${jetzt.getTime()}</h3></center>
-        
-      </form>
-      
-    </div>
             
-    <div style="float:right; width:40%;">
+    <div class="span8">
       <form class="well">
         <b><i><u>Anstehende Routen</u>:</i></b>
         
@@ -40,15 +24,32 @@
           <tbody>
             <g:findAll in="${myTrips}" expr="it != null">
               <tr>
-                <td>${it.name}</td>
-                <td>${it.name}</td>
-                <td>${it.name}</td>
-                <td>${it.name}</td>
+                <td>${it.getStartTime()}</td>
+                <td>${it.getStart()}</td>
+                <td>${it.getEndTime()}</td>
+                <td>${it.getEnd()}</td>
               </tr>
             </g:findAll>
           </tbody>
         </table>
       </form>
+    </div>
+    
+    
+    <div class="span4">
+      <form class="well">
+        <g:img dir="images" file="logo.png" width="120" height="120"/>
+        
+        <div style="float:right">
+          <h2>Willkommen <auth:user/>!</h2>
+        </div>
+        
+        <br />
+        <center><u><b>Zeit bis zur nächsten Reise</u>:</b></center>
+        <center><h3>${jetzt.getTime()}</h3></center>
+        
+      </form>
+      
     </div>
        
   

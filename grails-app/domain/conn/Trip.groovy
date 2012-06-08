@@ -23,6 +23,48 @@ class Trip {
         name (blank:false)
     }
     
+    def getStart(){
+        def start
+        def start_time
+        connections.each(){
+            if(it.start_time < start_time){
+                start_time = it.start_time
+                start = it.start
+            }
+        }
+        start
+    }
+    def getEnd(){
+        def end
+        def end_time
+        connections.each(){
+            if(it.end_time > end_time){
+                end_time = it.end_time
+                end = it.end
+            }
+        }
+        end
+    }
+    def getStartTime(){
+        def start_time
+        connections.each(){
+            if(it.start_time < start_time){
+                start_time = it.start_time
+            }
+        }
+        start_time
+    }
+    def getEndTime(){
+        def end_time
+        connections.each(){
+            if(it.end_time > end_time){
+                end_time = it.end_time
+            }
+        }
+        end_time
+    }
+    
+    
     // methods
     def duration() {
         def endminutes=0

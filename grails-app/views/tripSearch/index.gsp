@@ -59,6 +59,8 @@
                                 </g:findAll>
                               </div>
                             </div>
+                            
+                            <a class="btn btn-mini" href="../Angle/create?city=Berlin"><i class=" icon-plus"></i></a>
 
                            
                           </div>
@@ -75,6 +77,9 @@
                                 </g:findAll>
                               </div>
                             </div>
+                            
+                            <a class="btn btn-mini" href="../Angle/create?city=Wolfsburg"><i class=" icon-plus"></i></a>
+
 
                           </div>
 
@@ -112,6 +117,7 @@
                           </g:findAll>
                         </div>
                       </div>
+                      <a class="btn btn-mini" href="../Angle/create?city=Wolfsburg"><i class=" icon-plus"></i></a>
 
                     </div>
 
@@ -129,6 +135,7 @@
                                 </g:findAll>
                               </div>
                             </div>
+                      <a class="btn btn-mini" href="../Angle/create?city=Berlin"><i class=" icon-plus"></i></a>
                       
 
                     </div>

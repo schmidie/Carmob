@@ -28,10 +28,13 @@ class AngleController {
 	        }
 
 			flash.message = message(code: 'default.created.message', args: [message(code: 'angle.label', default: 'Angle'), angleInstance.id])
-	        redirect action: 'show', id: angleInstance.id
+	        //redirect action: 'show', id: angleInstance.id
+                redirect(controller: "TripSearch", action: "index")
 			break
 		}
     }
+    
+    
 
     def show() {
         def angleInstance = Angle.get(params.id)

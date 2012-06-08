@@ -1,16 +1,16 @@
 package conn
 
-class TempTrip {
+class TempTrip extends Trip {
     
-    String user
+    //String user
     
-    Collection trips
+    /*Collection trips
     
      // relations
     static hasMany = [
         trips:Trip
     ]
-    
+    */
 
     static constraints = {
     }

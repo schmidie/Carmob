@@ -135,6 +135,8 @@ class TripmanagementController {
                 tempMean = new TransportationMean()
                 tempMean.setName(it.@name)
                 tempMean.setDirection(it.@direction)
+                //tempMean.save()
+                
             
                 tempConnection.setStart(it.Origin.@name)
                 tempConnection.setEnd(it.Destination.@name)
@@ -167,6 +169,7 @@ class TripmanagementController {
                 tempConnection.setTransMean(tempMean)
                 
                 tempConnectionList.add(tempConnection) 
+                //tempConnection.save()
                 tempConnection = null
                 
             }
@@ -184,6 +187,12 @@ class TripmanagementController {
         tempTrip.setConnections(tempConnectionList2)
         tempTrip.setName(tempTrip.duration().toString())
         
+            
+         //save the trip under TempTrip
+        //TempTrip tmp_trp = tempTrip
+        //tmp_trp.save
+        //tempTrip.save()     
+                 
         trips.add(tempTrip)
         }
         

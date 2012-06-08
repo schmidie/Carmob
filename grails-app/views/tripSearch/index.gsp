@@ -19,7 +19,7 @@
 
     <div name="row" class="row-fluid">
 
-        <div class="span9">
+        <div class="span8">
           <!--Body content-->
 
           <ul id ="RouteTab" class="nav nav-tabs">
@@ -163,10 +163,12 @@
 
         </div> <!--Row Fluit-->
         
-            <div class="span3" name="sidebar">
+            <div class="hero-unit span2" name="sidebar">
 
               <button class="btn">Jetzt los</button> 
 
+              <hr>
+              
               <strong>Zeit:</strong>             
               </br>
               <span class="add-on">
@@ -181,8 +183,11 @@
                 <i class="icon-calendar"></i>
               </span>
               <input name="date" id="date" type="text" class="span1" value="">
-              <!-- <richui:dateChooser name="date" id="date" class="span1" format="dd.MM.yyyy"/> -->
-              
+               
+             <!-- <richui:dateChooser name="date2" id="date2" class="span1" format="dd.MM.yyyy"/> -->
+             
+             <hr>
+             
               <button class="btn" type="submit">weiter</button>
             </div>
     </div>      

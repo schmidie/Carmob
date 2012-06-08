@@ -58,7 +58,7 @@
     </div>
     
     <div class="hero-unit">
-      <h4>Reiseverkehrspräferenz:</h4>
+      <h4>Reiseverkehrsmittel:</h4>
       
       <fieldset>
         <br />

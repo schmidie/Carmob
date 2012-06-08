@@ -9,6 +9,10 @@ class UserController {
     def index() {
         redirect action: 'list', params: params
     }
+    
+    def profil() {
+        
+    }
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)

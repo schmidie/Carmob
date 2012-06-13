@@ -109,3 +109,7 @@ pre.snippet .lineNumber {
 pre.snippet .error {
 	font-weight: bold;
 }
+
+div.scrollable{
+    overflow-x:auto;
+}

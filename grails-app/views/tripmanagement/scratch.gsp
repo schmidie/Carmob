@@ -11,12 +11,9 @@
     <title>CARMOB</title>
   </head>
   <body>
-
-    <div class="container-fluid">
-      <div class="row-fluid span12">
-
-       <h2>Empfohlene Routen</h2>
-                          
+    <div class="span12">
+      <div class="row-fluid">
+       <h2>Empfohlene Routen</h2>                   
         <g:each var="m_trip" in="${trips}">
           
             <div class="accordion-group">              
@@ -28,69 +25,76 @@
                     <li><i class="icon-star-empty"></i>${it.transMean.name}<span class="divider">/</span></li>
                   </g:each>
                   </ul>
-                  
-                  
                 </a>
               </div>
-              <div id="${m_trip?.name.replaceAll(' ', '')}" class="accordion-body collapse in">
-                <div class="accordion-inner">
-                  
-                   <table class="table-bordered">
-                 <!--   <thead>
-                      <tr>
-                        <th>Nahverkehr</th>
-                        <th></th>
-                        <th>Fernverkehr</th>
-                        <th></th>
-                        <th>Nahverkehr</th>
-                        
-                      </tr>
-                    </thead> -->
+              <div id="${m_trip?.name.replaceAll(' ', '')}" class="accordion-body collapse in">               
+                <div>
+                <div class="accordion-inner"> 
+                  <div class="row-fluid">
+                  <div class="scrollable">
+                   <table border="0">
                     <tbody>
                       <tr>
-                        <td class="span1"><i class="icon-flag"></i></td>
+                        
+                        <td>
+                          <div class="alert alert-success ">
+                            <i class="icon-flag"></i>
+                            <i class="icon-time"></i>
+                          </div> 
+                        </td>
+                                                            
                         <g:each in="${m_trip?.connections}">
                           <td>
-
-                              <!--<div class="btn-group" data-toggle="buttons-radio">-->
-                              <table border="0">
-                                <tr>
-                                  <td>
-                                    <label class="radio">
-                                    <!-- <input type="radio" name="optionsRadios1" id="optionsRadios1" value="option1" checked=""> -->
-                                      <g:img dir="images" file="${it.transMean.name}.png" width="20" height="20"/>${it.transMean.name}<i class="icon-time"></i> 
-                                    </label>
-                                  </td>
-                                </tr>
+                              <div class="alert alert-info ">
+                                <table border="0" rel="tooltip" title="${it.transMean.name}, Von: ${it.start},Nach: ${it.end}">
                                   <tr>
-                                    <td>${it.start_time.format('hh:mm')}</td>
-                                    <td>${it.end_time.format('hh:mm')}</td>
+                                    <td>
+                                      <label class="radio">
+                                      <!-- <input type="radio" name="optionsRadios1" id="optionsRadios1" value="option1" checked=""> -->
+                                        <!-- <g:img dir="images" file="${it.transMean.name}.png" width="20" height="20"/> -->
+                                            ${it.transMean.name}
+                                            <i class="icon-time"></i> 
+                                      </label>
+                                    </td>
                                   </tr>
-                              </table>
-                              <!--</div>-->
-
+                                    <tr>
+                                      <td>ab:${it.start_time.format('HH:mm')}</td>
+                                      <td>&nbsp;&nbsp;&nbsp;</td>
+                                      <td>an:${it.end_time.format('HH:mm')}</td>
+                                    </tr>
+                                </table>
+                              </div>
                           </td>
-                          <td class="span1"><i class="icon-flag"></i></td>
+                          
+                        <td>
+                          <div class="alert alert-success ">
+                            <i class="icon-flag"></i>
+                            <i class="icon-time"></i>
+                          </div> 
+                        </td>
+                        
                         </g:each>
                         </tr>
                         </tbody>
-                   </table>                  
-
-                   <form class="pull-right" action="../Tripmanagement/save_trip">
-                     
+                   </table>     
+                    </div>
+                    
+                    <hr>
+                    <div>
+                   <form class="pull-right" action="../Tripmanagement/save_trip">                     
                      <!--<g.include controller="Tripmanagement" action="save_trip" params="[]"/>-->
                      <input name="name" id="name" type="hidden" class="span1" value="${m_trip.name}">
-
-                     <button class="btn" type="submit">go</button>
+                     <button class="btn" type="submit">speichern</button>
                    </form>
-
+                    </div>
+                    
+                   </div>
                 </div>
+               </div>
               </div>
             </div>
-
           </g:each>
-          
       </div>
-    </div>
+     </div>
   </body>
 </html>

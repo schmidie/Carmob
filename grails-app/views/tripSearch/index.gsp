@@ -19,7 +19,7 @@
 
     <div name="row" class="row-fluid">
 
-        <div class="span8">
+        <div class="span6">
           <!--Body content-->
 
           <ul id ="RouteTab" class="nav nav-tabs">
@@ -29,9 +29,10 @@
           <div id="RouteTabContent" class="tab-content" align="center">
             <div class="tab-pane fade active in" id="tab1">
 
-              <div class="row-fluid span8">
+              <div class="span6">
+              <div class="row-fluid">
 
-                <div class="span4" >
+                <div class="span6" >
 
                   <table class="table-bordered"> 
                     
@@ -148,15 +149,10 @@
                   
                 </div>
               </div>
+              </div>
               </br></br></br>
 
-              <div class="row-fluid">
-                <form class="pull-left" action="../Angle/index">
-                  </br>
-                  <button class="btn btn-info" type="submit">Neuen Standort anlegen</button>
-
-                </form>
-              </div>
+              
 
 
             </div> <!--TabPane active-->
@@ -170,10 +166,9 @@
 
         </div> <!--Row Fluit-->
         
-            <div class="hero-unit span2" name="sidebar">
-
-              <button class="btn">Jetzt los</button> 
-
+        <div class="span3">
+ 
+            <div class="hero-unit" name="sidebar2">
               <hr>
               
               <strong>Zeit:</strong>             
@@ -181,7 +176,7 @@
               <span class="add-on">
                 <i class="icon-time"></i>
               </span>
-              <input name="time" id="time" type="text" class="span1" value=""> Uhr
+              <input name="time" id="time" type="text" class="span2" value="${new Date().format('HH:mm')}"> Uhr
               </br>
 
               <strong>Datum:</strong>
@@ -189,14 +184,16 @@
               <span class="add-on">
                 <i class="icon-calendar"></i>
               </span>
-              <input name="date" id="date" type="text" class="span1" value="">
+              <input name="date" id="date" type="text" class="span2" value="${new Date().format('dd.MM.yyyy')}">
                
              <!-- <richui:dateChooser name="date2" id="date2" class="span1" format="dd.MM.yyyy"/> -->
              
              <hr>
-             
-              <button class="btn" type="submit">weiter</button>
+               
+              <button class="btn btn-primary"  type="submit">suche</button> 
+              
             </div>
+        </div>
     </div>      
     </form>
   </body>

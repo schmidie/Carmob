@@ -28,7 +28,6 @@
 </head>
 
 <body>
-
   <nav class="navbar navbar-fixed-top">
 
     <div class="navbar-inner">
@@ -91,11 +90,6 @@
     
     <g:layoutBody/>
 
-    <hr>
-
-    <footer>
-      <center>&copy; Carmob - Team 4</center>
-    </footer>
   </div>
 
 <r:layoutResources/>

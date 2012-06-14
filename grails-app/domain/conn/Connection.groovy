@@ -23,6 +23,10 @@ class Connection {
         //distance     (nullable:true)
     }
     
+    static mapping = {
+        end column: 'end_connection'
+    }
+    
     def getDuration(){
 
         Calendar cal_start = Calendar.getInstance();

@@ -13,10 +13,9 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:devDb;MVCC=TRUE"
-            pooled = true
-            
+
         }
     }
     test {
@@ -27,19 +26,15 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE"
-            pooled = true
-            properties {
-                maxActive = -1
-                minEvictableIdleTimeMillis=1800000
-                timeBetweenEvictionRunsMillis=1800000
-                numTestsPerEvictionRun=3
-                testOnBorrow=true
-                testWhileIdle=true
-                testOnReturn=true
-                validationQuery="SELECT 1"
-            }
+           dbCreate = "update"
+            driverClassName = "org.postgresql.Driver"
+            dialect = org.hibernate.dialect.PostgreSQLDialect
+
+            uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
+
+            url = "jdbc:postgresql://"+uri.host+uri.path
+            username = uri.userInfo.split(":")[0]
+            password = uri.userInfo.split(":")[1]
         }
     }
 }

@@ -15,6 +15,7 @@ class TransportationMean {
     static constraints = {
         name (blank:false)
         average_speed (nullable:true)
+        direction (nullable:true)
     }
     
 }

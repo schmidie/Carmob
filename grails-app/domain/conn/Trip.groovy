@@ -8,10 +8,9 @@ class Trip {
     
     // attributes
     String name
-    Collection connections
-    // String start
-    // String end
     // We shoud get start, end, etc. from the connections!
+    Collection connections
+    Boolean temp
     
     // relations
     static hasMany = [
@@ -23,22 +22,29 @@ class Trip {
         name (blank:false)
     }
     
+    def nowToTrip(){
+        def start_tmp = this.getStartTime()
+        minuteDiff(new Date(),start_tmp)
+
+    }
+    
     def getStart(){
-        def start
-        def start_time
+        def start = 0
+        def start_time = new Date(Long.MAX_VALUE)
         connections.each(){
-            if(it.start_time < start_time){
+            if(it.start_time.getTime() < start_time.getTime()){
                 start_time = it.start_time
                 start = it.start
             }
         }
         start
+        //new Date()
     }
     def getEnd(){
         def end
-        def end_time
+        def end_time = new Date(Long.MIN_VALUE)
         connections.each(){
-            if(it.end_time > end_time){
+            if(it.end_time.getTime() > end_time.getTime()){
                 end_time = it.end_time
                 end = it.end
             }
@@ -46,38 +52,47 @@ class Trip {
         end
     }
     def getStartTime(){
-        def start_time
+        def start_time = new Date(Long.MAX_VALUE)
         connections.each(){
-            if(it.start_time < start_time){
+            if(it.start_time.getTime() < start_time.getTime()){
                 start_time = it.start_time
             }
         }
         start_time
     }
     def getEndTime(){
-        def end_time
+        def end_time = new Date(Long.MIN_VALUE)
         connections.each(){
-            if(it.end_time > end_time){
+            if(it.end_time.getTime() > end_time.getTime()){
                 end_time = it.end_time
             }
         }
         end_time
     }
     
+    def minuteDiff(start, end){
+        
+        Calendar cal_start = Calendar.getInstance()
+        cal_start.setTime(start)
+        Calendar cal_end = Calendar.getInstance()
+        cal_end.setTime(end)
+        
+        long milliseconds1 = cal_start.getTimeInMillis()
+        long milliseconds2 = cal_end.getTimeInMillis()
+        long diff = milliseconds2 - milliseconds1
+        long diffMinutes = (diff / (60 * 1000))
+        
+        diffMinutes
+        
+    }
     
     // methods
     def duration() {
-        def endminutes=0
-        def startminutes=0
         
-        connections.each(){
-            endminutes = it.end_time.get(Calendar.MINUTE) + (it.end_time.get(Calendar.HOUR)*60)
-            startminutes = it.start_time.get(Calendar.MINUTE) + (it.end_time.get(Calendar.HOUR)*60)
-            
-//            TimeDuration tmp = TimeCategory.minus(it.end_time, it.start_time)
-//            minutes += tmp.minutes
-//            //dTime += it.end_time.time - it.start_time.time
-        }
-        return endminutes-startminutes
+        def start_tmp = this.getStartTime()
+        def end_tmp = this.getEndTime()
+        
+        minuteDiff(start_tmp,end_tmp)
+        
     }
 }

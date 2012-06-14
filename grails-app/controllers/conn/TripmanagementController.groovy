@@ -82,21 +82,51 @@ class TripmanagementController {
 
     def scratcherService = new ScratcherService()
     
+    def save_trip_mobile(){
+        Trip save_trp = null
+        save_trp = Trip.get(params.id)
+        
+        if(save_trp == null){
+            render(view: "scratch")
+        }
+        else{
+                        
+            save_trp.temp =false
+            
+            User current = null
+            current = User.get(authenticationService.sessionUser.userObjectId)
+            if(current != null){
+                current.addToTrips(save_trp)
+            }
+            redirect(controller: "onTheWay", action: "index",  params: [trip_id: save_trp.id])
+        }
+
+    }
+    
     def save_trip(){
         //if(trips.count()){
-
-        for (tempTrip in TempTrip.list()){
-                if(tempTrip.user == auth.user().toString()){
-                    for (trip in tempTrip.trips){
-                        if(trip.name == params.name){
-                            //selected_trip = it
-                            trip.save()
-                            //render(view: "index")
-                            [params: trip.name]
-                        }
-                    }  
-                }
+        Trip save_trp = null
+        save_trp = Trip.get(params.id)
+        
+        if(save_trp == null){
+            render(view: "scratch")
+        }
+        else{
+                        
+            save_trp.temp =false
+            
+            User current = null
+            current = User.get(authenticationService.sessionUser.userObjectId)
+            if(current != null){
+                current.addToTrips(save_trp)
             }
+            redirect(controller: "Index", action: "index")
+        }
+
+    }
+    
+    def scratch_mobile() {
+        scratch()
     }
     
     def scratch() {
@@ -135,9 +165,8 @@ class TripmanagementController {
                 tempMean = new TransportationMean()
                 tempMean.setName(it.@name)
                 tempMean.setDirection(it.@direction)
-                //tempMean.save()
-                
-            
+                tempMean.save()
+
                 tempConnection.setStart(it.Origin.@name)
                 tempConnection.setEnd(it.Destination.@name)
             
@@ -152,7 +181,9 @@ class TripmanagementController {
                 month = matcher[0][2].toInteger()
                 year = matcher[0][3].toInteger() + 2000
                 tempTime.set(year,month,day,hour,minute)
-                tempConnection.setEnd_time(tempTime)
+                Date tmp_date = tempTime.time
+
+                tempConnection.setEnd_time(tmp_date)
                 tempTime = null
                 tempTime = new GregorianCalendar()
             
@@ -164,17 +195,22 @@ class TripmanagementController {
                 month = matcher[0][2].toInteger()
                 year = matcher[0][3].toInteger() + 2000
                 tempTime.set(year,month,day,hour,minute)
-                tempConnection.setStart_time(tempTime)
+                tmp_date = tempTime.time
+
+                tempConnection.setStart_time(tmp_date)
             
                 tempConnection.setTransMean(tempMean)
-                
+                tempConnection.save()
                 tempConnectionList.add(tempConnection) 
-                //tempConnection.save()
+
+                
                 tempConnection = null
                 
             }
             
             tempTrip = new Trip()
+            
+            tempTrip.temp = true
         
             //sort the list
             def s = tempConnectionList.size()
@@ -183,22 +219,19 @@ class TripmanagementController {
             tempConnectionList2.add(tempConnectionList.pop() )
             }
         
-            
-        tempTrip.setConnections(tempConnectionList2)
+        
+        tempTrip.setConnections(tempConnectionList2.sort{it.start_time})
         tempTrip.setName(tempTrip.duration().toString())
         
             
-         //save the trip under TempTrip
-        //TempTrip tmp_trp = tempTrip
-        //tmp_trp.save
-        //tempTrip.save()     
+        tempTrip.save()     
                  
         trips.add(tempTrip)
         }
         
         
-        
-        render(view: "scratch", model: [trips: trips, start: {params.start}, end: {params.end}, date: {params.date}, time: {params.time}])
+        trips
+        //render(view: "scratch", model: [trips: trips, start: {params.start}, end: {params.end}, date: {params.date}, time: {params.time}])
 
     }
     

@@ -16,21 +16,13 @@
         <strong>Von: ${params.start} </strong></br>
         <strong>Nach: ${params.end}</strong></br>
         <strong>Am: ${params.date}</strong>
-        <hr>
-         <form action="../TripSearch/index">                     
-          <input name="start" id="start" type="hidden" value="${params.start}">
-          <input name="end" id="end" type="hidden" value="${params.end}">
-          <input name="date" id="date" type="hidden" value="${params.date}">
-          <input name="time" id="time" type="hidden" value="${params.time}">
-          <button class="btn btn-info" type="submit">ändern</button>
-        </form>
       </div>
     </div>
     
    
     <div class="span12">
       <div class="row-fluid">
-       <h2>Empfohlene Routen</h2>                   
+           
         <g:each var="m_trip" in="${trips}">
           
             <div class="accordion-group">              
@@ -98,10 +90,10 @@
                     
                     <hr>
                     <div>
-                   <form class="pull-right" action="../Tripmanagement/save_trip">                     
+                   <form class="pull-right" action="../Tripmanagement/save_trip_mobile">                     
                      <!--<g.include controller="Tripmanagement" action="save_trip" params="[]"/>-->
                      <input name="id" id="id" type="hidden" class="span1" value="${m_trip.id}">
-                     <button class="btn" type="submit">speichern</button>
+                     <button class="btn" type="submit">starten</button>
                    </form>
                     </div>
                     

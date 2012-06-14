@@ -74,8 +74,11 @@ class BootStrap {
         }
         
         //Transmeans
-        
+        /*
         if(!Trip.count()){
+            
+            def trip = new Trip()
+            
             new TransportationMean(name:"Fahrrad", average_speed:17).save()
             new TransportationMean(name:"Auto", average_speed:50).save()
             new TransportationMean(name:"Taxi", average_speed:50).save()
@@ -83,7 +86,8 @@ class BootStrap {
 
             //Connections
             def t1 = TransportationMean.findByName("Fahrrad")
-            def c1 = new Connection(transMean: t1, start: "jonas", end: "Berlin HBF", start_time: new Date(), distance: 10, area: "local_start").save()
+            def c1 = new Connection(transMean: t1, start: "jonas", end: "Berlin HBF", start_time: new Date(),end_time: new Date()).save()
+
 
             def t2 = TransportationMean.findByName("DB")
             def c2 = new Connection(transMean: t2, start: "Berlin HBF", end: "Wolfsburg HBF", start_time: new Date(), distance: 150, area: "intercity").save()
@@ -101,7 +105,7 @@ class BootStrap {
             def t7 = TransportationMean.findByName("Fahrrad")
             def c6 = new Connection(transMean: t6, start: "Wolfsburg HBF", end: "Wolfsburg FE Werk", start_time: new Date(), distance: 5, area: "local_end").save()
             def c7 = new Connection(transMean: t7, start: "Wolfsburg HBF", end: "Wolfsburg FE Werk", start_time: new Date(), distance: 5, area: "local_end").save()
-
+            */
 //          Hier entsteht ein Laufzeitfehler weil addToConnections() mit null-objekten aufgerufen wird
 //            //Trips
 //            new Trip(name: "FE Werk")
@@ -117,7 +121,7 @@ class BootStrap {
 //                .addToConnections(c7)
 //                .save()
             
-        }
+        //}
             
     }
     

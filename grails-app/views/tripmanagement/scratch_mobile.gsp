@@ -11,9 +11,11 @@
     <title>CARMOB</title>
   </head>
   <body>
-    <div class="well">
+    <div class="hero-unit">
       
-      <a class="btn" href="../onTheWay/index?trip_id=${params.trip_id}"><i class="icon-chevron-left"></i>back</a>
+      <a class="btn" href="../onTheWay/index?trip_id=${params.trip_id}"><i class="icon-chevron-left"></i>zurück</a>
+      <hr>
+      <strong> <i class="icon-info-sign"></i> Klicke auf ein Routenelement um die Route ab dort fortzufahren.</strong>
     </div>
     <div>
       <div class="alert alert-info">

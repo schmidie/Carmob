@@ -14,6 +14,16 @@
     
   </head>
   <body>
+    
+    <div class="hero-unit">
+      
+      <a class="btn" href="../index"><i class="icon-chevron-left"></i>beenden</a>
+      <hr>
+      
+      <strong> <i class="icon-info-sign"></i> Klicke auf ein Routenelement um die Route ab dort zu ändern.</strong>        
+    </div>
+    
+    <hr>
    
     <div class="alert alert-success">
       <div class="row-fluid">

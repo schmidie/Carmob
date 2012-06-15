@@ -143,7 +143,7 @@
                               <g:each var="m_angle" in="${angles}">
                                 <g:if test="${ m_angle.city.toString() == city.toString()}">
                                   <label class="radio">
-                                    <input type="radio" name="end" id="start" value="${m_angle.address}">
+                                    <input type="radio" name="end" id="end" value="${m_angle.address}">
                                     ${m_angle.name}
                                   </label> 
                                 </g:if>
@@ -164,21 +164,45 @@
                 </div>
               </div>
             </div>
-            </br></br></br>
+                </br></br></br>
 
-          </div> <!--TabPane active-->
+              </div> <!--TabPane active-->
 
-          <div class="tab-pane fade" id="tab2">
-            Archiv
-          </div>
+              <div class="tab-pane fade" id="tab2">
+                
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Startort</th>
+                        <th>Zielort</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                   
+                    <g:each in="${trips}">
+                      <tr>
+                        <td>
+                          test
+                        </td>
+                        <td>
+                          test
+                        </td>
+                      </tr>
 
-        </div> <!-- TabContent -->
+                      </g:each>
+                    
+                    </tbody>
+                  </table>
 
-      </div> <!--Row Fluit-->
+              </div>
 
-      <div class="span3">
+            </div> <!-- TabContent -->
 
-        <div class="hero-unit" name="sidebar2">
+          </div> <!--Row Fluit-->
+
+          <div class="span3">
+
+            <div class="hero-unit" name="sidebar2">
           <hr>
 
           <strong>Zeit:</strong>             

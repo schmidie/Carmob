@@ -59,6 +59,7 @@ class Trip {
             }
         }
         start_time
+        (new Date()-1)
     }
     def getEndTime(){
         def end_time = new Date(Long.MIN_VALUE)
@@ -68,10 +69,10 @@ class Trip {
             }
         }
         end_time
+        
     }
     
     def minuteDiff(start, end){
-        
         Calendar cal_start = Calendar.getInstance()
         cal_start.setTime(start)
         Calendar cal_end = Calendar.getInstance()
@@ -83,7 +84,6 @@ class Trip {
         long diffMinutes = (diff / (60 * 1000))
         
         diffMinutes
-        
     }
     
     // methods

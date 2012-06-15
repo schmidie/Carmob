@@ -21,8 +21,11 @@
     
     <div>
       <form>
-        <h3>Anstehende Routen</h3>
-        
+        <h3>Anstehende Trips</h3>
+        <strong><font color="#838B8B"> Trips aus der Vergangenheit </font> </strong>|
+        <strong><font color="#FF0000"> gestartete Trips </font> </strong>|
+        <strong><font color="#00FF00"> in kürze startende Trips </font> </strong>
+        <hr>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -40,16 +43,20 @@
               <g:if test="${it.getEndTime() < new Date()}">
                 <tr bgcolor="#838B8B">
               </g:if>
+              
               <g:elseif test="${it.getStartTime() < new Date()}">
-                <tr bgcolor="#FF0000">
+                <tr bgcolor="#00FF00">
               </g:elseif>
+              
               <g:elseif test="${it.nowToTrip() > 0 && it.nowToTrip() < 60}">
                 <tr bgcolor="#00FF00">
               </g:elseif>
+              
               <g:else>
                 <tr>
               </g:else>
-                <td><a href="../onTheWay/index?trip_id=${it.id}"><i class="icon-play"></i>go</a></td>
+              
+              <td><a href="../onTheWay/index?trip_id=${it.id}"><i class="icon-play"></i>go</a></td>
                 <td>${it.getStartTime().format('dd.MM.yyyy')}</td>
                 <td>${it.getStartTime().format('HH:mm')}</td>
                 <td>${it.getEndTime().format('HH:mm')}</td>

@@ -24,38 +24,42 @@
     </div>
 
     <hr>
-    
+ <div class="row-fluid">
   <g:each in="${trip?.connections.sort{it.start_time}}">
     <div>
-      <a href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new Date().format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}"> 
-      
+      <a href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new Date().format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}&trip_id=${trip.id}"> 
+        
         <div class="alert alert-info">
-          
-          <strong>${it.transMean.name}</strong> <br>
-          
-          <i class="icon-time"></i> 
-          ${it.getDuration()} min <br>
-          
-          <strong>start:</strong> ${it.start_time.format('HH:mm')} <br>
-          <strong>end:</strong> ${it.end_time.format('HH:mm')} <br>
-          
-          
-
-          <strong>von: </strong>${it.start} <br>
-          <strong>nach: </strong> ${it.end} 
-          
+          <div>
+            <strong>${it.transMean.name}</strong> <br>
+          </div>
+          <div >
+            <i class="icon-time"></i> 
+            ${it.getDuration()} min
+          </div>
+          <div>
+            <strong>start:</strong> ${it.start_time.format('HH:mm')}
+          </div>
+          <div >
+            <strong>end:</strong> ${it.end_time.format('HH:mm')} <br>
+          </div>
+          <div>
+            <strong>von: </strong>${it.start} <br>
+          </div>
+          <div >
+            <strong>nach: </strong> ${it.end} 
+          </div>
           <div class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-road"></i><b class="caret"></b></a>
             <a class="dropdown-menu"><img src="http://maps.google.com/maps/api/staticmap?center=${it.end}&zoom=15&size=256x256&maptype=roadmap
             &sensor=false"></img>
             </a>
           </div>
-
         </div>
-      
+
       </a>
     </div>
   </g:each>
-
+ </div>
   </body>
 </html>

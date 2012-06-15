@@ -8,6 +8,22 @@
   <body>
   <auth:ifLoggedIn>
     
+        
+    
+    <div class="span4">
+
+        <g:img dir="images" file="logo.png" width="120" height="120"/>
+        
+        <div style="float:right">
+          <h2>Willkommen <auth:user/>!</h2>
+        </div>
+
+       <!-- <center><u><b>Zeit bis zur nächsten Reise</u>:</b></center>
+        <center><h3>${timeToNextTrip} Minuten</h3></center> -->
+
+      
+    </div>
+    
     <div class="span8">
       <form>
         <h3>Anstehende Routen</h3>
@@ -36,7 +52,7 @@
                 <tr bgcolor="#00FF00">
               </g:elseif>
               <g:else>
-                <tr bgcolor="#00FF00">
+                <tr>
               </g:else>
                 <td><a href="../onTheWay/index?trip_id=${it.id}"><i class="icon-play"></i>go</a></td>
                 <td>${it.getStartTime().format('dd.MM.yyyy')}</td>
@@ -50,23 +66,7 @@
         </table>
       </form>
     </div>
-    
-    
-    <div class="span4">
-      <form class="well">
-        <g:img dir="images" file="logo.png" width="120" height="120"/>
-        
-        <div style="float:right">
-          <h2>Willkommen <auth:user/>!</h2>
-        </div>
-        
-        <br />
-        <center><u><b>Zeit bis zur nächsten Reise</u>:</b></center>
-        <center><h3>${timeToNextTrip} Minuten</h3></center>
-        
-      </form>
-      
-    </div>
+
        
   </auth:ifLoggedIn>
 

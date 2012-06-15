@@ -2,6 +2,7 @@ package conn
 
 class TripSearchController {
 
+    // Testkommentar
     def angles
     def cities = []
     

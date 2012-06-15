@@ -7,24 +7,19 @@
 
   <body>
   <auth:ifLoggedIn>
-    
-        
-    
-    <div class="span4">
 
-        <g:img dir="images" file="logo.png" width="120" height="120"/>
-        
-        <div style="float:right">
-          <h2>Willkommen <auth:user/>!</h2>
-        </div>
+        <!--<div class="span3">
+            <g:img dir="images" file="logo.png" width="120" height="120"/>
+    </div >-->
 
-       <!-- <center><u><b>Zeit bis zur nächsten Reise</u>:</b></center>
-        <center><h3>${timeToNextTrip} Minuten</h3></center> -->
+      <div>
+        <a class="btn btn-success btn-large" href="TripSearch/index"><i class="icon-edit"></i> Route planen </a>
+              
+     <hr>
+      </div>
 
-      
-    </div>
     
-    <div class="span8">
+    <div>
       <form>
         <h3>Anstehende Routen</h3>
         

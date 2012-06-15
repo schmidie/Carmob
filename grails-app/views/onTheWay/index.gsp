@@ -35,7 +35,7 @@
 
     <hr>
  <div class="row-fluid">
-  <g:each in="${trip?.connections.sort{it.start_time}}">
+  <g:each in="${trip?.connections?.sort{it.start_time}}">
     <div>
       <a href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new Date().format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}&trip_id=${trip.id}"> 
         

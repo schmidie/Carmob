@@ -22,7 +22,7 @@ class IndexController {
             if(m_id != null){
                 current = User.get(m_id)
                 if(current != null){
-                    myTrips = current.trips
+                    myTrips = current?.trips?.sort{it.getStartTime()}
                     timeToNextTrip = current.getTimeToNextTrip()
                 }
             }

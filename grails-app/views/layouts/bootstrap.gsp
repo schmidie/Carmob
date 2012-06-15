@@ -44,21 +44,14 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><g:link controller="User" action="profil"> <i class="icon-edit icon-white"></i> Profil editieren</g:link></li>
-              <li><g:link controller="TripSearch" action="index"> <i class="icon-edit icon-white"></i> Route planen</g:link></li>
             </ul>
           </div>
           <div class="nav pull-right">
-            
+
             <li>
-              <i><u>Nutzer</u>:<br /><b>Bob Bobson</b></i>
+              <i><b><auth:user/></b></i>
             </li>
-            <li>
-              <i><u>Fixkennung</u>:<br /><b><auth:user/></b></i>
-            </li>
-            
-            <li>
-              
-            </li>
+
             <li>
               <auth:form authAction="logout" success="[controller:'index', action:'index']" error="[controller:'index', action:'index']" class="form-horizontal">
                 <g:actionSubmit class="icon-off icon-white" value="Logout" class="btn pull-right"/>

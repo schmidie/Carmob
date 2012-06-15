@@ -30,16 +30,30 @@
    
     <div class="span12">
       <div class="row-fluid">
-       <h2>Empfohlene Routen</h2>                   
-        <g:each var="m_trip" in="${trips}">
-          
+            
+        <g:if test="${params.show_all}">
+          <h2>Alle gefundenen Routen</h2>
+          ${trips.size()} Routen gefunden </br>
+          <a href="../tripmanagement/scratch?time=${params.time}&start=${params.start}&date=${params.date}&end=${params.end}"> 
+          weniger anzeigen </a>
+        </g:if>
+        <g:else>
+          <h2>Empfohlene Routen</h2>
+          <a href="../tripmanagement/scratch?time=${params.time}&start=${params.start}&date=${params.date}&end=${params.end}&show_all=true"> 
+          alle anzeigen </a>
+        </g:else>
+
+          <hr>
+
+          <g:each var="m_trip" in="${trips[0..(params.show_all?trips.size()-1:2)]}">
+        
             <div class="accordion-group">              
               <div class="accordion-heading"> 
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${m_trip?.id}">
                   <ul class="breadcrumb">
                     <li>${m_trip?.name} Minuten <span class="divider">|</span></li>
                     <g:each in="${m_trip?.connections}">
-                    <li><i class="icon-star-empty"></i>${it.transMean.name}<span class="divider">|</span></li>
+                    <li>${it.transMean.name}<span class="divider">|</span></li>
                   </g:each>
                   </ul>
                 </a>

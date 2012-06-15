@@ -19,4 +19,17 @@ class Angle {
         post_code   (blank:false)
         city        (blank:false)
     }
+    
+    def getAnglesforCity(){
+        def city = 'Berlin'
+        def tmp_angles
+        Angle?.list().each {
+              if(it.city == city){
+                  tmp_angles.add(it)
+              }
+        }
+        tmp_angles
+    }
+    
+    
 }

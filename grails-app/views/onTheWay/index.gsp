@@ -59,11 +59,17 @@
           <div >
             <strong>nach: </strong> ${it.end} 
           </div>
+          <div>
           <div class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-road"></i><b class="caret"></b></a>
             <a class="dropdown-menu"><img src="http://maps.google.com/maps/api/staticmap?center=${it.end}&zoom=15&size=256x256&maptype=roadmap
             &sensor=false"></img>
             </a>
+          </div>
+            <div>
+              <a href="#"><i class="icon-minus"></i></a>
+            <a href="#"><i class="icon-plus"></i></a>
+            </div>
           </div>
         </div>
 

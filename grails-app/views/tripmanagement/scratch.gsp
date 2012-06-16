@@ -11,7 +11,13 @@
     <title>CARMOB</title>
   </head>
   <body>
-    <div class="row-fluid">
+   
+    <div class="span12">
+      <div class="row-fluid">
+
+           
+        <div  class="span10">
+        
       <div class="alert alert-info">
         <strong>Von: ${params.start} </strong></br>
         <strong>Nach: ${params.end}</strong></br>
@@ -25,12 +31,7 @@
           <button class="btn btn-info" type="submit">ändern</button>
         </form>
       </div>
-    </div>
-    
-   
-    <div class="span12">
-      <div class="row-fluid">
-            
+
         <g:if test="${params.show_all}">
           <h2>Alle gefundenen Routen</h2>
           ${trips.size()} Routen gefunden </br>
@@ -43,12 +44,12 @@
           alle anzeigen </a>
         </g:else>
 
-          <hr>
+        <hr>
 
-          <g:each var="m_trip" in="${trips[0..(params.show_all?trips.size()-1:2)]}">
-        
-            <div class="accordion-group">              
-              <div class="accordion-heading"> 
+        <g:each var="m_trip" in="${trips[0..(params.show_all?trips.size()-1:2)]}">
+
+          <div class="accordion-group">              
+            <div class="accordion-heading"> 
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${m_trip?.id}">
                   <ul class="breadcrumb">
                     <li>${m_trip?.name} Minuten <span class="divider">|</span></li>
@@ -125,6 +126,21 @@
               </div>
             </div>
           </g:each>
+      </div>
+        <div  class="span2">
+        <div align="center" style="width:130px;border:1px solid #ccc;font-color:#ddd;font-weight:bold;margin:0px 0px 0px 0px;">
+          <a style="font-size:14px;text-decoration:none;color:#000;" href="http://www.weatherforecastmap.com/germany/${params.start}/">Weather in ${params.start}</a>
+          <script src="http://www.weatherforecastmap.com/weather2001.php?zona=germany_${params.start}"></script>
+          <div align="center" style="font-color:#ddd;font-weight:normal;">   
+          </div>
+        </div>
+               <div align="center" style="width:130px;border:1px solid #ccc;font-color:#ddd;font-weight:bold;margin:0px 0px 0px 0px;">
+          <a style="font-size:14px;text-decoration:none;color:#000;" href="http://www.weatherforecastmap.com/germany/${params.end}/">Weather in ${params.end}</a>
+          <script src="http://www.weatherforecastmap.com/weather2001.php?zona=germany_${params.end}"></script>
+          <div align="center" style="font-color:#ddd;font-weight:normal;">   
+          </div>
+        </div>
+      </div>
       </div>
      </div>
   </body>

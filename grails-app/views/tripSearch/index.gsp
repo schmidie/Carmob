@@ -173,19 +173,27 @@
                   <table class="table table-bordered">
                     <thead>
                       <tr>
+                        <th></th>
                         <th>Startort</th>
                         <th>Zielort</th>
                       </tr>
                     </thead>
                     <tbody>
                    
-                    <g:each in="${trips}">
+                    <g:each var="trip" in="${trips}">
                       <tr>
                         <td>
-                          test
+                          <label class="radio">
+                              <input type="radio" name="start" id="start" value="${trip.getStart()}">
+                              <input type="radio" name="end" id="end" value="${trip.getEnd()}">
+                          </label> 
+                          
                         </td>
                         <td>
-                          test
+                          ${trip.getStart()}
+                        </td>
+                        <td>
+                          ${trip.getEnd()}
                         </td>
                       </tr>
 

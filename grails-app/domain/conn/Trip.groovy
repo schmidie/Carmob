@@ -59,7 +59,6 @@ class Trip {
             }
         }
         start_time
-        (new Date()-1)
     }
     def getEndTime(){
         def end_time = new Date(Long.MIN_VALUE)

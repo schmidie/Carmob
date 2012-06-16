@@ -2,27 +2,30 @@ package conn
 
 class TripSearchController {
 
-    // Testkommentar
+    def authenticationService
     def angles
     def cities = []
     def trips
     
     def index() { 
-        
-            if(Trip.count()){
-              trips = Trip.list()
 
+        User current = null
+        def m_id = null
+        m_id = authenticationService?.sessionUser?.userObjectId
+            if(m_id != null){
+                current = User.get(m_id)
+                if(current != null){
+                    trips = current?.trips?.sort{it.getStart()}
+                }
             }
         
-            if(Angle.count()){
-                angles = Angle.list()
+        angles = Angle?.list()
                 
-                angles.each {
-                    if(!cities.contains(it.city)){
-                        cities.add(it.city)
-                    } 
-                }
-            }  
+        angles.each {
+            if(!cities.contains(it.city)){
+                cities.add(it.city)
+            } 
+        }  
             
     }
     

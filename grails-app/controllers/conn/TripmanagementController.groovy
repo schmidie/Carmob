@@ -39,8 +39,6 @@ class TripmanagementController {
             return "TODO"
     }
 
-    def scratcherService = new ScratcherService()
-    
     def save_trip_mobile(){
         Trip save_trp = null
         save_trp = Trip.get(params.id)

@@ -10,14 +10,16 @@
 
         <!--<div class="span3">
             <g:img dir="images" file="logo.png" width="120" height="120"/>
-    </div >-->
+</div >-->
 
-      <div>
-        <a class="btn btn-success btn-large" href="TripSearch/index"><i class="icon-edit"></i> Route planen </a>
-              
-     <hr>
-      </div>
+        <div class="row-fluid">
+          <div class="span2">
+            <a class="btn btn-success btn-large" href="TripSearch/index"><i class="icon-edit"></i> Route planen </a>
+          </div>
 
+          </div>
+
+          <hr>
     
     <div>
       <form>
@@ -43,19 +45,16 @@
               <g:if test="${it.getEndTime() < new Date()}">
                 <tr bgcolor="#838B8B">
               </g:if>
-              
               <g:elseif test="${it.getStartTime() < new Date()}">
                 <tr bgcolor="#00FF00">
               </g:elseif>
-              
               <g:elseif test="${it.nowToTrip() > 0 && it.nowToTrip() < 60}">
                 <tr bgcolor="#00FF00">
               </g:elseif>
-              
               <g:else>
                 <tr>
               </g:else>
-              
+
               <td><a href="../onTheWay/index?trip_id=${it.id}"><i class="icon-play"></i>go</a></td>
                 <td>${it.getStartTime().format('dd.MM.yyyy')}</td>
                 <td>${it.getStartTime().format('HH:mm')}</td>

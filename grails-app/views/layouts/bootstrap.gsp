@@ -43,7 +43,7 @@
         <auth:ifLoggedIn>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><g:link controller="User" action="profil"> <i class="icon-edit icon-white"></i> Profil editieren</g:link></li>
+              <li><g:link controller="User" action="edit" id="${authenticationService?.sessionUser?.userObjectId}"> <i class="icon-edit icon-white"></i> Profil editieren</g:link></li>
             </ul>
           </div>
           <div class="nav pull-right">

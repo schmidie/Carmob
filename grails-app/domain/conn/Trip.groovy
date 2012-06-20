@@ -55,7 +55,7 @@ class Trip {
         def start_time = new Date(Long.MAX_VALUE)
         connections.each(){
             if(it.start_time.getTime() < start_time.getTime()){
-                start_time = it.start_time
+                start_time = new Date(it.start_time.getTime())
             }
         }
         start_time
@@ -64,7 +64,7 @@ class Trip {
         def end_time = new Date(Long.MIN_VALUE)
         connections.each(){
             if(it.end_time.getTime() > end_time.getTime()){
-                end_time = it.end_time
+                end_time = new Date(it.end_time.getTime())
             }
         }
         end_time

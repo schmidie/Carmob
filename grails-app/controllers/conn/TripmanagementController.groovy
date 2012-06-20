@@ -87,6 +87,8 @@ class TripmanagementController {
     
     def scratch() {
         
+        getDistance(params.start,params.end,"driving")
+        
         def originID = getLocationId(params.start)
         def destID = getLocationId(params.end)
         
@@ -177,7 +179,77 @@ class TripmanagementController {
         trips.add(tempTrip)
         }
         
+        trips.each() {
+            
+            tempTrip = new Trip()
+            tempTrip.temp = true
+            tempTrip.setConnections(it.getConnections())
+            tempTrip.setName(tempTrip.duration().toString())
+            tempTrip.connections.each(){
+  
+                def ddur = getDuration(it.start,it.end,"driving")
+                if (( ddur < 30 ) && !(it.transMean.name.equals("Auto/Taxi")) ){
+                    
+                    it.transMean.name = "Auto/Taxi "
+                    if (it.start_time.getMinutes() + ddur >59){
+                        it.end_time.setMinutes(it.start_time.getMinutes() + ddur -60)
+                        it.end_time.setHours(it.start_time.getHours() + 1)
+                    }else{
+                        it.end_time.setMinutes(it.start_time.getMinutes() + ddur )
+                    }
+                    
+                    tempTrip.save()
+                }                
+                
+                def wdur = getDuration(it.start,it.end,"walking")
+                if (( wdur < 15 ) && !(it.transMean.name.equals("Fußweg")) ){
+                    
+                    it.transMean.name = "Fußweg"
+                    if (it.start_time.getMinutes() + wdur >59){
+                        it.end_time.setMinutes(it.start_time.getMinutes() + wdur -60)
+                        it.end_time.setHours(it.start_time.getHours() + 1)
+                    }else{
+                        it.end_time.setMinutes(it.start_time.getMinutes() + wdur )
+                    }
+                    
+                    tempTrip.save()
+                }
+            }
+        }
+        
         filter(trips)
+
+    }
+    
+    def int getDuration(String origin,String destination,mode){
+        
+        def apiUrl='http://maps.googleapis.com/maps/api/directions/xml?'
+        def urlString = "${apiUrl}origin=${origin}&destination=${destination}&mode=${mode}&sensor=false"
+        def InputSource xmlsource = new InputSource(urlString)
+        
+        def mapsXML = new XmlParser().parse(xmlsource)
+        if (mapsXML.route.leg.duration.value.text().equals("")) return 1000
+        def duration = mapsXML.route.leg.duration.value.text() as int
+        duration = duration / 60
+        //render duration
+        return duration
+        
+
+    }
+    
+
+    def int getDistance(String origin,String destination,mode){
+        
+        def apiUrl='http://maps.googleapis.com/maps/api/directions/xml?'
+        def urlString = "${apiUrl}origin=${origin}&destination=${destination}&mode=${mode}&sensor=false"
+        def InputSource xmlsource = new InputSource(urlString)
+        
+        def mapsXML = new XmlParser().parse(xmlsource)
+        def distance = mapsXML.route.leg.distance.value.text() as int
+        distance = distance / 1000
+        //render distance
+        return distance
+        
 
     }
     

@@ -19,6 +19,10 @@ class TripmanagementController {
     // the current user
     def m_user
     
+    def error() {
+        
+    }
+    
     def index() { 
              
             redirect action: 'scratch', params: params
@@ -87,6 +91,8 @@ class TripmanagementController {
     
     def scratch() {
         
+        try{
+
         getDistance(params.start,params.end,"driving")
         
         def originID = getLocationId(params.start)
@@ -94,9 +100,16 @@ class TripmanagementController {
         
         //buildTripList(originID,destID)
         
+        def m_date = params.date_day+"."+params.date_month+"."+params.date_year
+        
+        if(!params.date_day || !params.date_month  || !params.date_year ){
+            m_date = params.date
+        }
+        
+            
         def baseURL = "http://demo.hafas.de/bin/pub/carmeq/rest.exe"
         def authKey = "carmeq"
-        def urlString = "${baseURL}/trip?authKey=${authKey}&originId=${originID}&destId=${destID}&time=${params.time}&date=${params.date}"
+        def urlString = "${baseURL}/trip?authKey=${authKey}&originId=${originID}&destId=${destID}&time=${params.time}&date=${m_date}"
         def InputSource xmlsource = new InputSource(urlString)
         
         def Connection tempConnection
@@ -219,6 +232,10 @@ class TripmanagementController {
         
         filter(trips)
 
+                        
+        }catch (Throwable t) {
+            //redirect(controller: "tripmanagement", action: "error")
+        }
     }
     
     def int getDuration(String origin,String destination,mode){

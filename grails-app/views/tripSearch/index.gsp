@@ -80,7 +80,6 @@
                                 <g:if test="${ m_angle.city.toString() == city.toString()}">
                                   <label class="radio">
                                     <input type="radio" name="start" id="start" value="${m_angle.address}">
-                                    <input type="radio" name="start_city" id="start_city" value="${m_angle.city}">
                                     ${m_angle.name}
                                   </label> 
                                 </g:if>
@@ -145,9 +144,9 @@
                                 <g:if test="${ m_angle.city.toString() == city.toString()}">
                                   <label class="radio">
                                     <input type="radio" name="end" id="end" value="${m_angle.address}">
-                                    
                                     ${m_angle.name}
                                   </label> 
+                                  
                                 </g:if>
                               </g:each>
                             </div>
@@ -228,9 +227,9 @@
           <span class="add-on">
             <i class="icon-calendar"></i>
           </span>
-          <input name="date" id="date" type="text" class="span2" value="${new Date().format('dd.MM.yyyy')}">
+          <!--<input name="date" id="date" type="text" class="span2" value="${new Date().format('dd.MM.yyyy')}">-->
 
-          <!-- <richui:dateChooser name="date2" id="date2" class="span1" format="dd.MM.yyyy"/> -->
+          <richui:dateChooser name="date" id="date" class="span2" format="dd.MM.yyyy"/>
 
           <hr>
 

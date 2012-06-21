@@ -24,9 +24,8 @@
     <div>
       <form>
         <h3>Anstehende Trips</h3>
-        <strong><font color="#838B8B"> Trips aus der Vergangenheit </font> </strong>|
-        <strong><font color="#FF0000"> gestartete Trips </font> </strong>|
-        <strong><font color="#00FF00"> in kürze startende Trips </font> </strong>
+        <!--<strong><font color="#FF0000"> gestartete Trips </font> </strong>|
+        <strong><font color="#00FF00"> in kürze startende Trips </font> </strong>-->
         <hr>
         <table class="table table-bordered">
           <thead>
@@ -42,12 +41,9 @@
           <tbody>
             <g:findAll in="${myTrips}" expr="it != null">
               
-              <g:if test="${it.getEndTime() < new Date()}">
-                <tr bgcolor="#838B8B">
-              </g:if>
-              <g:elseif test="${it.getStartTime() < new Date()}">
+              <g:if test="${it.getStartTime() < new Date()}">
                 <tr bgcolor="#00FF00">
-              </g:elseif>
+              </g:if>
               <g:elseif test="${it.nowToTrip() > 0 && it.nowToTrip() < 60}">
                 <tr bgcolor="#00FF00">
               </g:elseif>

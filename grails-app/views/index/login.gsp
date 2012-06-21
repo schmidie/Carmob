@@ -6,6 +6,7 @@
   </head>
 
   <body>
+    <div class="hero-unit">
     <auth:ifNotLoggedIn>
       <g:if test="${flash.authenticationFailure}">
         Ihre Anmeldung ist fehlgeschlagen:
@@ -31,7 +32,7 @@
               <input name="password" value="" type="password" class="span4"/>
             </div>
           </div>
-          <div class="form-well">
+          <div  class="form-well">
             <g:actionSubmit value="log in" class="btn btn-success"/>
             <br />
             <br />
@@ -42,5 +43,48 @@
       </div>     
       
     </auth:ifNotLoggedIn>
+      </div>
+    <div class="span12">
+      <h3>Top-Greens</h3>
+      <blockquote><small>Hier werden die Nutzer aufgelistet, welche am wenigsten CO2 Ausstoß pro Kilometer erreicht haben.</small></blockquote>
+           
+<table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>CO2 Ausstoß / KM</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>   
+                  </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      
+      <h3>Top-Sportler</h3>
+      <blockquote><small>Hier werden die Nutzer aufgelistet, welche am meisten Kilometer mit dem Rad gefahren sind.</small></blockquote>
+                    
+      <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th> Durchschnittliche KM / Tag</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>   
+                  </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      
+    </div>
   </body>
 </html>

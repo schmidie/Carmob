@@ -192,7 +192,7 @@ class TripmanagementController {
         trips.add(tempTrip)
         }
         
-        trips.each() {
+        /*trips.each() {
             
             tempTrip = new Trip()
             tempTrip.temp = true
@@ -228,7 +228,7 @@ class TripmanagementController {
                     tempTrip.save()
                 }
             }
-        }
+        }*/
         
         filter(trips)
 

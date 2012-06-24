@@ -18,9 +18,7 @@
           <div class="control-group">
             <label class="control-label" for="login"><b>Fixkennung:</b></label>
             <div class="controls">
-              <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span4"/>
-              <span class="help-block">Finden Sie auf der Rückseite Ihrer KeyCard!</span>
-            </div>
+              <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span4"/>                          </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="email"><b>Email:</b></label>

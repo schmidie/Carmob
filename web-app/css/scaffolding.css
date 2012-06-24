@@ -113,3 +113,14 @@ pre.snippet .error {
 div.scrollable{
     overflow-x:auto;
 }
+
+.accordion-heading:hover { 
+    color: black; 
+    text-decoration:none; 
+}
+
+.accordion-heading {
+    background-color: #EEE;
+    margin: 0 0 0px;
+}
+

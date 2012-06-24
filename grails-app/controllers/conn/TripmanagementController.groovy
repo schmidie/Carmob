@@ -306,7 +306,7 @@ class TripmanagementController {
         // test-output
         //render shortest_trip as JSON
         
-        trips.sort{it.connections.size()}.sort{it.duration()}
+        trips.sort{it.connections.size()}.sort{it.getStartTime()}
         // TODO: find the best Trips for the user!!
     }
     

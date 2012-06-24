@@ -45,33 +45,51 @@
         </g:else>-->
 
         <hr>
-          <h3>Filterfunktionen</h3>
-          
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th><g:checkBox name="oeko" value="${false}" /> Öko</th>
-                <th><g:checkBox name="shopper" value="${false}" /> Shopper</th>
-                <th><g:checkBox name="sportler" value="${false}" /> Sportler</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>    
-                  <blockquote><small>Es werden nur Routen gesucht, welche die angegebenen CO2-Grenze nicht überschreiten.</small></blockquote>
-                  CO2 / km: <g:textField name="co2" value="" />
-                </td>
-                <td>   
-                  <blockquote><small>Es werden Routen bevorzugt, auf welchen Einkaufsmöglichkeiten vorhanden sind.</small></blockquote>       
-                </td>
-                <td>
-                  <blockquote><small>Es werden Routen mit Fahrradstrecken erstellt, wobei die Fahrradstrecken die angegebenen km nicht überschreiten.</small></blockquote> 
-                  km pro trip: <g:textField name="sportler" value="" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <button class="btn" type="submit">aktualisieren</button>
+        <div class="well">
+        <div class="accordion" id="accordionFilter">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionFilter" href="#collapseFilterOne">
+                <i class="icon-chevron-down"></i>
+                Filterfunktionen
+              </a>
+            </div>
+            <div id="collapseFilterOne" class="accordion-body collapse" style="height: 0px; ">
+              <div class="accordion-inner">
+
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th><g:checkBox name="oeko" value="${false}" /> Öko</th>
+                  <th><g:checkBox name="shopper" value="${false}" /> Shopper</th>
+                  <th><g:checkBox name="sportler" value="${false}" /> Sportler</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>    
+                        <blockquote><small>Es werden nur Routen gesucht, welche die angegebenen CO2-Grenze nicht überschreiten.</small></blockquote>
+                        CO2 / km: <g:textField name="co2" value="" />
+                  </td>
+                  <td>   
+                    <blockquote><small>Es werden Routen bevorzugt, auf welchen Einkaufsmöglichkeiten vorhanden sind.</small></blockquote>       
+                  </td>
+                  <td>
+                    <blockquote><small>Es werden Routen mit Fahrradstrecken erstellt, wobei die Fahrradstrecken die angegebenen km nicht überschreiten.</small></blockquote> 
+                    km pro trip: <g:textField name="sportler" value="" />
+                  </td>
+                  </tr>
+                  </tbody>
+                </table>
+                 
+                <button class="btn" type="submit"><i class="icon-refresh"></i>aktualisieren</button>
+
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+   
         <hr>
 
         <g:each var="m_trip" in="${trips}">
@@ -80,11 +98,16 @@
             <div class="accordion-heading"> 
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#${m_trip?.id}">
                   <ul class="breadcrumb">
-                    <li>${m_trip?.getStartTime()?.format('dd.MM.yy')} <span class="divider">|</span></li>
-                    <li>${m_trip?.name} Minuten <span class="divider">|</span></li>
-                    <g:each in="${m_trip?.connections}">
-                    <li>${it.transMean.name}<span class="divider">|</span></li>
-                  </g:each>
+                    
+                    <li>${m_trip?.getStartTime()?.format('HH:mm')} <span class="divider">|</span></li>
+                    
+                    <g:each in="${m_trip?.connections}"> 
+                        <li><g:img dir="images" file="${it.transMean.getGeneralTransMean()}.png" width="20" height="20"/></li>
+                      </g:each>
+                    
+                    <li><span class="divider">|</span>${m_trip?.getEndTime()?.format('HH:mm')}</li> <span class="divider">|</span></li>
+                                      
+                    <li>${m_trip?.name} Minuten
                   </ul>
                 </a>
               </div>
@@ -99,7 +122,7 @@
                         
                         <td>
                           <div class="alert alert-success ">
-                            <i class="icon-flag"></i>
+                            <i class="icon-home"></i>
                           </div> 
                         </td>
                                                             
@@ -128,7 +151,12 @@
                           
                         <td>
                           <div class="alert alert-success ">
-                            <i class="icon-flag"></i>
+                            <g:if test="${ it != m_trip?.connections[m_trip?.connections.size()-1]}">
+                              <i class="icon-share-alt"></i>
+                            </g:if>
+                             <g:else>
+                              <i class="icon-flag"></i>
+                             </g:else>
                           </div> 
                         </td>
                         

@@ -6,7 +6,7 @@ class BootStrap {
         
         // Standorte
         
-       // if(!Angle.count()){
+        if(!Angle.count()){
             // Berlin        
             //new Angle(name:"zu Hause", address:"Hermannstrasse 256",  
             //    post_code:"12049", city:"Berlin").save()
@@ -71,7 +71,7 @@ class BootStrap {
             
             new Angle(name:"Skoda Werk (GEHT NICHT)", address:"Mladá Boleslav",  
                 post_code:"", city:"CZ",  vicinity:"Prag").save()
-       // }
+        }
          
     }
     

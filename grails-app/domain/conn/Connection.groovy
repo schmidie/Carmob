@@ -8,7 +8,7 @@ class Connection {
     String end
     Date start_time
     Date end_time
-    //Integer distance
+    Integer co2
     
     // constraints
     static constraints = {
@@ -20,7 +20,7 @@ class Connection {
         start_time   (nullable:false)
         end_time     (nullable:false)
         
-        //distance     (nullable:true)
+        co2     (nullable:true)
     }
     
     static mapping = {

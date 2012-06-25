@@ -7,6 +7,7 @@ class TransportationMean {
     String name
     String direction
     Integer average_speed
+
     
     // relations
     // - none yet
@@ -20,7 +21,7 @@ class TransportationMean {
     
     def getGeneralTransMean(){
         
-        if (name.contains("ICE")||name.contains("RE")||name.contains("IC"))
+        if (name.contains("ICE")||name.contains("RE")||name.contains("IC")||name.contains("RB"))
             return "DB"
         else if (name.contains("Bus"))
             return "Bus"

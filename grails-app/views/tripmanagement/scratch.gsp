@@ -102,7 +102,7 @@
                     <li>${m_trip?.getStartTime()?.format('HH:mm')} <span class="divider">|</span></li>
                     
                     <g:each in="${m_trip?.connections}"> 
-                        <li><g:img dir="images" file="${it.transMean.getGeneralTransMean()}.png" width="20" height="20"/></li>
+                        <li><g:img dir="images" file="${it.transMean.getGeneralTransMean()}.png"/></li>
                       </g:each>
                     
                     <li><span class="divider">|</span>${m_trip?.getEndTime()?.format('HH:mm')}</li> <span class="divider">|</span></li>

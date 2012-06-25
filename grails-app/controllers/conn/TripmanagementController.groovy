@@ -91,7 +91,7 @@ class TripmanagementController {
     
     def scratch() {
         
-        try{
+        //try{
 
         getDistance(params.start,params.end,"driving")
         
@@ -163,7 +163,12 @@ class TripmanagementController {
                 tempConnection.setStart_time(tmp_date)
             
                 tempConnection.setTransMean(tempMean)
+                  
                 tempConnection.save()
+                
+                //tempConnection.setCo2(getCo2(it.@name,"Jonasstr 44, Berlin","HBF Berlin"))
+                  
+                
                 tempConnectionList.add(tempConnection) 
 
                 
@@ -233,9 +238,27 @@ class TripmanagementController {
         filter(trips)
 
                         
-        }catch (Throwable t) {
+        //}catch (Throwable t) {
             //redirect(controller: "tripmanagement", action: "error")
-        }
+        //}
+    }
+    
+    def getCo2(String transMean,String origin,String destination){
+        
+        def distance = getDistance(origin,destination,"driving")
+         
+        if (transMean.contains("ICE")||transMean.contains("RE")||transMean.contains("IC"))
+            return (distance*30)
+        else if (transMean.contains("Bus"))
+            return (distance*25)
+        else if (transMean.contains("U"))
+            return (distance*10)
+        else if (transMean.contains("S"))
+            return (distance*10)
+        else if (transMean.contains("Walk"))
+            return 0
+        else
+        return 0
     }
     
     def int getDuration(String origin,String destination,mode){
@@ -266,7 +289,6 @@ class TripmanagementController {
         distance = distance / 1000
         //render distance
         return distance
-        
 
     }
     

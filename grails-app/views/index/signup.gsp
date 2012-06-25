@@ -16,7 +16,7 @@
           <h3>Registrierung</h3>
           <br />
           <div class="control-group">
-            <label class="control-label" for="login"><b>Fixkennung:</b></label>
+            <label class="control-label" for="login"><b>Login:</b></label>
             <div class="controls">
               <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span4"/>                          </div>
           </div>

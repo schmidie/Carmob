@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <div class="hero-unit">
+    <div class="hero-unit span4">
     <auth:ifNotLoggedIn>
       <g:if test="${flash.authenticationFailure}">
         Ihre Anmeldung ist fehlgeschlagen:
@@ -21,14 +21,14 @@
           <h3>Anmeldung</h3>
           <br />
           <div class="control-group">
-            <label class="control-label" for="login"><b>Fixkennung:</b></label>
+            <label class="control-label" for="login"><b>Login:</b></label>
             <div class="controls">
-              <g:textField name="login" value="${flash.loginForm?.login?.encodeAsHTML()}" class="span4"/>
+              <g:textField name="login" value="${flash.loginForm?.login?.encodeAsHTML()}" class="span3"/>
           </div>
           <div class="control-group">
             <label class="control-label" for="password"><b>Passwort:</b></label>
             <div class="controls">
-              <input name="password" value="" type="password" class="span4"/>
+              <input name="password" value="" type="password" class="span3"/>
             </div>
           </div>
           <div  class="form-well">
@@ -39,7 +39,29 @@
           </div>
         </fieldset>
       </auth:form>
-      </div>     
+      </div> 
+      <div class="span6">
+        <table border="0">
+          <tr>
+            <td v-align="top"><g:img dir="images" file="logo.png" width="120" height="120"/></td>
+            <td><h3>Intermodale Dynamische Routenplanung</h3>
+              <hr>
+            <p>Das System soll die Möglichkeit bieten intermodale Routen zu planen. 
+          Dabei sollen dem Nutzer alle nötigen Informationen wie beispielsweise eine Wettervorhersage angezeigt werden, 
+          damit eine individuell optimale Reise geplant werden kann. </p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              
+              <p>Die geplanten Routen können mit der Reisebegleiter-Ansicht auf dem Smartphone betrachtet werden. 
+          Wenn der Nutzer die Reise spontan ändern will, hat dieser die Möglichkeit schnell eine alternative Route zu finden und fortzusetzen.</p>
+              
+            </td>
+          </tr>
+        </table>
+      </div>
+
       
     </auth:ifNotLoggedIn>
       </div>

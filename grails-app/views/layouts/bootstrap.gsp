@@ -45,7 +45,7 @@
             <ul class="nav">
               <!--<li><g:link controller="User" action="edit" id="${authenticationService?.sessionUser?.userObjectId}"> <i class="icon-edit icon-white"></i> Profil editieren</g:link></li>-->
               <li><a href="${createLinkTo(dir:'docs', file:'Bedienungsanleitung.pdf')}" target="_blank"> <i class="icon-question-sign icon-white"></i> Hilfe</a></li>
-              <li> <a href="mailto:SWP-KWT-II-Team4@lists.fu-berlin.de?subject=[SWP-Carmob-Feedback]"> <i class="icon-envelope icon-white"></i> Feedback </a> </li>
+              <li> <a href="mailto:carmob.intermodal@gmail.com?subject=[Feedback]"> <i class="icon-envelope icon-white"></i> Feedback </a> </li>
             </ul>
           </div>
           <div class="nav pull-right">

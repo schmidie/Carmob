@@ -1,17 +1,15 @@
 package conn
 
+// weak entity-type
 class TempTrip extends Trip {
-    
-    //String user
-    
-    /*Collection trips
-    
-     // relations
-    static hasMany = [
-        trips:Trip
-    ]
-    */
 
-    static constraints = {
-    }
-}
+    // attributes
+    // same as super entity-type
+    
+    // relations
+    // - none yet
+    
+    // constraints
+    static constraints = {}
+    
+} // eoc

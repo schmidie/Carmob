@@ -1,20 +1,16 @@
 package conn
 
-// entity
+// entity-type
 class Tripmanagement {
     
     // attributes
     // - none yet
     
     // relations
-    //static hasMany = [trips:Trip]
-    //Collection trips
-    
-    static constraints = {
-        // hasMany nullable:true
-    }
+    // - none yet
     
     // constraints
     // - none yet
-
-}
+    static constraints = {}
+    
+} // eoc

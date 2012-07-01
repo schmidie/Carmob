@@ -1,6 +1,6 @@
 package conn
 
-// entity
+// entity-type
 class Angle {
     
     // attributes
@@ -20,6 +20,11 @@ class Angle {
         city        (blank:false)
     }
     
+    // methods
+    
+    /**
+     *  @return a collection of angels of the city "Berlin"
+     */
     def getAnglesforCity(){
         def city = 'Berlin'
         def tmp_angles
@@ -28,8 +33,8 @@ class Angle {
                   tmp_angles.add(it)
               }
         }
-        tmp_angles
+        
+        return (tmp_angles)
     }
     
-    
-}
+} // eoc

@@ -4,7 +4,7 @@ class BootStrap {
 
     def init = { servletContext ->
         
-        // Standorte
+        // predefined angels
         
         if(!Angle.count()){
             // Berlin        
@@ -75,6 +75,6 @@ class BootStrap {
          
     }
     
-    def destroy = { }
+    def destroy = {}
 
 }

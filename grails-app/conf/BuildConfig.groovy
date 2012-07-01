@@ -25,16 +25,20 @@ grails.project.dependency.resolution = {
         // uncomment these to enable remote dependency resolution from public Maven repositories
         //mavenCentral()
         //mavenLocal()
-        //mavenRepo "http://snapshots.repository.codehaus.org"
-        //mavenRepo "http://repository.codehaus.org"
+        mavenRepo "http://snapshots.repository.codehaus.org"
+        mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
+    
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         runtime 'postgresql:postgresql:8.4-702.jdbc3'
         runtime 'org.json:json:20090211'
         // runtime 'mysql:mysql-connector-java:5.1.16'
+        runtime ('org.codehaus.groovy.modules.http-builder:http-builder:0.5.3-SNAPSHOT'){
+            excludes 'groovy'
+        }
     }
 
     plugins {

@@ -51,7 +51,7 @@
                 <tr>
               </g:else>
 
-              <td><center><a href="../onTheWay/index?trip_id=${it.id}"><img src="http://www.nicolaslehmann.de/wp-content/uploads/2012/06/go_button1.png" width="32" height="32" /></center></a></td>
+              <td><center><a href="../onTheWay/index?trip_id=${it.id}"><g:img dir="images" file="gobutton.png" width="32" height="32"/></center></a></td>
                 <td vertical-align>${it.getStartTime().format('dd.MM.yyyy')}</td>
                 <td>${it.getStartTime().format('HH:mm')}</td>
                 <td>${it.getEndTime().format('HH:mm')}</td>

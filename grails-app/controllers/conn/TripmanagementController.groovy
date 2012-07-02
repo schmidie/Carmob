@@ -1,49 +1,56 @@
 package conn
 
 import java.text.SimpleDateFormat
-
 import grails.converters.*
 import org.xml.sax.*
 
+/**
+ *  ! comment here - The tripmanagement controller
+ */
 class TripmanagementController {
   
     def authenticationService
-    //def authenticationService
+    def trips = []                          // the filtered trips from the user search data
+    def transportation_mean_collection      // the possible transMeans
+    def m_user                              // the current user
     
-    //the filtered trips from the user search data
-    def trips = []
+    /**
+     *  ! comment here
+     */
+    def error() {}
     
-    //the possible transMeans
-    def transportation_mean_collection
-    
-    // the current user
-    def m_user
-    
-    def error() {
-        
-    }
-    
+    /**
+     *  ! comment here
+     */
     def index() { 
-             
-            redirect action: 'scratch', params: params
-
+        redirect action: 'scratch', params: params
     }
     
+    /**
+     *  @return ! comment here
+     */
     def getTransMean(String name){
         
         if (name.contains("ICE")||name.contains("RE")||name.contains("IC"))
-            return "DB"
+            return ("DB")
         else if (name.contains("Bus"))
-            return "Bus"
+            return ("Bus")
         else if (name.contains("U"))
-            return "U-Bahn"
+            return ("U-Bahn")
         else if (name.contains("S"))
-            return "S-Bahn"
+            return ("S-Bahn")
+        else if (name.contains("Taxi"))
+            return ("Taxi")
         else 
-            return "TODO"
+            return (name)               // !! TODO !!
+            
     }
 
+    /**
+     *  ! comment here
+     */
     def save_trip_mobile(){
+        
         Trip save_trp = null
         save_trp = Trip.get(params.id)
         
@@ -51,20 +58,22 @@ class TripmanagementController {
             render(view: "scratch")
         }
         else{
-                        
             save_trp.temp =false
-            
             User current = null
             current = User.get(authenticationService.sessionUser.userObjectId)
+            
             if(current != null){
                 current.addToTrips(save_trp)
             }
             redirect(controller: "onTheWay", action: "index",  params: [trip_id: save_trp.id])
         }
-
     }
     
+    /**
+     *  ! comment here
+     */
     def save_trip(){
+       
         Trip save_trp = null
         save_trp = Trip.get(params.id)
         
@@ -72,27 +81,29 @@ class TripmanagementController {
             render(view: "scratch")
         }
         else{
-                        
             save_trp.temp =false
-            
             User current = null
             current = User.get(authenticationService.sessionUser.userObjectId)
+            
             if(current != null){
                 current.addToTrips(save_trp)
             }
             redirect(controller: "Index", action: "index")
         }
-
     }
     
+    /**
+     *  Calls the method "scratch".
+     */
     def scratch_mobile() {
         scratch()
     }
     
+    /**
+     *  ! comment here
+     */
     def scratch() {
         
-        //try{
-
         getDistance(params.start,params.end,"driving")
         
         def originID = getLocationId(params.start)
@@ -105,7 +116,6 @@ class TripmanagementController {
         if(!params.date_day || !params.date_month  || !params.date_year ){
             m_date = params.date
         }
-        
             
         def baseURL = "http://demo.hafas.de/bin/pub/carmeq/rest.exe"
         def authKey = "carmeq"
@@ -121,11 +131,9 @@ class TripmanagementController {
         
         def tripListXML = new XmlParser().parse(xmlsource)
         tripListXML.Trip.each{
-            
             it.LegList.Leg.each{
                 tempConnection = new Connection()
-            
-                tempMean = new TransportationMean()
+                tempMean       = new TransportationMean()
                 tempMean.setName(it.@name)
                 tempMean.setDirection(it.@direction)
                 tempMean.save()
@@ -137,12 +145,12 @@ class TripmanagementController {
                 def hour, minute, day, month, year
             
                 matcher = it.Destination.@time =~ /\[([^:]*):(.*)\]/
-                hour = matcher[0][1].toInteger() 
-                minute = matcher[0][2].toInteger()
+                hour    = matcher[0][1].toInteger() 
+                minute  = matcher[0][2].toInteger()
                 matcher = it.Destination.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
-                day = matcher[0][1].toInteger()
-                month = matcher[0][2].toInteger()
-                year = matcher[0][3].toInteger() + 2000
+                day     = matcher[0][1].toInteger()
+                month   = matcher[0][2].toInteger()
+                year    = matcher[0][3].toInteger() + 2000
                 tempTime.set(year,month,day,hour,minute)
                 Date tmp_date = tempTime.time
 
@@ -151,12 +159,12 @@ class TripmanagementController {
                 tempTime = new GregorianCalendar()
             
                 matcher = it.Origin.@time =~ /\[([^:]*):(.*)\]/
-                hour = matcher[0][1].toInteger() 
-                minute = matcher[0][2].toInteger()
+                hour    = matcher[0][1].toInteger() 
+                minute  = matcher[0][2].toInteger()
                 matcher = it.Origin.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
-                day = matcher[0][1].toInteger()
-                month = matcher[0][2].toInteger()
-                year = matcher[0][3].toInteger() + 2000
+                day     = matcher[0][1].toInteger()
+                month   = matcher[0][2].toInteger()
+                year    = matcher[0][3].toInteger() + 2000
                 tempTime.set(year,month,day,hour,minute)
                 tmp_date = tempTime.time
 
@@ -166,83 +174,70 @@ class TripmanagementController {
                   
                 tempConnection.save()
                 
-                //tempConnection.setCo2(getCo2(it.@name,"Jonasstr 44, Berlin","HBF Berlin"))
-                  
-                
                 tempConnectionList.add(tempConnection) 
-
                 
                 tempConnection = null
-                
             }
             
             tempTrip = new Trip()
-            
             tempTrip.temp = true
         
-            //sort the list
+            // sort the list
             def s = tempConnectionList.size()
             def tempConnectionList2 = []
+            
             while(s-- > 0){
-            tempConnectionList2.add(tempConnectionList.pop() )
+                tempConnectionList2.add(tempConnectionList.pop() )
             }
         
-        
-        tempTrip.setConnections(tempConnectionList2.sort{it.start_time})
-        tempTrip.setName(tempTrip.duration().toString())
-        
-            
-        tempTrip.save()     
+            tempTrip.setConnections(tempConnectionList2.sort{it.start_time})
+            tempTrip.setName(tempTrip.duration().toString())
+            tempTrip.save()     
                  
-        trips.add(tempTrip)
+            trips.add(tempTrip)
         }
         
-        /*trips.each() {
-            
-            tempTrip = new Trip()
-            tempTrip.temp = true
-            tempTrip.setConnections(it.getConnections())
-            tempTrip.setName(tempTrip.duration().toString())
-            tempTrip.connections.each(){
-  
-                def ddur = getDuration(it.start,it.end,"driving")
-                if (( ddur < 30 ) && !(it.transMean.name.equals("Auto/Taxi")) ){
-                    
-                    it.transMean.name = "Auto/Taxi "
-                    if (it.start_time.getMinutes() + ddur >59){
-                        it.end_time.setMinutes(it.start_time.getMinutes() + ddur -60)
-                        it.end_time.setHours(it.start_time.getHours() + 1)
-                    }else{
-                        it.end_time.setMinutes(it.start_time.getMinutes() + ddur )
-                    }
-                    
-                    tempTrip.save()
-                }                
-                
-                def wdur = getDuration(it.start,it.end,"walking")
-                if (( wdur < 15 ) && !(it.transMean.name.equals("Fußweg")) ){
-                    
-                    it.transMean.name = "Fußweg"
-                    if (it.start_time.getMinutes() + wdur >59){
-                        it.end_time.setMinutes(it.start_time.getMinutes() + wdur -60)
-                        it.end_time.setHours(it.start_time.getHours() + 1)
-                    }else{
-                        it.end_time.setMinutes(it.start_time.getMinutes() + wdur )
-                    }
-                    
-                    tempTrip.save()
-                }
-            }
-        }*/
+        // trips.each() {
+        // tempTrip = new Trip()
+        // tempTrip.temp = true
+        // tempTrip.setConnections(it.getConnections())
+        // tempTrip.setName(tempTrip.duration().toString())
+        // tempTrip.connections.each(){
+        // def ddur = getDuration(it.start,it.end,"driving")
+        // if (( ddur < 30 ) && !(it.transMean.name.equals("Auto/Taxi")) ){
+        // it.transMean.name = "Auto/Taxi "
+        // if (it.start_time.getMinutes() + ddur >59){
+        // it.end_time.setMinutes(it.start_time.getMinutes() + ddur -60)
+        // it.end_time.setHours(it.start_time.getHours() + 1)
+        // }else{
+        // it.end_time.setMinutes(it.start_time.getMinutes() + ddur )
+        // }
+        // tempTrip.save()
+        // }                
+        // def wdur = getDuration(it.start,it.end,"walking")
+        // if (( wdur < 15 ) && !(it.transMean.name.equals("Fußweg")) ){
+        // it.transMean.name = "Fußweg"
+        // if (it.start_time.getMinutes() + wdur >59){
+        // it.end_time.setMinutes(it.start_time.getMinutes() + wdur -60)
+        // it.end_time.setHours(it.start_time.getHours() + 1)
+        // }else{
+        // it.end_time.setMinutes(it.start_time.getMinutes() + wdur )
+        // }
+        // tempTrip.save()
+        // }
+        // }
+        // }
         
         filter(trips)
 
-                        
-        //}catch (Throwable t) {
-            //redirect(controller: "tripmanagement", action: "error")
-        //}
+        // }catch (Throwable t) {
+        // redirect(controller: "tripmanagement", action: "error")
+        // }
     }
     
+    /**
+     *  ! comment here
+     */
     def getCo2(String transMean,String origin,String destination){
         
         def distance = getDistance(origin,destination,"driving")
@@ -258,9 +253,12 @@ class TripmanagementController {
         else if (transMean.contains("Walk"))
             return 0
         else
-        return 0
+            return 0
     }
     
+    /**
+     *  @return
+     */
     def int getDuration(String origin,String destination,mode){
         
         def apiUrl='http://maps.googleapis.com/maps/api/directions/xml?'
@@ -271,13 +269,14 @@ class TripmanagementController {
         if (mapsXML.route.leg.duration.value.text().equals("")) return 1000
         def duration = mapsXML.route.leg.duration.value.text() as int
         duration = duration / 60
-        //render duration
-        return duration
         
-
+        return (duration)
+        
     }
     
-
+    /**
+     *  @return the distance between two places
+     */
     def int getDistance(String origin,String destination,mode){
         
         def apiUrl='http://maps.googleapis.com/maps/api/directions/xml?'
@@ -287,13 +286,14 @@ class TripmanagementController {
         def mapsXML = new XmlParser().parse(xmlsource)
         def distance = mapsXML.route.leg.distance.value.text() as int
         distance = distance / 1000
-        //render distance
-        return distance
+       
+        return (distance)
 
     }
     
-    
-    
+    /**
+     *  ! comment here
+     */    
     def String getLocationId(String name) {
         
         def result
@@ -308,36 +308,26 @@ class TripmanagementController {
             if ((it.@name).equals(name) )  result = it.@id
         }
         
-        return result
+        return (result)
     }
-           
+    
+    /**
+     *
+     */
     def transportation_mean = {
-        
         render transportation_mean_collection as JSON
     }
     
     // filters the shortest_trip
     def filter(trips){
-        /*def shortest_trip = null
-        def triplist = Trip.list()
-        triplist.each(){
-            if(shortest_trip == null || it.duration() < shortest_trip.duration()){
-                shortest_trip = it
-            }
-        }*/
-        // test-output
-        //render shortest_trip as JSON
-        
         trips.sort{it.connections.size()}.sort{it.getStartTime()}
         // TODO: find the best Trips for the user!!
     }
     
-//    def generate_connection(String start, String end, TransportationMean tm) {
-//        // TODO: get from googlemaps
-//        def distance = 10   // kilometer
-//        
-//        (distance/tm.average_speed)*60
-//        
-//    }
+    // def generate_connection(String start, String end, TransportationMean tm) {
+    // TODO: "get from googlemaps"
+    // def distance = 10   // kilometer
+    // (distance/tm.average_speed)*60
+    // }
     
-}
+} // eoc

@@ -1,12 +1,18 @@
 package conn
 
+/**
+ *  ! comment here - The tripsearch controller
+ */
 class TripSearchController {
 
     def authenticationService
-    def angles
     def cities = []
+    def angles
     def trips
     
+    /**
+     *  ! comment here
+     */
     def index() { 
 
         User current = null
@@ -30,7 +36,9 @@ class TripSearchController {
     }
     
     
-    
-    def location() { }
+    /**
+     *  ! comment here
+     */
+    def location() {}
 
-}
+} // eoc

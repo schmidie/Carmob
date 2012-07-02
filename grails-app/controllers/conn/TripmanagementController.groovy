@@ -4,6 +4,14 @@ import java.text.SimpleDateFormat
 import grails.converters.*
 import org.xml.sax.*
 
+// imports for taxi2team1
+import groovyx.net.http.RESTClient
+import groovy.util.slurpersupport.GPathResult
+import static groovyx.net.http.ContentType.URLENC
+import java.security.MessageDigest
+import sun.misc.BASE64Encoder
+import sun.misc.CharacterEncoder
+
 /**
  *  ! comment here - The tripmanagement controller
  */
@@ -330,4 +338,28 @@ class TripmanagementController {
     // (distance/tm.average_speed)*60
     // }
     
+    /**
+     *  Books a taxitour with the software of team 1 if in a connection
+     *  of the trip a taxi is the transportationmean.
+     *  
+     *  NOT FINISHED, NOT TESTED !!!
+     *  TESTS ON 02.07.2012
+     */
+    def callRemoteCreateTour(Trip selectedTrip, User currentUser){
+        
+        selectedTrip.connections.each(){
+            
+            def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
+            def result = taxi2team1.get(query:[uemail:currentUser.email, hash:currentUser.email.encode, start:it.start, end:it.end, stime:it.start_time, etime:it.end_time])
+            
+            if (result.data == 'true' || result.data == 200){
+                // Taxitour could be booked by Team 1.
+                // set image in indexpage
+            }
+            else{           
+                log.error 'Es konnte kein Taxi gebucht werden.'
+            }
+            
+        }
+    }
 } // eoc

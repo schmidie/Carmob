@@ -14,7 +14,7 @@
 
         <div class="row-fluid">
           <div class="span2">
-            <a class="btn btn-success btn-large" href="TripSearch/index"><i class="icon-edit"></i> Route planen </a>
+            <a class="btn btn-success btn-large" href="/carmob/TripSearch/index"><i class="icon-edit"></i> Route planen </a>
           </div>
 
           </div>

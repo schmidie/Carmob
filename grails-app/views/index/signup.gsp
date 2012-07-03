@@ -1,27 +1,26 @@
 <!doctype html>
+
 <html>
+  
   <head>
     <meta name="layout" content="bootstrap"/>
     <title>Carmeq GmbH | CARMOB</title>
   </head>
 
   <body>
-    
+   
     <div class="hero-unit span6">
-    
-    <auth:ifNotLoggedIn>
-
-
+      <auth:ifNotLoggedIn>
       <auth:form authAction="signup" 
                  success="[controller:'index', action:'signup']" 
                  error="[controller:'index', action:'signup']" class="form-well">
-        <fieldset>
-          <h3>Registrierung</h3>
-          <br />
-          <div class="control-group">
-            <label class="control-label" for="login"><b>Login:</b></label>
-            <div class="controls">
-              <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span4"/>                          </div>
+      <fieldset>
+        <h3>Registrierung</h3>
+        <br />
+        <div class="control-group">
+          <label class="control-label" for="login"><b>Login:</b></label>
+          <div class="controls">
+            <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span4"/>                          </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="email"><b>Email:</b></label>
@@ -41,13 +40,14 @@
             <div class="controls">
               <input name="passwordConfirm" value="" type="password" class="span4"/>
             </div>
-          </div>
-          <div class="form-well">
+        </div>
+        <div class="form-well">
           <g:actionSubmit value="Sign up" class="btn btn-primary"/>
-          </div>
-        </fieldset>
+        </div>
+      </fieldset>
       </auth:form>
-    </auth:ifNotLoggedIn>
+      </auth:ifNotLoggedIn>
     </div>
+    
   </body>
 </html>

@@ -8,9 +8,7 @@ import org.xml.sax.*
 import groovyx.net.http.RESTClient
 import groovy.util.slurpersupport.GPathResult
 import static groovyx.net.http.ContentType.URLENC
-import java.security.MessageDigest
-import sun.misc.BASE64Encoder
-import sun.misc.CharacterEncoder
+
 
 /**
  *  ! comment here - The tripmanagement controller
@@ -350,7 +348,7 @@ class TripmanagementController {
             
             if (it.transMean.getGeneralTransMean() == "Taxi"){
                 def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
-                def result = taxi2team1.get(query:[uemail:currentUser.email, hash:123456, start:it.start, end:it.end, stime:it.start_time, etime:it.end_time])
+                def result = taxi2team1.get(query:[uemail:currentUser.email, start:it.start, end:it.end, stime:it.start_time, etime:it.end_time])
             }
          
         }

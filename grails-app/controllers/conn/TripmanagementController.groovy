@@ -95,6 +95,8 @@ class TripmanagementController {
             
             if(current != null){
                 current.addToTrips(save_trp)
+                //render "Hallo".encode as JSON
+                callRemoteCreateTour(save_trp, current)
             }
             redirect(controller: "Index", action: "index")
         }
@@ -341,25 +343,17 @@ class TripmanagementController {
     /**
      *  Books a taxitour with the software of team 1 if in a connection
      *  of the trip a taxi is the transportationmean.
-     *  
-     *  NOT FINISHED, NOT TESTED !!!
-     *  TESTS ON 02.07.2012
      */
     def callRemoteCreateTour(Trip selectedTrip, User currentUser){
         
         selectedTrip.connections.each(){
             
-            def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
-            def result = taxi2team1.get(query:[uemail:currentUser.email, hash:currentUser.email.encode, start:it.start, end:it.end, stime:it.start_time, etime:it.end_time])
-            
-            if (result.data == 'true' || result.data == 200){
-                // Taxitour could be booked by Team 1.
-                // set image in indexpage
+            if (it.transMean.getGeneralTransMean() == "Taxi"){
+                def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
+                def result = taxi2team1.get(query:[uemail:currentUser.email, hash:123456, start:it.start, end:it.end, stime:it.start_time, etime:it.end_time])
             }
-            else{           
-                log.error 'Es konnte kein Taxi gebucht werden.'
-            }
-            
+         
         }
     }
+    
 } // eoc

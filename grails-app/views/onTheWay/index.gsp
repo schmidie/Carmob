@@ -15,16 +15,12 @@
   </head>
   <body>
     
-    <div class="hero-unit">
+    <div class="well">
       
       <a class="btn" href="../index"><i class="icon-chevron-left"></i>beenden</a>
-      <hr>
-      
       <strong> <i class="icon-info-sign"></i> Klicke auf ein Routenelement um die Route ab dort zu ändern.</strong>        
     </div>
     
-    <hr>
-   
     <div class="alert alert-success">
       <div class="row-fluid">
         <strong>Von: ${trip?.getStart()} </strong><br>
@@ -33,32 +29,43 @@
       </div>
     </div>
 
-    <hr>
- <div class="row-fluid">
   <g:each in="${trip?.connections?.sort{it.start_time}}">
-    <div>
-      <a href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new Date().format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}&trip_id=${trip.id}"> 
-        
+
         <div class="alert alert-info">
+          <a class="close" href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new Date().format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}&trip_id=${trip.id}">ändern</a>
           <div>
-            <strong>${it.transMean.name}</strong> <br>
+            
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>${it.transMean.name}</strong><b class="caret"></b></a>
+              <a class="dropdown-menu">
+                <div >
+                  <i class="icon-time"></i> 
+                  ${it.getDuration()} min
+                </div>
+                <div>
+                  <strong>start:</strong> ${it.start_time.format('HH:mm')}
+                </div>
+                <div >
+                  <strong>end:</strong> ${it.end_time.format('HH:mm')} <br>
+                </div>
+                <div>
+                  <strong>von: </strong>${it.start} <br>
+                </div>
+                <div >
+                  <strong>nach: </strong> ${it.end} 
+                </div>
+              </a>
+            </div>
           </div>
-          <div >
-            <i class="icon-time"></i> 
-            ${it.getDuration()} min
-          </div>
+
           <div>
             <strong>start:</strong> ${it.start_time.format('HH:mm')}
           </div>
-          <div >
-            <strong>end:</strong> ${it.end_time.format('HH:mm')} <br>
-          </div>
+
           <div>
             <strong>von: </strong>${it.start} <br>
           </div>
-          <div >
-            <strong>nach: </strong> ${it.end} 
-          </div>
+
           <div>
           <div class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-road"></i><b class="caret"></b></a>
@@ -70,9 +77,7 @@
           </div>
         </div>
 
-      </a>
-    </div>
   </g:each>
- </div>
+
   </body>
 </html>

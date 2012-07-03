@@ -6,6 +6,9 @@
   </head>
 
   <body>
+    
+    <div class="hero-unit span6">
+    
     <auth:ifNotLoggedIn>
 
 
@@ -45,5 +48,6 @@
         </fieldset>
       </auth:form>
     </auth:ifNotLoggedIn>
+    </div>
   </body>
 </html>

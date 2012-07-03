@@ -114,7 +114,7 @@ class TripmanagementController {
      */
     def scratch() {
         
-        getDistance(params.start,params.end,"driving")
+        //getDistance(params.start,params.end,"driving")
         
         def originID = getLocationId(params.start)
         def destID = getLocationId(params.end)

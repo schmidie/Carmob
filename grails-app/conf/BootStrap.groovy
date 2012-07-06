@@ -6,7 +6,10 @@ class BootStrap {
         
         // predefined angels
         
-        if(!Angle.count()){
+        Angle.each(){
+            it.delete()
+        }
+
             // Berlin        
             //new Angle(name:"HauptBHF Berlin", address:"Europaplatz 1",  
             //    post_code:"10557", city:"Berlin", vincinity:"Berlin").save()
@@ -71,7 +74,6 @@ class BootStrap {
             
             //new Angle(name:"Skoda Werk (GEHT NICHT)", address:"Mladá Boleslav",  
             //    post_code:"", city:"CZ",  vicinity:"Prag").save()
-        }
          
     }
     

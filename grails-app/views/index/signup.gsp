@@ -4,7 +4,7 @@
   
   <head>
     <meta name="layout" content="bootstrap"/>
-    <title>Carmeq GmbH | CARMOB</title>
+    <title>TWOT</title>
   </head>
 
   <body>

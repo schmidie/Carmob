@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta name="layout" content="bootstrap"/>
-    <title>CARMOB</title>
+    <title>TWOT</title>
   </head>
   <body>
    
@@ -102,12 +102,14 @@
                     <li>${m_trip?.getStartTime()?.format('HH:mm')} <span class="divider">|</span></li>
                     
                     <g:each in="${m_trip?.connections}"> 
-                        <li><g:img dir="images" file="${it.transMean.getGeneralTransMean()}.png"/></li>
+                      <g:if test="${it.transMean.name != 'Walk'}">
+                          <li><g:img dir="images" file="${it.transMean.getGeneralTransMean()}.png"/></li>
+                        </g:if>
                       </g:each>
                     
                     <li><span class="divider">|</span>${m_trip?.getEndTime()?.format('HH:mm')}</li> <span class="divider">|</span></li>
                                       
-                    <li>${m_trip?.name} Minuten
+                    <li>${m_trip?.duration()} Minuten
                   </ul>
                 </a>
               </div>
@@ -127,6 +129,7 @@
                         </td>
                                                             
                         <g:each in="${m_trip?.connections}">
+                          <g:if test="${it.transMean.name != 'Walk'}">
                           <td>
                               <div class="alert alert-info ">
                                 <table border="0" rel="tooltip" title="${it.transMean.name}, Von: ${it.start},Nach: ${it.end}">
@@ -159,6 +162,7 @@
                              </g:else>
                           </div> 
                         </td>
+                        </g:if>
                         
                         </g:each>
                         </tr>

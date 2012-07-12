@@ -19,6 +19,8 @@ class User {
     
     Collection trips
     
+    Integer co2
+    
     // mapping - deployment with Heroku/Postgres doesn't allow user table
     static mapping = {
         table 'accounts'
@@ -38,10 +40,15 @@ class User {
         hasAuto     (nullable:true)
         hasBCard50  (nullable:true)
         hasBCard100 (nullable:true)
+        co2 (nullable:true)
 
     }
     
     // methods
+    
+    def getCO2(){
+        return co2
+    }
     
     /**
      *  @return the next trip of a user

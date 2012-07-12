@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta name="layout" content="bootstrap"/>
-    <title>CARMOB</title>
+    <title>TWOT</title>
   </head>
   <body>
     
@@ -32,14 +32,15 @@
 
               <div>
                 
-              <strong>ab:${m_trip?.getStartTime()?.format('HH:mm')} an:${m_trip?.getEndTime()?.format('HH:mm')} (${m_trip?.name}min)</strong></div>
+              <strong>ab:${m_trip?.getStartTime()?.format('HH:mm')} an:${m_trip?.getEndTime()?.format('HH:mm')} (${m_trip?.duration()}min)</strong></div>
 
               <g:each in="${m_trip?.connections}">                          
-                
-                <div>${it.transMean.name} 
-                
-                (${it.start_time.format('HH:mm')}-${it.end_time.format('HH:mm')})
-                </div>
+                <g:if test="${it.transMean.name != 'Walk'}">
+                  <div>
+                    ${it.transMean.name} 
+                    (${it.start_time.format('HH:mm')}-${it.end_time.format('HH:mm')})
+                  </div>
+                </g:if>
               </g:each>
 
             </div>

@@ -114,6 +114,10 @@ div.scrollable{
     overflow-x:auto;
 }
 
+div.scrollable_vertical{
+    overflow-y:auto;
+}
+
 .accordion-heading:hover { 
     color: black; 
     text-decoration:none; 

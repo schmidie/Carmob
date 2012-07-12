@@ -10,10 +10,13 @@ class IndexController {
     def authenticationService
     def timeToNextTrip            // time until the next trip of a user
     def myTrips                   // the trips of a user
+    def myCo2 = "test"
+    def m_user
     
     /**
      *  ! comment here
      */
+    
     def index() {
         
         if (!authenticationService.isLoggedIn(request)) {
@@ -26,9 +29,21 @@ class IndexController {
         
         if(m_id != null){
             current = User.get(m_id)
+            m_user = current
             if(current != null){
                 myTrips = current?.trips?.sort{it.getStartTime()}
                 timeToNextTrip = current.getTimeToNextTrip()
+                myCo2=0
+                for(Trip trip in myTrips){
+                    for(Connection conn in trip.connections){
+                       try{
+                        myCo2+=conn.getCo2()
+                        }
+                        catch(Throwable e){ 
+                        }
+                    }
+                }
+                current?.setCo2(myCo2)
             }
         }
     }

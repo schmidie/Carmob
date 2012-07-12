@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="${createLink(uri: '/')}">CARMOB</a>
+          <a class="brand" href="${createLink(uri: '/')}">TWOT</a>
           <auth:ifLoggedIn>
             <div class="nav-collapse">
               <ul class="nav">

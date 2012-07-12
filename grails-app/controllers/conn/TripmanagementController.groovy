@@ -112,7 +112,7 @@ class TripmanagementController {
      */
     def scratch() {
         
-        try{
+        //try{
         //getDistance(params.start,params.end,"driving")
         
         def originID = getLocationId(params.start)
@@ -130,6 +130,7 @@ class TripmanagementController {
         def authKey = "carmeq"
         def urlString = "${baseURL}/trip?authKey=${authKey}&originId=${originID}&destId=${destID}&time=${params.time}&date=${m_date}"
         def InputSource xmlsource = new InputSource(urlString)
+        
         
         def Connection tempConnection
         def TransportationMean tempMean
@@ -158,11 +159,17 @@ class TripmanagementController {
                 minute  = matcher[0][2].toInteger()
                 matcher = it.Destination.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
                 day     = matcher[0][1].toInteger()
-                month   = matcher[0][2].toInteger()
+                month   = matcher[0][2].toInteger() -1 // TODO: bad fix time is alwas on month before ??
                 year    = matcher[0][3].toInteger() + 2000
                 tempTime.set(year,month,day,hour,minute)
                 Date tmp_date = tempTime.time
 
+                /*tmp_date[Calendar.YEAR] = year
+                tmp_date[Calendar.MONTH] = month
+                tmp_date[Calendar.DAY_OF_MONTH] = day
+                tmp_date[Calendar.HOUR_OF_DAY] = hour
+                tmp_date[Calendar.MINUTE] = minute*/
+                    
                 tempConnection.setEnd_time(tmp_date)
                 tempTime = null
                 tempTime = new GregorianCalendar()
@@ -172,19 +179,25 @@ class TripmanagementController {
                 minute  = matcher[0][2].toInteger()
                 matcher = it.Origin.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
                 day     = matcher[0][1].toInteger()
-                month   = matcher[0][2].toInteger()
+                month   = matcher[0][2].toInteger() -1 // TODO: bad fix time is alwas on month before ??
                 year    = matcher[0][3].toInteger() + 2000
                 tempTime.set(year,month,day,hour,minute)
                 tmp_date = tempTime.time
 
+                /*tmp_date[Calendar.YEAR] = year
+                tmp_date[Calendar.MONTH] = month
+                tmp_date[Calendar.DAY_OF_MONTH] = day
+                tmp_date[Calendar.HOUR_OF_DAY] = hour
+                tmp_date[Calendar.MINUTE] = minute*/
+                    
                 tempConnection.setStart_time(tmp_date)
             
-                tempConnection.setTransMean(tempMean)
-                  
-                tempConnection.save()
+                tempConnection.setTransMean(tempMean)       
+                tempConnection.save()   
                 
-                tempConnectionList.add(tempConnection) 
-                
+                tempConnection.setCo2(getCo2(tempMean.name,tempConnection.getStart(),tempConnection.getEnd()))
+            
+                tempConnectionList.add(tempConnection)             
                 tempConnection = null
             }
             
@@ -206,23 +219,8 @@ class TripmanagementController {
             trips.add(tempTrip)
         }
         
-        // trips.each() {
-        // tempTrip = new Trip()
-        // tempTrip.temp = true
-        // tempTrip.setConnections(it.getConnections())
-        // tempTrip.setName(tempTrip.duration().toString())
-        // tempTrip.connections.each(){
-        // def ddur = getDuration(it.start,it.end,"driving")
-        // if (( ddur < 30 ) && !(it.transMean.name.equals("Auto/Taxi")) ){
-        // it.transMean.name = "Auto/Taxi "
-        // if (it.start_time.getMinutes() + ddur >59){
-        // it.end_time.setMinutes(it.start_time.getMinutes() + ddur -60)
-        // it.end_time.setHours(it.start_time.getHours() + 1)
-        // }else{
-        // it.end_time.setMinutes(it.start_time.getMinutes() + ddur )
-        // }
-        // tempTrip.save()
-        // }                
+        addOtherTransMean("Taxi",30)
+        addOtherTransMean("Bike",12)
         // def wdur = getDuration(it.start,it.end,"walking")
         // if (( wdur < 15 ) && !(it.transMean.name.equals("Fußweg")) ){
         // it.transMean.name = "Fußweg"
@@ -234,15 +232,73 @@ class TripmanagementController {
         // }
         // tempTrip.save()
         // }
-        // }
-        // }
-        
+         //}
+
         filter(trips)
 
-         }catch (Throwable t) {
+         //}
+         //catch (Throwable t) {
+         //}
         // redirect(controller: "tripmanagement", action: "error")
-         }
     }
+    
+    def addOtherTransMean(String name,Integer maxDistance){
+
+    def tempTrip_taxi_bike
+    def connections_taxi_bike = [] 
+    def toSave = false
+    def beforeTransMean = ""
+    tempTrip_taxi_bike = new Trip()
+    tempTrip_taxi_bike.temp = true
+    tempTrip_taxi_bike.setName(tempTrip_taxi_bike.duration().toString())
+    
+    trips[0]?.getConnections().each(){
+        def ddis = getDistance(it.start,it.end,"driving")
+        if (( ddis < maxDistance )&&(name=="Taxi"?!it.start.contains('Berlin'):it.start.contains('Berlin'))){    
+            if(beforeTransMean != name){
+                def tmp_Connection = new Connection()
+                def tmp_tempMean = new TransportationMean()
+                tmp_tempMean.setName(name)
+                beforeTransMean = name
+                tmp_tempMean.save()
+                tmp_Connection.setTransMean(tmp_tempMean)
+                tmp_Connection.setStart(it.getStart())
+                tmp_Connection.setEnd(it.getEnd())
+                tmp_Connection.setEnd_time(it.getEnd_time())
+                //tmp_Connection.setStart_time(new Date(it.getEnd_time().time - (getDuration(it.getStart(),it.getEnd(),name)*1000)))
+                //tmp_Connection.setStart_time(new Date(it.getEnd_time().time - ((getDuration(it.getStart(),it.getEnd(),name)*60000))))
+                tmp_Connection.setStart_time(new Date(it.getEnd_time().time - (long)((name=="Taxi"?30:35)*60000)))
+                tmp_Connection.save()
+                connections_taxi_bike.add(tmp_Connection)
+                toSave=true
+            }
+            else{
+                connections_taxi_bike.last().setEnd(it.getEnd())
+                //calculate the new start time
+                //connections_taxi_bike.last()?.setStart_time(
+                //    new Date(it.getEnd_time().time - ((5)*60000)))
+            }
+        }
+        else{
+            beforeTransMean = it.transMean.name
+            connections_taxi_bike.add(it)
+        }
+        tempTrip_taxi_bike.setConnections(connections_taxi_bike)
+    }
+    
+    if(toSave){
+        
+        tempTrip_taxi_bike.save()   
+        try{
+            tempConnection.setCo2(getCo2(tempTrip_taxi_bike.tempMean.name,tempTrip_taxi_bike.getStart(),tempTrip_taxi_bike.getEnd))
+        }catch(Throwable t){
+            
+        }
+        
+        trips.add(tempTrip_taxi_bike)
+    }
+    
+}
     
     /**
      *  ! comment here
@@ -251,7 +307,7 @@ class TripmanagementController {
         
         def distance = getDistance(origin,destination,"driving")
          
-        if (transMean.contains("ICE")||transMean.contains("RE")||transMean.contains("IC"))
+        if ( transMean.contains("ICE") || transMean.contains("RE") || transMean.contains("IC") || transMean.contains("RB"))
             return (distance*30)
         else if (transMean.contains("Bus"))
             return (distance*25)
@@ -271,7 +327,7 @@ class TripmanagementController {
     def int getDuration(String origin,String destination,mode){
         
         def apiUrl='http://maps.googleapis.com/maps/api/directions/xml?'
-        def urlString = "${apiUrl}origin=${origin}&destination=${destination}&mode=${mode}&sensor=false"
+        def urlString = "${apiUrl}origin=${origin.replaceAll(' ','%20')}&destination=${destination.replaceAll(' ','%20')}&mode=${mode.replaceAll(' ','%20')}&sensor=false"
         def InputSource xmlsource = new InputSource(urlString)
         
         def mapsXML = new XmlParser().parse(xmlsource)
@@ -287,16 +343,20 @@ class TripmanagementController {
      *  @return the distance between two places
      */
     def int getDistance(String origin,String destination,mode){
-        
-        def apiUrl='http://maps.googleapis.com/maps/api/directions/xml?'
-        def urlString = "${apiUrl}origin=${origin}&destination=${destination}&mode=${mode}&sensor=false"
-        def InputSource xmlsource = new InputSource(urlString)
-        
-        def mapsXML = new XmlParser().parse(xmlsource)
-        def distance = mapsXML.route.leg.distance.value.text() as int
-        distance = distance / 1000
-       
-        return (distance)
+        try{
+            def apiUrl='http://maps.googleapis.com/maps/api/directions/xml?'
+            def urlString = "${apiUrl}origin=${origin.replaceAll(' ','%20')}&destination=${destination.replaceAll(' ','%20')}&mode=${mode.replaceAll(' ','%20')}&sensor=false"
+            def InputSource xmlsource = new InputSource(urlString)
+
+            def mapsXML = new XmlParser().parse(xmlsource)
+            def distance = mapsXML.route.leg.distance.value.text() as int
+            distance = distance / 1000
+
+            return (distance)
+        }
+        catch (Throwable t) {
+            return 0
+        }
 
     }
     

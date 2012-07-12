@@ -10,7 +10,7 @@
 
   <resource:dateChooser />
   <meta name="layout" content="bootstrap"/>
-  <title>CARMOB</title>
+  <title>TWOT</title>
 
 </head>
 <body>

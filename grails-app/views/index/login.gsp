@@ -4,7 +4,7 @@
 
   <head>
     <meta name="layout" content="bootstrap"/>
-    <title>Carmeq GmbH | CARMOB</title>
+    <title>TWOT</title>
   </head>
 
   <body>
@@ -45,10 +45,15 @@
     <div class="span6">
       <table border="0">
         <tr>
+          <td colspan="2"><h2>TWOT - The way of traveling</h2></td>
+          <hr>
+        </tr>
+        <tr>
           <td v-align="top"><g:img dir="images" file="logo.png" width="120" height="120"/></td>
+          
           <td><h3>Intermodale Dynamische Routenplanung</h3>
           <hr>
-            <p>Das System soll die Möglichkeit bieten intermodale Routen zu planen. 
+            <p>Das System soll die Möglichkeit bieten, intermodale Routen zu planen. 
             Dabei sollen dem Nutzer alle nötigen Informationen wie beispielsweise eine Wettervorhersage angezeigt werden, 
             damit eine individuell optimale Reise geplant werden kann. </p>
           </td>
@@ -64,7 +69,8 @@
 
     </auth:ifNotLoggedIn>
   </div>
- 
+    
+   <!-- 
   <div class="span12">
     <h3>Top-Greens</h3>
     <blockquote><small>Hier werden die Nutzer aufgelistet, welche am wenigsten CO2 Ausstoß pro Kilometer erreicht haben.</small></blockquote>
@@ -77,14 +83,16 @@
         </tr>
       </thead>
       <tbody>
+       <g:each in="${User?.list()}"> 
         <tr>
-          <td></td>
-          <td></td>
+          <td>it.login</td>
+          <td>test</td>
         </tr>
+        </g:each>
       </tbody>
     </table>
       
-    <h3>Top-Sportler</h3>
+ <h3>Top-Sportler</h3>
     <blockquote><small>Hier werden die Nutzer aufgelistet, welche am meisten Kilometer mit dem Rad gefahren sind.</small></blockquote>
                   
     <table class="table table-bordered">
@@ -100,7 +108,7 @@
           <td></td>
         </tr>
       </tbody>
-    </table>
+    </table>-->
       
   </div>
     

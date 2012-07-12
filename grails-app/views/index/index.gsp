@@ -12,8 +12,8 @@
         <!--<div class="span3"><g:img dir="images" file="logo.png" width="120" height="120"/></div >-->
         <div class="row-fluid">
           <div class="span2">
-            <!--<a class="btn btn-success btn-large" href="/carmob/TripSearch/index"><i class="icon-edit"></i> Route planen </a>-->
-            <g:link controller="TripSearch"><a class="btn btn-success btn-large" ><i class="icon-edit"></i> Route planen</a></g:link>
+            <a class="btn btn-success btn-large" href="/TripSearch/index"><i class="icon-edit"></i> Route planen </a>
+            <!--<g:link controller="TripSearch" action="index"><a class="btn btn-success btn-large" ><i class="icon-edit"></i> Route planen</a></g:link>-->
           </div>
           <div class="span8">&nbsp</div>
           <div class="span2">
@@ -60,8 +60,7 @@
                     <g:else>
                       <tr>
                     </g:else>
-                        <td><center><g:link controller="onTheWay" action="index" params="[trip_id:${it.id}]"> <g:img dir="images" file="gobutton.png" width="32" height="32"/> </g:link></center></td>
-                        
+                        <td><center><a href="../onTheWay/index?trip_id=${it.id}"><g:img dir="images" file="gobutton.png" width="32" height="32"/></center></a></td>
                         <td vertical-align>${it.getStartTime().format('dd.MM.yyyy')}</td>
                         <td>${it.getStartTime().format('HH:mm')}</td>
                         <td>${it.getEndTime().format('HH:mm')}</td>

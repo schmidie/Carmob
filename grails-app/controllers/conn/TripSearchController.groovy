@@ -14,6 +14,25 @@ class TripSearchController {
      *  ! comment here
      */
     def index() { 
+        
+        new Angle(name:"CQ Büro (B)", address:"Helmholtzstr., Berlin",  
+                post_code:"10587", city:"Berlin",  vicinity:"Berlin").save()
+
+            new Angle(name:"VW-TE Hopfengarten", address:"Mozartstraße, Wolfsburg-Fallersleben",  
+                post_code:"38442", city:"Wolfsburg",  vicinity:"Wolfsburg").save()
+            
+            new Angle(name:"VW-TE Rübenkamp", address:"Mozartstraße, Wolfsburg-Fallersleben",  
+                post_code:"38442", city:"Wolfsburg",  vicinity:"Wolfsburg").save()
+            
+            new Angle(name:"VW AutoUni", address:"Hageberg Brücke Sandkamp, Wolfsburg",  
+                post_code:"38440", city:"Wolfsburg",  vicinity:"Wolfsburg").save()
+            
+            new Angle(name:"VW-FE LKW Wache", address:"VW LKW Waage, Wolfsburg",  
+                post_code:"38440", city:"Wolfsburg",  vicinity:"Wolfsburg").save()
+
+            new Angle(name:"Audi TE", address:"Audi - Tor 10, Ingolstadt",  
+                post_code:"85055", city:"Ingolstadt",  vicinity:"Ingolstadt").save()
+
 
         User current = null
         def m_id = null

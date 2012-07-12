@@ -14,7 +14,7 @@ class OnTheWayController {
     def index() { 
        
         if(params.trip_id){
-            trip = Trip.get((long)params.trip_id)
+            trip = Trip.get(params.trip_id)
         }
         else{
             User current = null

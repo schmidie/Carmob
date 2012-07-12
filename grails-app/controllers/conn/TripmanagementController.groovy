@@ -409,14 +409,21 @@ class TripmanagementController {
         //def rawTrip = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
         //def rTresult = rawTrip.get(query:[uemail:'tombullmann@googlemail.com', hash:'', start:'Hauptbahnhof', end:'Carmeq Wolfsburg, Autovision', stime:'2012-07-16 12:00:00', etime:'2012-07-16 12:15:00', city:'Wolfsburg'])
         // Dummy für Taxi an Team 1 END
-        
-        selectedTrip.connections.each(){
+        try{
+        selectedTrip?.connections?.each(){
             
             if (it.transMean.getGeneralTransMean() == "Taxi"){
-                def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
-                def result = taxi2team1.get(query:[uemail:currentUser.email, hash:'', start:it.start, end:it.end, stime:it.start_time, etime:it.end_time, city:'Wolfsburg'])
+                //def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
+                //def start= it.getStart().replaceAll('-',' ')
+                //def end= it.getEnd().replaceAll('-',' ')
+                //def s_date=it.getStart_time().format('yyyy-MM-dd HH:mm:00')
+                //def e_date=it.getEnd_time().format('yyyy-MM-dd HH:mm:00')
+                def result = taxi2team1.get(query:[uemail:currentUser.email, hash:'', start:it.getStart(), end:it.getEnd(), stime:it.getStart_time(), etime:it.getEnd_time(), city:'Wolfsburg'])
             }
          
+        }
+        }catch(Throwable e){
+
         }
     }
     

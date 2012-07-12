@@ -72,7 +72,6 @@
                 <img src="http://maps.google.com/maps/api/staticmap?center=${it.end}&zoom=15&size=256x256&maptype=roadmap&scale=1
                      &markers=lable:S%7Ccolor:blue%7C${it.end}&
                      markers=lable:Z%7Ccolor:red%7C${trip?.connections?.getAt(trip.connections.lastIndexOf(it)+1)?.start}&sensor=false"></img>
-                ${trip?.connections?.getAt(trip?.connections?.lastIndexOf(it)+1)?.start}
               </div>
             </div>
             </div>

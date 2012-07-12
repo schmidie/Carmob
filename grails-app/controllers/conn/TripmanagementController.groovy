@@ -345,11 +345,16 @@ class TripmanagementController {
      */
     def callRemoteCreateTour(Trip selectedTrip, User currentUser){
         
+        // Dummy für Taxi an Team 1 START
+        def rawTrip = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
+        def rTresult = rawTrip.get(query:[uemail:'tombullmann@googlemail.com', hash:'', start:'Hauptbahnhof', end:'Carmeq Wolfsburg, Autovision', stime:'2012-07-16 12:00:00', etime:'2012-07-16 12:15:00', city:'Wolfsburg'])
+        // Dummy für Taxi an Team 1 END
+        
         selectedTrip.connections.each(){
             
             if (it.transMean.getGeneralTransMean() == "Taxi"){
                 def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
-                def result = taxi2team1.get(query:[uemail:currentUser.email, start:it.start, end:it.end, stime:it.start_time, etime:it.end_time])
+                def result = taxi2team1.get(query:[uemail:currentUser.email, hash:'', start:it.start, end:it.end, stime:it.start_time, etime:it.end_time, city:'Wolfsburg'])
             }
          
         }

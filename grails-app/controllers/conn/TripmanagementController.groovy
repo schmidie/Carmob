@@ -406,8 +406,8 @@ class TripmanagementController {
     def callRemoteCreateTour(Trip selectedTrip, User currentUser){
         
         // Dummy für Taxi an Team 1 START
-        def rawTrip = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
-        def rTresult = rawTrip.get(query:[uemail:'tombullmann@googlemail.com', hash:'', start:'Hauptbahnhof', end:'Carmeq Wolfsburg, Autovision', stime:'2012-07-16 12:00:00', etime:'2012-07-16 12:15:00', city:'Wolfsburg'])
+        //def rawTrip = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
+        //def rTresult = rawTrip.get(query:[uemail:'tombullmann@googlemail.com', hash:'', start:'Hauptbahnhof', end:'Carmeq Wolfsburg, Autovision', stime:'2012-07-16 12:00:00', etime:'2012-07-16 12:15:00', city:'Wolfsburg'])
         // Dummy für Taxi an Team 1 END
         
         selectedTrip.connections.each(){

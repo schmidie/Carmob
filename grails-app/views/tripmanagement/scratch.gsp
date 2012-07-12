@@ -45,7 +45,7 @@
         </g:else>-->
 
         <hr>
-        <div class="well">
+        <!--<div class="well">
         <div class="accordion" id="accordionFilter">
           <div class="accordion-group">
             <div class="accordion-heading">
@@ -90,7 +90,7 @@
           </div>
         </div>
    
-        <hr>
+        <hr>-->
 
         <g:each var="m_trip" in="${trips}">
 

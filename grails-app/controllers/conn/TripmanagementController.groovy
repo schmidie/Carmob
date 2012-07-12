@@ -112,6 +112,7 @@ class TripmanagementController {
      */
     def scratch() {
         
+        try{
         //getDistance(params.start,params.end,"driving")
         
         def originID = getLocationId(params.start)
@@ -238,9 +239,9 @@ class TripmanagementController {
         
         filter(trips)
 
-        // }catch (Throwable t) {
+         }catch (Throwable t) {
         // redirect(controller: "tripmanagement", action: "error")
-        // }
+         }
     }
     
     /**

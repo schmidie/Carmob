@@ -5,11 +5,9 @@ class BootStrap {
     def init = { servletContext ->
         
         // predefined angels
-        
-        Angle.each(){
-            it.delete()
-        }
 
+        
+        if(!Angle.count()){
             // Berlin        
             //new Angle(name:"HauptBHF Berlin", address:"Europaplatz 1",  
             //    post_code:"10557", city:"Berlin", vincinity:"Berlin").save()
@@ -74,6 +72,7 @@ class BootStrap {
             
             //new Angle(name:"Skoda Werk (GEHT NICHT)", address:"Mladá Boleslav",  
             //    post_code:"", city:"CZ",  vicinity:"Prag").save()
+        }
          
     }
     

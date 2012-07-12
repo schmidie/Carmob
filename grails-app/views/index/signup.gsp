@@ -9,7 +9,7 @@
 
   <body>
    
-    <div class="hero-unit span6">
+    <div class="hero-unit span3">
       <auth:ifNotLoggedIn>
       <auth:form authAction="signup" 
                  success="[controller:'index', action:'signup']" 
@@ -20,25 +20,25 @@
         <div class="control-group">
           <label class="control-label" for="login"><b>Login:</b></label>
           <div class="controls">
-            <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span4"/>                          </div>
+            <g:textField name="login" value="${flash.signupForm?.login?.encodeAsHTML()}" class="span2"/>                          </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="email"><b>Email:</b></label>
             <div class="controls">
-              <g:textField name="email" value="${flash.signupForm?.email?.encodeAsHTML()}" class="span4"/>
+              <g:textField name="email" value="${flash.signupForm?.email?.encodeAsHTML()}" class="span2"/>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"  for="password"><b>Passwort:</b></label>
             <div class="controls">
-              <input name="password" value="" type="password" class="span4"/>
+              <input name="password" value="" type="password" class="span2"/>
               <span class="help-block">(mindestens 6 Zeichen)</span>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label"  for="passwordConfirm"><b>Passwort wiederholen:</b></label>
             <div class="controls">
-              <input name="passwordConfirm" value="" type="password" class="span4"/>
+              <input name="passwordConfirm" value="" type="password" class="span2"/>
             </div>
         </div>
         <div class="form-well">

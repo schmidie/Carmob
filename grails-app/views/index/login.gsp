@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <div class="hero-unit span4">
+    <div class="hero-unit span3">
     <auth:ifNotLoggedIn>
       <g:if test="${flash.authenticationFailure}">
         Ihre Anmeldung ist fehlgeschlagen:
@@ -24,12 +24,12 @@
           <div class="control-group">
             <label class="control-label" for="login"><b>Login:</b></label>
             <div class="controls">
-              <g:textField name="login" value="${flash.loginForm?.login?.encodeAsHTML()}" class="span3"/>
+              <g:textField name="login" value="${flash.loginForm?.login?.encodeAsHTML()}" class="span2"/>
             </div>
             <div class="control-group">
               <label class="control-label" for="password"><b>Passwort:</b></label>
               <div class="controls">
-                <input name="password" value="" type="password" class="span3"/>
+                <input name="password" value="" type="password" class="span2"/>
               </div>
             </div>
             <div  class="form-well">
@@ -42,7 +42,7 @@
       </auth:form>
     </div> 
     
-    <div class="span6">
+    <div class="span4">
       <table border="0">
         <tr>
           <td colspan="2"><h2>TWOT - The way of traveling</h2></td>

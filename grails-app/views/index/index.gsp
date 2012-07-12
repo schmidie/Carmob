@@ -60,7 +60,7 @@
                     <g:else>
                       <tr>
                     </g:else>
-                        <td><center><g:link controller="onTheWay" action="index" params="[trip_id:${it.id}]"> <g:img dir="images" file="gobutton.png" width="32" height="32"/> </g:link></center></a></td>
+                        <td><center><g:link controller="onTheWay" action="index" params="[trip_id:${it.id}]"> <g:img dir="images" file="gobutton.png" width="32" height="32"/> </g:link></center></td>
                         
                         <td vertical-align>${it.getStartTime().format('dd.MM.yyyy')}</td>
                         <td>${it.getStartTime().format('HH:mm')}</td>

@@ -413,7 +413,7 @@ class TripmanagementController {
         selectedTrip?.connections?.each(){
             
             if (it.transMean.getGeneralTransMean() == "Taxi"){
-                //def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
+                def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
                 //def start= it.getStart().replaceAll('-',' ')
                 //def end= it.getEnd().replaceAll('-',' ')
                 //def s_date=it.getStart_time().format('yyyy-MM-dd HH:mm:00')

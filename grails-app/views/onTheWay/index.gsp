@@ -26,7 +26,7 @@
       <g:if test="${it.transMean.name != 'Walk'}">
           <div class="alert alert-info">
             <!--<a class="close" href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new Date().format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}&trip_id=${trip.id}">ändern</a>-->
-            <a class="close" href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new GregorianCalendar(2012, Calendar.JULY, 13, 11, 00, 00).time.format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}&trip_id=${trip.id}">ändern</a>
+            <a class="close" href="../tripmanagement/scratch_mobile?start=${it.start}&end=${trip.getEnd()}&date=${new GregorianCalendar(2012, Calendar.JULY, 13, 11, 11, 00).time.format('dd.MM.yyyy')}&time=${new Date().format('HH:mm')}&trip_id=${trip.id}">ändern</a>
             <div>
               <div class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>${it.transMean.name}</strong><b class="caret"></b></a>

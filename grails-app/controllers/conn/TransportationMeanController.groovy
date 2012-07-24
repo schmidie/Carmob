@@ -1,7 +1,8 @@
 package conn
 
 /**
- *  ! comment here - The transportationmean controller
+ *  The transportationmean controller
+ *  standard scaffolding
  */
 class TransportationMeanController {
 

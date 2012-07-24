@@ -1,7 +1,7 @@
 package conn
 
 /**
- *  ! comment here - The tripsearch controller
+ *  The tripsearch controller
  */
 class TripSearchController {
 
@@ -11,7 +11,10 @@ class TripSearchController {
     def trips
     
     /**
-     *  ! comment here
+     *  The index method of the tripSearchController
+     *  find all the trips of the current user to create a fast selection of start/end in the View.
+     *  Find also all the Angles and all the cities for the start-Angle and end-Angle selection.
+     *  
      */
     def index() { 
        
@@ -39,7 +42,6 @@ class TripSearchController {
     
     
     /**
-     *  ! comment here
      */
     def location() {}
 

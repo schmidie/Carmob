@@ -2,6 +2,10 @@ package conn
 
 import org.springframework.dao.DataIntegrityViolationException
 
+/**
+ * The USer Controller
+ * generated from scaffolding
+ */
 class UserController {
 
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
@@ -45,7 +49,7 @@ class UserController {
     }
 
     /**
-     *  Shows all users.
+     *  Shows user.
      */
     def show() {
         def userInstance = User.get(params.id)

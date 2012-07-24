@@ -1,7 +1,7 @@
 package conn
 
 /**
- *  ! comment here - The on-the-way controller
+ *  The on-the-way controller of the mobile Interface
  */
 class OnTheWayController {
 
@@ -9,7 +9,8 @@ class OnTheWayController {
     def trip
     
     /**
-     *  ! comment here
+     *  The index method gets the trip with the given trip id. 
+     *  If there is no parameter with trip-id we take the next trip for the current user
      */
     def index() { 
        

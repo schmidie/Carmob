@@ -1,7 +1,8 @@
 package conn
 
 /**
- *  ! comment here - The trip controller
+ *  The trip controller
+ *  standard scaffolding
  */
 class TripController {
     

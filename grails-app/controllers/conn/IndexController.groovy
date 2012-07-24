@@ -3,20 +3,22 @@ package conn
 import java.text.DateFormat
 
 /**
- *  ! comment here - The index controller
+ *  The index controller, when the user calls the index site the Inex method searches all the trips of the user 
+ *  and calculate the co2 emission.
+ *  TODO: For more performance the calculation of the co2 could be done at the point, where a new trip is added to the user.
  */
 class IndexController {
     
     def authenticationService
     def timeToNextTrip            // time until the next trip of a user
     def myTrips                   // the trips of a user
-    def myCo2 = "test"
+    def myCo2 = 0
     def m_user
     
     /**
-     *  ! comment here
+     *  The index method gets all the Trips of the current user.
+     *  It calculates for all the Trips the CO2 emission for this user
      */
-    
     def index() {
         
         if (!authenticationService.isLoggedIn(request)) {

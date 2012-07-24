@@ -11,7 +11,8 @@ import static groovyx.net.http.ContentType.URLENC
 
 
 /**
- *  ! comment here - The tripmanagement controller
+ *  The tripmanagement controller for the controlling of the trip selection
+ *  
  */
 class TripmanagementController {
   
@@ -20,20 +21,15 @@ class TripmanagementController {
     def transportation_mean_collection      // the possible transMeans
     def m_user                              // the current user
     
-    /**
-     *  ! comment here
-     */
+
     def error() {}
     
-    /**
-     *  ! comment here
-     */
     def index() { 
         redirect action: 'scratch', params: params
     }
     
     /**
-     *  @return ! comment here
+     *  get the general Transportation Mean from a given string
      */
     def getTransMean(String name){
         
@@ -53,7 +49,7 @@ class TripmanagementController {
     }
 
     /**
-     *  ! comment here
+     *  saves a trip for the current user from the on The way view if the user chooses dynamicly a new trip
      */
     def save_trip_mobile(){
         
@@ -76,7 +72,10 @@ class TripmanagementController {
     }
     
     /**
-     *  ! comment here
+     *  save_trip saves a trip for a user.
+     *  if the user selects a trip from the list,
+     *   the trip will be saved and for all taxi elements we try to book a taxi-trip with the API
+     *   The user will be redirected to the index
      */
     def save_trip(){
        
@@ -101,147 +100,117 @@ class TripmanagementController {
     }
     
     /**
-     *  Calls the method "scratch".
+     *  Scratch Mobile just calls the normal scratch method
      */
     def scratch_mobile() {
         scratch()
     }
     
     /**
-     *  ! comment here
+     *  search for trips with the given parameter date, origin, destination, time
+     *  If we find some trips from the API, sort this trips and add some intermodality with other transportation Means
      */
     def scratch() {
         
         try{
-        //getDistance(params.start,params.end,"driving")
-        
-        def originID = getLocationId(params.start)
-        def destID = getLocationId(params.end)
-        
-        //buildTripList(originID,destID)
-        
-        def m_date = params.date_day+"."+params.date_month+"."+params.date_year
-        
-        if(!params.date_day || !params.date_month  || !params.date_year ){
-            m_date = params.date
-        }
+            def originID = getLocationId(params.start)
+            def destID = getLocationId(params.end)       
+            def m_date = params.date_day+"."+params.date_month+"."+params.date_year   
+            if(!params.date_day || !params.date_month  || !params.date_year ){
+                m_date = params.date
+            }         
+            def baseURL = "http://demo.hafas.de/bin/pub/carmeq/rest.exe"
+            def authKey = "carmeq"
+            def urlString = "${baseURL}/trip?authKey=${authKey}&originId=${originID}&destId=${destID}&time=${params.time}&date=${m_date}"
+            def InputSource xmlsource = new InputSource(urlString)
             
-        def baseURL = "http://demo.hafas.de/bin/pub/carmeq/rest.exe"
-        def authKey = "carmeq"
-        def urlString = "${baseURL}/trip?authKey=${authKey}&originId=${originID}&destId=${destID}&time=${params.time}&date=${m_date}"
-        def InputSource xmlsource = new InputSource(urlString)
-        
-        
-        def Connection tempConnection
-        def TransportationMean tempMean
-        def GregorianCalendar tempTime
-        def Trip tempTrip
-        def tempConnectionList = []
-        def matcher
-        
-        def tripListXML = new XmlParser().parse(xmlsource)
-        tripListXML.Trip.each{
-            it.LegList.Leg.each{
-                tempConnection = new Connection()
-                tempMean       = new TransportationMean()
-                tempMean.setName(it.@name)
-                tempMean.setDirection(it.@direction)
-                tempMean.save()
-
-                tempConnection.setStart(it.Origin.@name)
-                tempConnection.setEnd(it.Destination.@name)
             
-                tempTime = new GregorianCalendar()
-                def hour, minute, day, month, year
+            def Connection tempConnection
+            def TransportationMean tempMean
+            def GregorianCalendar tempTime
+            def Trip tempTrip
+            def tempConnectionList = []
+            def matcher
             
-                matcher = it.Destination.@time =~ /\[([^:]*):(.*)\]/
-                hour    = matcher[0][1].toInteger() 
-                minute  = matcher[0][2].toInteger()
-                matcher = it.Destination.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
-                day     = matcher[0][1].toInteger()
-                month   = matcher[0][2].toInteger() -1 // TODO: bad fix time is alwas on month before ??
-                year    = matcher[0][3].toInteger() + 2000
-                tempTime.set(year,month,day,hour,minute)
-                Date tmp_date = tempTime.time
-
-                /*tmp_date[Calendar.YEAR] = year
-                tmp_date[Calendar.MONTH] = month
-                tmp_date[Calendar.DAY_OF_MONTH] = day
-                tmp_date[Calendar.HOUR_OF_DAY] = hour
-                tmp_date[Calendar.MINUTE] = minute*/
+            def tripListXML = new XmlParser().parse(xmlsource)
+            tripListXML.Trip.each{
+                it.LegList.Leg.each{
+                    tempConnection = new Connection()
+                    tempMean       = new TransportationMean()
+                    tempMean.setName(it.@name)
+                    tempMean.setDirection(it.@direction)
+                    tempMean.save()
                     
-                tempConnection.setEnd_time(tmp_date)
-                tempTime = null
-                tempTime = new GregorianCalendar()
-            
-                matcher = it.Origin.@time =~ /\[([^:]*):(.*)\]/
-                hour    = matcher[0][1].toInteger() 
-                minute  = matcher[0][2].toInteger()
-                matcher = it.Origin.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
-                day     = matcher[0][1].toInteger()
-                month   = matcher[0][2].toInteger() -1 // TODO: bad fix time is alwas on month before ??
-                year    = matcher[0][3].toInteger() + 2000
-                tempTime.set(year,month,day,hour,minute)
-                tmp_date = tempTime.time
-
-                /*tmp_date[Calendar.YEAR] = year
-                tmp_date[Calendar.MONTH] = month
-                tmp_date[Calendar.DAY_OF_MONTH] = day
-                tmp_date[Calendar.HOUR_OF_DAY] = hour
-                tmp_date[Calendar.MINUTE] = minute*/
+                    tempConnection.setStart(it.Origin.@name)
+                    tempConnection.setEnd(it.Destination.@name)
                     
-                tempConnection.setStart_time(tmp_date)
-            
-                tempConnection.setTransMean(tempMean)       
-                tempConnection.save()   
+                    tempTime = new GregorianCalendar()
+                    def hour, minute, day, month, year
+                    
+                    matcher = it.Destination.@time =~ /\[([^:]*):(.*)\]/
+                    hour    = matcher[0][1].toInteger() 
+                    minute  = matcher[0][2].toInteger()
+                    matcher = it.Destination.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
+                    day     = matcher[0][1].toInteger()
+                    month   = matcher[0][2].toInteger() -1 // TODO: bad fix time is alwas on month before ??
+                    year    = matcher[0][3].toInteger() + 2000
+                    tempTime.set(year,month,day,hour,minute)
+                    Date tmp_date = tempTime.time         
+                    tempConnection.setEnd_time(tmp_date)
+                    tempTime = null
+                    tempTime = new GregorianCalendar()        
+                    matcher = it.Origin.@time =~ /\[([^:]*):(.*)\]/
+                    hour    = matcher[0][1].toInteger() 
+                    minute  = matcher[0][2].toInteger()
+                    matcher = it.Origin.@date =~/\[([^.]*).([^.]*).([^.]*)\]/
+                    day     = matcher[0][1].toInteger()
+                    month   = matcher[0][2].toInteger() -1 // TODO: bad fix time is alwas on month before ??
+                    year    = matcher[0][3].toInteger() + 2000
+                    tempTime.set(year,month,day,hour,minute)
+                    tmp_date = tempTime.time              
+                    tempConnection.setStart_time(tmp_date)            
+                    tempConnection.setTransMean(tempMean)       
+                    tempConnection.save()           
+                    tempConnection.setCo2(getCo2(tempMean.name,tempConnection.getStart(),tempConnection.getEnd()))         
+                    tempConnectionList.add(tempConnection)             
+                    tempConnection = null
+                }
                 
-                tempConnection.setCo2(getCo2(tempMean.name,tempConnection.getStart(),tempConnection.getEnd()))
-            
-                tempConnectionList.add(tempConnection)             
-                tempConnection = null
+                tempTrip = new Trip()
+                tempTrip.temp = true
+                
+                // sort the list
+                def s = tempConnectionList.size()
+                def tempConnectionList2 = []
+                
+                while(s-- > 0){
+                    tempConnectionList2.add(tempConnectionList.pop() )
+                }
+                
+                tempTrip.setConnections(tempConnectionList2.sort{it.start_time})
+                tempTrip.setName(tempTrip.duration().toString())
+                tempTrip.save()     
+                
+                trips.add(tempTrip)
             }
             
-            tempTrip = new Trip()
-            tempTrip.temp = true
-        
-            // sort the list
-            def s = tempConnectionList.size()
-            def tempConnectionList2 = []
+            // add Taxi Elements
+            addOtherTransMean("Taxi",30)        
+            //add bike Elements
+            addOtherTransMean("Bike",12)
+            // filter the trips
+            filter(trips)
             
-            while(s-- > 0){
-                tempConnectionList2.add(tempConnectionList.pop() )
-            }
-        
-            tempTrip.setConnections(tempConnectionList2.sort{it.start_time})
-            tempTrip.setName(tempTrip.duration().toString())
-            tempTrip.save()     
-                 
-            trips.add(tempTrip)
         }
-        
-        addOtherTransMean("Taxi",30)
-        addOtherTransMean("Bike",12)
-        // def wdur = getDuration(it.start,it.end,"walking")
-        // if (( wdur < 15 ) && !(it.transMean.name.equals("Fußweg")) ){
-        // it.transMean.name = "Fußweg"
-        // if (it.start_time.getMinutes() + wdur >59){
-        // it.end_time.setMinutes(it.start_time.getMinutes() + wdur -60)
-        // it.end_time.setHours(it.start_time.getHours() + 1)
-        // }else{
-        // it.end_time.setMinutes(it.start_time.getMinutes() + wdur )
-        // }
-        // tempTrip.save()
-        // }
-         //}
-
-        filter(trips)
-
-         }
-         catch (Throwable t) {
-         }
+        catch (Throwable t) {
+        }
         // redirect(controller: "tripmanagement", action: "error")
     }
     
+    /**
+     * addOtherTransMean adds other TransportationMeans to the existing trips. 
+     * The maxDistance is the maximum distance to travel with this transporationMean. 
+     */
     def addOtherTransMean(String name,Integer maxDistance){
 
     def tempTrip_taxi_bike
@@ -252,6 +221,7 @@ class TripmanagementController {
     tempTrip_taxi_bike.temp = true
     tempTrip_taxi_bike.setName(tempTrip_taxi_bike.duration().toString())
     
+        // iterate all the trips and check if we can create some new trips with the new TransportationMean 
     trips[0]?.getConnections().each(){
         def ddis = getDistance(it.start,it.end,"driving")
         if (( ddis < maxDistance )&&(name=="Taxi"?!it.start.contains('Berlin'):it.start.contains('Berlin'))){    
@@ -285,7 +255,7 @@ class TripmanagementController {
         }
         tempTrip_taxi_bike.setConnections(connections_taxi_bike)
     }
-    
+    // only save the new trips if we changed something
     if(toSave){
         
         tempTrip_taxi_bike.save()   
@@ -301,7 +271,8 @@ class TripmanagementController {
 }
     
     /**
-     *  ! comment here
+     *  gets the CO2 emission for a trip from origin to destination with the transportationMean transMean
+     *  Be carefull, this calculations are only rounded values they are not 100% correct!
      */
     def getCo2(String transMean,String origin,String destination){
         
@@ -322,7 +293,8 @@ class TripmanagementController {
     }
     
     /**
-     *  @return
+     *  @return the duration between two places origin and destination with the given mode
+     *   mode can be car, bike, walk
      */
     def int getDuration(String origin,String destination,mode){
         
@@ -340,7 +312,8 @@ class TripmanagementController {
     }
     
     /**
-     *  @return the distance between two places
+     *  @return the distance between two places with the given mode
+     *  mode can be car, bike, walk
      */
     def int getDistance(String origin,String destination,mode){
         try{
@@ -361,7 +334,7 @@ class TripmanagementController {
     }
     
     /**
-     *  ! comment here
+     *  Gets the Locatio-ID of a given Location
      */    
     def String getLocationId(String name) {
         
@@ -381,11 +354,9 @@ class TripmanagementController {
     }
     
     /**
-     *
-     */
     def transportation_mean = {
         render transportation_mean_collection as JSON
-    }
+    }*/
     
     // filters the shortest_trip
     def filter(trips){
@@ -393,11 +364,6 @@ class TripmanagementController {
         // TODO: find the best Trips for the user!!
     }
     
-    // def generate_connection(String start, String end, TransportationMean tm) {
-    // TODO: "get from googlemaps"
-    // def distance = 10   // kilometer
-    // (distance/tm.average_speed)*60
-    // }
     
     /**
      *  Books a taxitour with the software of team 1 if in a connection
@@ -409,18 +375,14 @@ class TripmanagementController {
         //def rawTrip = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
         //def rTresult = rawTrip.get(query:[uemail:'tombullmann@googlemail.com', hash:'', start:'Hauptbahnhof', end:'Carmeq Wolfsburg, Autovision', stime:'2012-07-16 12:00:00', etime:'2012-07-16 12:15:00', city:'Wolfsburg'])
         // Dummy für Taxi an Team 1 END
+        
         try{
         selectedTrip?.connections?.each(){
             
             if (it.transMean.getGeneralTransMean() == "Taxi"){
                 def taxi2team1 = new RESTClient('http://dev.noova.de:9001/tour/remoteCreateTour')
-                //def start= it.getStart().replaceAll('-',' ')
-                //def end= it.getEnd().replaceAll('-',' ')
-                //def s_date=it.getStart_time().format('yyyy-MM-dd HH:mm:00')
-                //def e_date=it.getEnd_time().format('yyyy-MM-dd HH:mm:00')
                 def result = taxi2team1.get(query:[uemail:currentUser.email, hash:'', start:it.getStart(), end:it.getEnd(), stime:it.getStart_time(), etime:it.getEnd_time(), city:'Wolfsburg'])
             }
-         
         }
         }catch(Throwable e){
 

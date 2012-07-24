@@ -3,7 +3,8 @@ package conn
 import org.springframework.dao.DataIntegrityViolationException
 
 /**
- *  ! comment here - The connection controller
+ *  ConnectionController Class generated with scaffolding
+ *  Methods for create, list, show, edit and delete Connections
  */
 class ConnectionController {
 
@@ -48,7 +49,7 @@ class ConnectionController {
     }
 
     /**
-     *  Shows all connections.
+     *  Shows connection.
      */
     def show() {
         def connectionInstance = Connection.get(params.id)

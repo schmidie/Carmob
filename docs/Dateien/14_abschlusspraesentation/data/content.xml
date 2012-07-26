@@ -1,0 +1,1246 @@
+<zuiprezi>
+  <version>5</version>
+  <zui-table>
+    <settings>
+      
+      <autoplay>
+        
+        <delay>4000</delay>
+        
+      </autoplay>
+      
+      <bounds x="-303549.93361793633" y="-180032.34286017023" width="607099.8672358727" height="360064.68572034047"/>
+      <aspectratio>off</aspectratio>
+      <languages>
+        <language>de</language>
+      </languages>
+    </settings>
+    <object id="52_17490480" type="button" x="0" y="0" r="0" s="525.7186242084107">
+      <type>invisible</type>
+      <size>
+        <w>1121.1903553299494</w>
+        <h>651.3</h>
+      </size>
+    </object>
+    <object id="3_9286559" type="placeholder" x="273940.1313234059" y="70714.78734922795" r="0" s="0.31972520056403436">
+      <type>circle</type>
+      <size>
+        <w>400</w>
+        <h>300</h>
+      </size>
+    </object>
+    <object id="36_17490480" type="button" x="253101.29704894416" y="60950.94154850155" r="0" s="9.786136034828727" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>792.478997289973</w>
+        <h>595.05</h>
+      </size>
+    </object>
+    <object id="16_17490480" type="button" x="255557.00000248617" y="59363.591446480335" r="6.17130163811666e-7" s="2.528929377623881">
+      <type>invisible</type>
+      <size>
+        <w>758.3499999999999</w>
+        <h>613.4000000000001</h>
+      </size>
+    </object>
+    <object id="0_17490480" type="image" x="255629.95852835488" y="59383.882291752285" r="0" s="3.304129132028922">
+      <source w="182" h="183">191324787.gif<url>191324787.gif</url>
+      </source>
+      <sourceUrl>businessman.gif</sourceUrl>
+    <resource><id>
+        191324787
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/2/d/9cdf356632418b7503fa4760bc23ae691b3e6.gif</url></resource></object>
+    <object id="13_17490480" type="button" x="255630.23088869412" y="59960.1627245011" r="20.042846064281857" s="0.384770376016215" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="1_17490480" type="image" x="255613.0381422808" y="59971.36354345155" r="20.032657908152448" s="0.4249236269071567">
+      <source w="402" h="404">191328583.JPG<url>191328583.JPG</url>
+      </source>
+      <sourceUrl>torte.JPG</sourceUrl>
+    <resource><id>
+        191328583
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/1/e/85feddea31e8fc2ba6a6f46b8f3d6a1bf1fbb.JPG</url></resource></object>
+    <object id="2_17490480" type="image" x="255706.93436922715" y="59894.7621980457" r="20.031474386186467" s="0.16403405914361557">
+      <source w="346" h="346">191328653.jpg<url>191328653.jpg</url>
+      </source>
+      <sourceUrl>ausgefallenes-geschenk-30-geburtstag-2.jpg</sourceUrl>
+    <resource><id>
+        191328653
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/8/1/a58e7c5767132d74756f406798eea3c1e1207.jpg</url></resource></object>
+    <object id="8_17490480" type="button" x="255630.23088869412" y="59383.882291752285" r="2.0921193060857522e-7" s="0.6955676458016408" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="9_17490480" type="button" x="256223.02316700816" y="59430.89849531028" r="11.87878221944582" s="0.3564978025262759" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="10_17490480" type="button" x="256109.4148605107" y="59027.36260771227" r="-32.69188987881968" s="0.3564977916410935" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="11_17490480" type="button" x="255304.59005811324" y="58907.353833243105" r="-17.252625289435187" s="0.3523063299654983" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="12_17490480" type="button" x="256022.9404528081" y="59803.1129438979" r="-8.599639592439793" s="0.36317335780946064" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="14_17490480" type="button" x="255720.0757555946" y="58828.53956008109" r="1.508632532848384e-7" s="0.4028247978530339" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="17_17490480" type="image" x="256022.9064077657" y="59803.181033982706" r="-8.529230278329798" s="0.5368102014149104">
+      <source w="400" h="268">191338708.jpg<url>191338708.jpg</url>
+      </source>
+      <sourceUrl>792494-ein-ingenieur-der-arbeit-tabelle-mit-zeichnungen-und-werkzeuge-des-handels.jpg</sourceUrl>
+    <resource><id>
+        191338708
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/e/0/c/2d88047cb1bd446959eddb0c1bb458353d987.jpg</url></resource></object>
+    <object id="18_17490480" type="label" x="256008.55" y="59708.9" r="-8.639615767674599" s="0.41467435508953165" class="body">
+      <textfield>
+        <x>-130.05</x>
+        <y>-17.5</y>
+        <text><![CDATA[Ingenieurwissenschaftler]]></text>
+        <annotations>r0-24 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="20_17490480" type="image" x="256109.4489055531" y="59027.36260771227" r="-32.60265613373498" s="0.4594687915896112">
+      <source w="400" h="400">191339909.jpg<url>191339909.jpg</url>
+      </source>
+      <sourceUrl>team_player_button-p145541132190112927en8go_400.jpg</sourceUrl>
+    <resource><id>
+        191339909
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/7/4/c/7eced8ab4a0ac50c370266d13b2f2e7a0ac1c.jpg</url></resource></object>
+    <object id="21_17490480" type="image" x="256222.98912196577" y="59430.86445026787" r="11.768043357279792" s="0.2966380797816909">
+      <source w="600" h="600">191340112.jpg<url>191340112.jpg</url>
+      </source>
+      <sourceUrl>IMG_6130.jpg</sourceUrl>
+    <resource><id>
+        191340112
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/5/a/2109d1327652fa5c8d704eccc99cc0ba2fa2d.jpg</url></resource></object>
+    <object id="22_17490480" type="label" x="256221.25" y="59322.5" r="12.03114015048364" s="0.5454125887196225" class="body">
+      <textfield>
+        <x>-57.95</x>
+        <y>-17.5</y>
+        <text><![CDATA[verheiratet]]></text>
+        <annotations>r0-11 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="23_17490480" type="label" x="256226" y="59537.1" r="12.03114015048364" s="0.5454125887196225" class="body">
+      <textfield>
+        <x>-50.95</x>
+        <y>-17.5</y>
+        <text><![CDATA[1 Tochter]]></text>
+        <annotations>r0-9 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="24_17490480" type="image" x="255720.0757555946" y="58828.53956008109" r="0" s="0.6861372681480982">
+      <source w="300" h="300">191341783.jpg<url>191341783.jpg</url>
+      </source>
+      <sourceUrl>Motivation.jpg</sourceUrl>
+    <resource><id>
+        191341783
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/f/c/6d213da5d6419829cbf4b0a66020f54246650.jpg</url></resource></object>
+    <object id="25_17490480" type="label" x="255758.85" y="58746.1" r="8.718318693401631e-7" s="0.8697809576988221" class="body">
+      <textfield>
+        <x>-48.55</x>
+        <y>-17.5</y>
+        <text><![CDATA[motiviert]]></text>
+        <annotations>r0-9 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="26_17490480" type="label" x="255774.95" y="58766.45" r="-4.517742343253997e-7" s="0.5887222290039063" class="body">
+      <textfield>
+        <x>-62.35</x>
+        <y>-17.5</y>
+        <text><![CDATA[diszipliniert]]></text>
+        <annotations>r0-13 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="27_17490480" type="label" x="255724.15" y="58925.85" r="-0.0000020384590524360244" s="0.5887219905853275" class="body">
+      <textfield>
+        <x>-134.85</x>
+        <y>-17.5</y>
+        <text><![CDATA[handelt problemorientiert]]></text>
+        <annotations>r0-25 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="30_17490480" type="image" x="255306.46253544535" y="58906.775067522256" r="-17.270994885053337" s="0.6133226220144422">
+      <source w="290" h="290">191344026.jpg<url>191344026.jpg</url>
+      </source>
+      <sourceUrl>laufende_uhr.jpg</sourceUrl>
+    <resource><id>
+        191344026
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/4/3/bcbea40396fc99d5e3ded2ccb1b95252ae06d.jpg</url></resource></object>
+    <object id="31_17490480" type="button" x="255004.3808742071" y="59262.64789575663" r="-34.343609128755276" s="0.4817500362438741" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="32_17490480" type="image" x="255004.3808742071" y="59262.64789575663" r="-34.333205338305255" s="0.5095895199356321">
+      <source w="550" h="413">191345266.jpg<url>191345266.jpg</url>
+      </source>
+      <sourceUrl>10_aa0bc81df09a8abea01c14d48ea15c1f.jpg</sourceUrl>
+    <resource><id>
+        191345266
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/f/3/353af060c477ee0e8c93387230f38cc3d8430.jpg</url></resource></object>
+    <object id="29_17490480" type="label" x="255323.55" y="58983.8" r="-17.252624897640015" s="0.5887219544888351" class="body">
+      <textfield>
+        <x>-135.55</x>
+        <y>-17.5</y>
+        <text><![CDATA[hasst Zeitverschwendung!]]></text>
+        <annotations>r0-24 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="33_17490480" type="label" x="255003.9" y="59731.05" r="-1.4305897047604878e-7" s="2.502713918685913" class="head">
+      <textfield>
+        <x>-114.7</x>
+        <y>-17.5</y>
+        <text><![CDATA[Alexander Schweißler]]></text>
+        <annotations>r0-20 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="38_17490480" type="label" x="251858.7" y="59384.55" r="-0.000001075574806507071" s="21.80345153808594" class="strong">
+      <textfield>
+        <x>-88.15</x>
+        <y>-33</y>
+        <text><![CDATA[Worüber werden
+wir heute reden?]]></text>
+        <annotations>r0-15 { align: left; }
+r15-31 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="39_17490480" type="label" x="253206.7" y="61448.5" r="7.435634070581286e-7" s="12.92610263824463" class="body">
+      <textfield>
+        <x>-217.6</x>
+        <y>-64</y>
+        <text><![CDATA[- über Alexander Schweißler?!
+- über seinen Alltag.
+- über seine Probleme!
+- über unsere Lösung für seine Probleme!!]]></text>
+        <annotations>r0-30 { align: left; }
+r30-52 { align: left; }
+r52-75 { align: left; }
+r75-116 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="41_17490480" type="button" x="234983.20638312865" y="80113.12557472002" r="86.21205830792555" s="10.943176209259452" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>841.5254237288136</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="42_17490480" type="image" x="234983.20638312865" y="80113.09152967762" r="86.23966620387237" s="4.2404475628719975">
+      <source w="1800" h="1197">191351836.JPG<url>191351836.JPG</url>
+      </source>
+      <sourceUrl>Gruppenfoto.JPG</sourceUrl>
+    <resource><id>
+        191351836
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/f/d/6/86a5761e24cc749b075bc41e9ff74a873c2ee.JPG</url></resource></object>
+    <object id="43_17490480" type="label" x="232137.35" y="77791.8" r="86.2120578696442" s="8.379120128455515" class="strong">
+      <textfield>
+        <x>-86.6</x>
+        <y>-17.5</y>
+        <text><![CDATA[HongLiang Jiang]]></text>
+        <annotations>r0-15 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="44_17490480" type="label" x="232242.55" y="79387.7" r="86.2120578696442" s="8.379120128455515" class="strong">
+      <textfield>
+        <x>-89.65</x>
+        <y>-17.5</y>
+        <text><![CDATA[Nicolas Lehmann]]></text>
+        <annotations>r0-15 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="45_17490480" type="label" x="232357.9" y="81129.9" r="86.2120578696442" s="8.379120128455515" class="strong">
+      <textfield>
+        <x>-76.25</x>
+        <y>-17.5</y>
+        <text><![CDATA[Tobias Schmid]]></text>
+        <annotations>r0-13 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="46_17490480" type="label" x="232477.3" y="82940.35" r="86.2120578696442" s="8.379120128455515" class="strong">
+      <textfield>
+        <x>-107.75</x>
+        <y>-17.5</y>
+        <text><![CDATA[Benjamin Schönburg]]></text>
+        <annotations>r0-18 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="47_17490480" type="label" x="237775.25" y="79833.05" r="86.21205590861234" s="11.978240867085644" class="head">
+      <textfield>
+        <x>-121.15</x>
+        <y>-17.5</y>
+        <text><![CDATA[Wer gehört zu Team 4?]]></text>
+        <annotations>r0-21 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="49_17490480" type="button" x="233748.25651501675" y="60904.84456108843" r="0" s="66.97642604434408" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="48_17490480" type="button" x="233748.69910056796" y="60899.26117413441" r="0" s="34.763613786690335" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="50_17490480" type="label" x="-43466.9" y="-1229.35" r="0" s="6984.23193359375" class="strong">
+      <textfield>
+        <x>-34.15</x>
+        <y>-17.5</y>
+        <text><![CDATA[Danke]]></text>
+        <annotations>r0-5 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="51_17490480" type="button" x="232726.3264772179" y="-33910.15594460066" r="0" s="44.03226696922666" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>800</w>
+        <h>2400</h>
+      </size>
+    </object>
+    <object id="53_17490480" type="label" x="72222.9" y="75953.3" r="0" s="868.0826416015625" class="body">
+      <textfield>
+        <x>-133.2</x>
+        <y>-17.5</y>
+        <text><![CDATA[für Ihre Aufmerksamkeit...]]></text>
+        <annotations>r0-26 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="54_17490480" type="button" x="233787.7828092462" y="60881.149211576216" r="0" s="21.231325022709896" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="55_17490480" type="label" x="233754.75" y="54806.6" r="0" s="54.255165100097656" class="strong">
+      <textfield>
+        <x>-115.35</x>
+        <y>-17.5</y>
+        <text><![CDATA[Herzlich Willkommen!]]></text>
+        <annotations>r0-20 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="57_17490480" type="image" x="223166.24025527108" y="60858.54330342089" r="0" s="2.3408044596269915">
+      <source w="1689" h="604">191355528.jpg<url>191355528.jpg</url>
+      </source>
+      <sourceUrl>Carmeq_RGB.jpg</sourceUrl>
+    <resource><id>
+        191355528
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/9/e/1/29c9b74528ba798b6d5e639c5bf74686665c9.jpg</url></resource></object>
+    <object id="58_17490480" type="image" x="244434.6889198112" y="60897.72914722629" r="0" s="7.604092377889748">
+      <source w="459" h="459">191355912.jpg<url>191355912.jpg</url>
+      </source>
+      <sourceUrl>Logo_FU_klein2.jpg</sourceUrl>
+    <resource><id>
+        191355912
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/0/9/9/4b234ad756bbf5984f16bcae439282d807a93.jpg</url></resource></object>
+    <object id="62_17490480" type="image" x="227230.63955242065" y="57907.96161351479" r="0" s="2.1014668141233632">
+      <source w="1800" h="1200">191358224.jpg<url>191358224.jpg</url>
+      </source>
+      <sourceUrl>Benedikt.jpg</sourceUrl>
+    <resource><id>
+        191358224
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/7/6/3/3f102144f56606e77faa5af1d65657d928447.jpg</url></resource></object>
+    <object id="59_17490480" type="label" x="232032.95" y="61574.1" r="0" s="38.45198059082031" class="head">
+      <textfield>
+        <x>-143.25</x>
+        <y>-17.5</y>
+        <text><![CDATA[Twot - The way of traveling]]></text>
+        <annotations>r0-27 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="60_17490480" type="label" x="232223.5" y="62199.95" r="0" s="21.833335876464844" class="body">
+      <textfield>
+        <x>-222.5</x>
+        <y>-17.5</y>
+        <text><![CDATA[Intermodales Reisen bei der Carmeq GmbH]]></text>
+        <annotations>r0-39 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="61_17490480" type="image" x="240412.1309797744" y="57907.96161351479" r="0" s="2.0758041997634935">
+      <source w="1800" h="1200">191358084.jpg<url>191358084.jpg</url>
+      </source>
+      <sourceUrl>Pro.Müller-Birn.jpg</sourceUrl>
+    <resource><id>
+        191358084
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/6/7/1/0ba7d645d7004194beba057a258ea5d3e0e4f.jpg</url></resource></object>
+    <object id="63_17490480" type="image" x="238088.35256554256" y="57910.65117186459" r="0" s="2.1847716084300175">
+      <source w="1800" h="1167">191358505.jpg<url>191358505.jpg</url>
+      </source>
+      <sourceUrl>Team4_Interview2.jpg</sourceUrl>
+    <resource><id>
+        191358505
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/8/6/b/69a2d8f9dc649a1fa36ec1245ddd9e2800693.jpg</url></resource></object>
+    <object id="65_17490480" type="image" x="229135.97035048212" y="57908.84678461725" r="0" s="1.8855060440487668">
+      <source w="1800" h="1350">191359569.jpg<url>191359569.jpg</url>
+      </source>
+      <sourceUrl>Ideen-Poster.jpg</sourceUrl>
+    <resource><id>
+        191359569
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/6/2/f/0a26279d6930f36a5163682fe85c71bb8c5c7.jpg</url></resource></object>
+    <object id="66_17490480" type="image" x="232301.13794265184" y="57910.61712682219" r="0" s="2.100448621326899">
+      <source w="1800" h="1197">191360519.JPG<url>191360519.JPG</url>
+      </source>
+      <sourceUrl>DSC03530.JPG</sourceUrl>
+    <resource><id>
+        191360519
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/7/9/d/700d3a1082f9fd205d3f11d5fbcb36a2cd7b9.JPG</url></resource></object>
+    <object id="67_17490480" type="image" x="235304.2511329851" y="57910.61712682219" r="0" s="3.0911294328420027">
+      <source w="886" h="821">191360710.jpg<url>191360710.jpg</url>
+      </source>
+      <sourceUrl>Bei_Carmep_Tag01.jpg</sourceUrl>
+    <resource><id>
+        191360710
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/5/7/8/7ea8980c1818cd2165e5487a04a6ae9ffeef5.jpg</url></resource></object>
+    <object id="68_17490480" type="shape" x="233795.2" y="59172.25" r="0" s="13.563791275024414" class="line5">
+      <geom type="line">
+        <sp>-620.5124999999999 0</sp>
+        <ep>620.5125 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="69_17490480" type="shape" x="233786.4" y="56643.65" r="0" s="13.563791275024414" class="line5">
+      <geom type="line">
+        <sp>-621.175 0</sp>
+        <ep>621.175 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="70_17490480" type="label" x="232725.81580158183" y="66365.32891204141" r="0" s="21.83333670848072" class="body">
+      <textfield>
+        <x>-282.5</x>
+        <y>-95</y>
+        <text><![CDATA[Abschlußpräsentation
+Softwareprojekt Web-Technologien Kundenprojekt II
+Prof. Dr. C. Müller-Birn
+13.07.2012
+
+Team 4: H. Jiang, N. Lehmann, T. Schmid, B. Schönburg]]></text>
+        <w>565</w>
+        <h>190</h>
+        <annotations>r0-21 { align: left; }
+r21-71 { align: left; }
+r71-96 { align: left; }
+r96-107 { align: left; }
+r108-161 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="71_17490480" type="button" x="248346.4983369123" y="73452.92797454183" r="67.28705841509615" s="13.065494002507773" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="72_17490480" type="button" x="248472.0564532931" y="48428.56214206212" r="47.02439323392253" s="11.99678254639649" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="73_17490480" type="button" x="234385.57970879343" y="41709.534708612235" r="3.530555231891848" s="12.847950963502818" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="78_17490480" type="button" x="251330.8527088818" y="74033.08954212454" r="100.70391551024906" s="4.181534374127306" class="circle">
+      <type>circle</type>
+      <size>
+        <w>618.4</w>
+        <h>618.4</h>
+      </size>
+    </object>
+    <object id="75_17490480" type="button" x="248746.76590043964" y="76527.56979896301" r="177.39414683637793" s="3.748348244399944" class="circle">
+      <type>circle</type>
+      <size>
+        <w>691.6000000000001</w>
+        <h>691.6000000000001</h>
+      </size>
+    </object>
+    <object id="76_17490480" type="button" x="249801.03872852097" y="70780.25596576814" r="30.744112784073845" s="4.356450155263502" class="circle">
+      <type>circle</type>
+      <size>
+        <w>596.6</w>
+        <h>596.6</h>
+      </size>
+    </object>
+    <object id="77_17490480" type="button" x="245681.7928680608" y="74773.50112429628" r="-116.62087281397064" s="3.6443597842105984" class="circle">
+      <type>circle</type>
+      <size>
+        <w>712.35</w>
+        <h>712.35</h>
+      </size>
+    </object>
+    <object id="79_17490480" type="button" x="246353.67177987617" y="71272.75154916415" r="-43.978794807348" s="3.7003319805845063" class="circle">
+      <type>circle</type>
+      <size>
+        <w>697.95</w>
+        <h>697.95</h>
+      </size>
+    </object>
+    <object id="80_17490480" type="shape" x="250051.05" y="75277.15" r="49.412078912196115" s="13.548024261142867" class="line5">
+      <geom type="line">
+        <sp>-181.09573138405975 0</sp>
+        <ep>181.09573138405975 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="81_17490480" type="shape" x="250601.9" y="72395.75" r="154.6170841187175" s="13.54802452550299" class="line5">
+      <geom type="line">
+        <sp>175.4158624166382 0</sp>
+        <ep>-175.4158624166382 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="82_17490480" type="shape" x="248133" y="70999.7" r="82.40994892950965" s="13.548023378048555" class="line5">
+      <geom type="line">
+        <sp>179.8123293841309 0</sp>
+        <ep>-179.81232938413086 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="84_17490480" type="shape" x="247204.35" y="75606.75" r="119.67485955564423" s="13.548024139496867" class="line5">
+      <geom type="line">
+        <sp>-186.24781006688912 0</sp>
+        <ep>186.24781006688912 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="85_17490480" type="label" x="248784.7" y="77388.25" r="177.47303529262274" s="5.183581310977577" class="strong">
+      <textfield>
+        <x>-78.8</x>
+        <y>-17.5</y>
+        <text><![CDATA[Phase: Analyse]]></text>
+        <annotations>r0-14 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="87_17490480" type="label" x="252174.6" y="74189.85" r="100.55710495329062" s="4.348695779383162" class="strong">
+      <textfield>
+        <x>-97.45</x>
+        <y>-17.5</y>
+        <text><![CDATA[Phase: Konzeption]]></text>
+        <annotations>r0-17 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="89_17490480" type="label" x="250231" y="70053.45" r="30.6095474683959" s="5.266840560335947" class="strong">
+      <textfield>
+        <x>-107.2</x>
+        <y>-17.5</y>
+        <text><![CDATA[Phase: Modellierung]]></text>
+        <annotations>r0-19 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="90_17490480" type="image" x="249931.53337605012" y="70559.6440909993" r="30.609319673586015" s="0.988549199720152">
+      <source w="1511" h="819">191371668.png<url>191371668.png</url>
+      </source>
+      <sourceUrl>pp_2a_route_erstellen_neue_route.png</sourceUrl>
+    <resource><id>
+        191371668
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/3/8/f/03992be7a5f882179144f5c1dd9f835f126f3.png</url></resource></object>
+    <object id="91_17490480" type="image" x="249549.13945978417" y="71205.95517597026" r="30.56766977103848" s="0.7961926409849934">
+      <source w="2015" h="713">191371879.png<url>191371879.png</url>
+      </source>
+      <sourceUrl>mu_3_reise_hindernis_verkehrsmittel.png</sourceUrl>
+    <resource><id>
+        191371879
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/9/a/04c01f38f572fbcb08f38d6a4cb44424a0e91.png</url></resource></object>
+    <object id="92_17490480" type="label" x="245761.15" y="70656.4" r="-43.89711770167791" s="4.69570615033124" class="strong">
+      <textfield>
+        <x>-120.35</x>
+        <y>-17.5</y>
+        <text><![CDATA[Phase: Implementieren]]></text>
+        <annotations>r0-21 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="93_17490480" type="image" x="246353.80796004576" y="71272.92177437615" r="-43.87693033460555" s="1.0622641831098312">
+      <source w="1800" h="1197">191372890.JPG<url>191372890.JPG</url>
+      </source>
+      <sourceUrl>DSC03530.JPG</sourceUrl>
+    <resource><id>
+        191372890
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/e/e/1/aea942d30fe5a1a81b07ccfe5a27e0ab384cf.JPG</url></resource></object>
+    <object id="94_17490480" type="label" x="244909.2" y="75159.5" r="-116.56779223490312" s="5.143933350122842" class="strong">
+      <textfield>
+        <x>-73.4</x>
+        <y>-17.5</y>
+        <text><![CDATA[Phase: Testen]]></text>
+        <annotations>r0-13 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="95_17490480" type="image" x="245681.8609581456" y="74773.50112429628" r="-116.56778762657028" s="1.0701553412073486">
+      <source w="1728" h="1296">191373243.jpg<url>191373243.jpg</url>
+      </source>
+      <sourceUrl>02w.jpg</sourceUrl>
+    <resource><id>
+        191373243
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/6/2/2/8ae0d6e3a7346664c55eb214f5ec068e75268.jpg</url></resource></object>
+    <object id="96_17490480" type="shape" x="245179.6" y="72873.4" r="-71.55985252690623" s="5.43604038338066" class="line4">
+      <geom type="arrow">
+        <sp>-111.10209827788675 21.92864864864864</sp>
+        <ep>111.10209827788678 21.92864864864864</ep>
+        <b>-43.85729729729728</b>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="97_17490480" type="shape" x="246928" y="73187.4" r="-77.62162020434124" s="6.189289182512161" class="line4">
+      <geom type="arrow">
+        <sp>109.53497402730048 -18.835841693540107</sp>
+        <ep>-109.53497402730044 -18.835841693540154</ep>
+        <b>-37.67168338708026</b>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="98_17490480" type="image" x="248472.15858842028" y="48428.56214206212" r="46.89018738781713" s="17.51776526520888">
+      <source w="182" h="183">191374634.gif<url>191374634.gif</url>
+      </source>
+      <sourceUrl>businessman.gif</sourceUrl>
+    <resource><id>
+        191374634
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/d/7/b/4006ad7d896f386be3d73dc2beff4198ef13f.gif</url></resource></object>
+    <object id="100_17490480" type="button" x="250364.21181994476" y="50327.45842710952" r="46.912512255558404" s="3.0772078172698696" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>754.1</w>
+        <h>1170.55</h>
+      </size>
+    </object>
+    <object id="101_17490480" type="button" x="246684.62363707175" y="46375.1013645069" r="46.91253978598599" s="3.4284105082966607" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>668.3341463414633</w>
+        <h>1061.3500000000004</h>
+      </size>
+    </object>
+    <object id="102_17490480" type="label" x="250373.25" y="50318.25" r="46.88411956589718" s="10.85516305727151" class="strong">
+      <textfield>
+        <x>-104.05</x>
+        <y>-110.5</y>
+        <text><![CDATA[Ich arbeite
+gerne bei der Carmeq GmbH,
+da ich mich
+in diesem Unternehmen verwirklichen kann.]]></text>
+        <w>208.15</w>
+        <h>221</h>
+        <annotations>r0-12 { align: center; }
+r12-39 { align: center; }
+r39-51 { align: center; }
+r51-92 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="103_17490480" type="label" x="246614.45680468003" y="46441.99987282801" r="46.87731463181555" s="10.838776264152084" class="strong">
+      <textfield>
+        <x>-101.65</x>
+        <y>-79.5</y>
+        <text><![CDATA[Ich versuche viel Zeit mit meiner Familie zu verbringen, das ist mir wichtig!]]></text>
+        <w>203.35</w>
+        <h>159</h>
+        <annotations>r0-77 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="104_17490480" type="label" x="246365.45" y="50398.6" r="46.912530253810736" s="10.822296108768876" class="head">
+      <textfield>
+        <x>-252.35</x>
+        <y>-48.5</y>
+        <text><![CDATA[Es ist mir wichtig, dass mir kein zusätzlicher Aufwand bei der Planung und Durchführung der Reisen entsteht!]]></text>
+        <w>504.75</w>
+        <h>97</h>
+        <annotations>r0-108 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="105_17490480" type="label" x="250604.6" y="46421.1" r="46.91253036238203" s="14.624748762350453" class="head">
+      <textfield>
+        <x>-137.35</x>
+        <y>-33</y>
+        <text><![CDATA[Ich mache im Durchschnitt
+2 Dienstreisen pro Woche.]]></text>
+        <annotations>r0-51 { color: #e0bb4a; }
+r0-26 { align: left; }
+r26-51 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="0_17533218" type="image" x="234385.4775736662" y="41709.39852844262" r="3.502588625116328" s="18.81228852911306">
+      <source w="182" h="183">191385257.gif<url>191385257.gif</url>
+      </source>
+      <sourceUrl>businessman.gif</sourceUrl>
+    <resource><id>
+        191385257
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/c/9/e/53445068db428fc839c8354de7670c82f9bfc.gif</url></resource></object>
+    <object id="1_17533218" type="button" x="231486.0996275336" y="41509.72435475137" r="3.508614342222204" s="3.1205528504978064" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>799.6000000000004</w>
+        <h>1351.7125</h>
+      </size>
+    </object>
+    <object id="2_17533218" type="button" x="237239.74583861537" y="41865.29077760413" r="3.5087857136230323" s="3.3626514173852855" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>767.9000000000003</w>
+        <h>1274.3499999999997</h>
+      </size>
+    </object>
+    <object id="3_17533218" type="label" x="231447.22018910985" y="41498.149040334494" r="3.508697247716003" s="14.810874028234892" class="body">
+      <textfield>
+        <x>-81.9</x>
+        <y>-141.5</y>
+        <text><![CDATA[Ich muss meine Dienstreise mit vielen verschiedenen Tools planen. Das ist umständlich und kostet mich Zeit!]]></text>
+        <w>163.85</w>
+        <h>283</h>
+        <annotations>r0-107 { color: #f00; }
+r0-107 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="4_17533218" type="label" x="237204.23685938944" y="41820.3513216327" r="3.502595917705037" s="13.450044333631464" class="body">
+      <textfield>
+        <x>-92.35</x>
+        <y>-157</y>
+        <text><![CDATA[Wenn sich ein Verkehrsmittel verspätet muss ich meine Dienstreise mit vielen Tools umplanen. Das ist umständlich und kostet mich Zeit!]]></text>
+        <w>184.75</w>
+        <h>314</h>
+        <annotations>r0-134 { color: #f00; }
+r0-134 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="5_17533218" type="label" x="234572.6" y="38644.55" r="3.508695884599495" s="25.368989554383344" class="strong">
+      <textfield>
+        <x>-88.95</x>
+        <y>-17.5</y>
+        <text><![CDATA[Meine Probleme:]]></text>
+        <annotations>r0-15 { color: #f00; }
+r0-15 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="6_17533218" type="label" x="234195.65" y="44792.35" r="3.50869534958609" s="17.27910866855154" class="body">
+      <textfield>
+        <x>-126.45</x>
+        <y>-17.5</y>
+        <text><![CDATA[Ich mag einfache Dinge!]]></text>
+        <annotations>r0-23 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="7_17533218" type="button" x="222330.1961489904" y="76185.89375341054" r="-142.01952159529756" s="11.720560784614332" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>778.4411764705881</w>
+        <h>653.75</h>
+      </size>
+    </object>
+    <object id="11_17533218" type="image" x="224629.087637226" y="76793.52967021213" r="-142.12163967696193" s="14.00858371458819">
+      <source w="182" h="183">191390721.gif<url>191390721.gif</url>
+      </source>
+      <sourceUrl>businessman.gif</sourceUrl>
+    <resource><id>
+        191390721
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/c/0/0/09da0a36e8b6ec47dba8d0ee529eb60b9e3d8.gif</url></resource></object>
+    <object id="12_17533218" type="image" x="221753.7454910296" y="73909.98266879674" r="-142.1216634414989" s="5.839837985897054">
+      <source w="200" h="200">191390788.png<url>191390788.png</url>
+      </source>
+      <sourceUrl>go_button1.png</sourceUrl>
+    <resource><id>
+        191390788
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/f/a/2eee1e517e29644e97404944f31e692130cc9.png</url></resource></object>
+    <object id="8_17533218" type="label" x="220913.6" y="78006.45" r="-142.0195229861452" s="16.401057426405362" class="strong">
+      <textfield>
+        <x>-236.05</x>
+        <y>-17.5</y>
+        <text><![CDATA[Und wie sieht die Zukunft von Alexander aus?]]></text>
+        <annotations>r0-44 { color: #322c69; }
+r0-44 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="13_17533218" type="label" x="221445.50167711647" y="76128.97044251338" r="-142.12163703443153" s="16.401057890764243" class="body">
+      <textfield>
+        <x>-123.6</x>
+        <y>-33</y>
+        <text><![CDATA["Von nun an twotter ich meine Dienstreisen!"]]></text>
+        <w>247.2</w>
+        <h>66</h>
+        <annotations>r0-12 { color: #6fcc00; }
+ r12-19 { color: #437314; }
+ r19-44 { color: #6fcc00; }
+r0-44 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="14_17533218" type="button" x="219991.74432148307" y="47448.303236164065" r="-42.86569935180534" s="12.57659316178134" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="15_17533218" type="button" x="214989.09770076023" y="61537.333358843935" r="-92.27139212387247" s="11.019090608159436" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>1485.95</w>
+        <h>715.6</h>
+      </size>
+    </object>
+    <object id="16_17533218" type="image" x="219991.64218635584" y="47448.235146079256" r="-42.86570643474678" s="18.39233384636275">
+      <source w="182" h="183">191393013.gif<url>191393013.gif</url>
+      </source>
+      <sourceUrl>businessman.gif</sourceUrl>
+    <resource><id>
+        191393013
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/a/a/acc0cc0c8f36125cb732444ff2c700846a021.gif</url></resource></object>
+    <object id="17_17533218" type="label" x="218142.3" y="45455.4" r="-42.865704029811965" s="14.398955284306505" class="strong">
+      <textfield>
+        <x>-223.6</x>
+        <y>-17.5</y>
+        <text><![CDATA[Twot, die Lösung für Alexanders Probleme!]]></text>
+        <annotations>r0-4 { color: #437314; }
+ r4-41 { color: #6fcc00; }
+r0-41 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="18_17533218" type="button" x="217942.5051291858" y="49417.230173433614" r="-42.86568471316757" s="2.9582091772529906" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>822.8499999999999</w>
+        <h>1335.65</h>
+      </size>
+    </object>
+    <object id="19_17533218" type="button" x="222081.25879894264" y="45575.85994906347" r="-42.86569013869326" s="3.2211736724019664" class="roundrect">
+      <type>roundrect</type>
+      <size>
+        <w>771.25</w>
+        <h>1240.225</h>
+      </size>
+    </object>
+    <object id="20_17533218" type="label" x="217854.19228919345" y="49431.59718132751" r="-42.86571003110653" s="11.323431471565836" class="body">
+      <textfield>
+        <x>-102.6</x>
+        <y>-157</y>
+        <text><![CDATA[Mit Twot kann ich endlich schnell und einfach meine Dienstreisen nach meinen Bedürfnissen mit einem einzigen Tool planen, dadurch gewinne ich Zeit!]]></text>
+        <w>205.25</w>
+        <h>314</h>
+        <annotations>r0-147 { color: #437314; }
+r0-147 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="21_17533218" type="label" x="222017.11793905613" y="45563.70586892575" r="-42.865709575470426" s="11.304885783749915" class="body">
+      <textfield>
+        <x>-104.15</x>
+        <y>-157</y>
+        <text><![CDATA[Twot begleitet mich sogar auf meiner Reise! Es meldet frühzeitig Verspätungen auf meiner Route und kann sogar meine Route bei Bedarf direkt neu planen, das ist wirklich toll!]]></text>
+        <w>208.35</w>
+        <h>314</h>
+        <annotations>r0-174 { color: #437314; }
+r0-174 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="22_17533218" type="label" x="222167.3246661364" y="49792.78103617669" r="-42.86571048197909" s="14.398955118877186" class="body">
+      <textfield>
+        <x>-138.9</x>
+        <y>-33</y>
+        <text><![CDATA[Ich muss meinen Kollegen von Twot berichten!]]></text>
+        <w>277.8</w>
+        <h>66</h>
+        <annotations>r29-33 { color: #437314; }
+ r0-44 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="23_17533218" type="button" x="214811.6889848003" y="57349.65696315454" r="-92.27139206693096" s="12.925032000307343">
+      <type>invisible</type>
+      <size>
+        <w>608.2529067558326</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="24_17533218" type="button" x="215108.73197976296" y="65473.31475605089" r="-92.27139209030882" s="12.98494725339784">
+      <type>invisible</type>
+      <size>
+        <w>650.8320726172466</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="25_17533218" type="label" x="211804.55" y="57465.75" r="-92.25563102206117" s="22.830468136830138" class="strong">
+      <textfield>
+        <x>-71.5</x>
+        <y>-17.5</y>
+        <text><![CDATA[Reiseplanung]]></text>
+        <annotations>r0-12 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="26_17533218" type="label" x="212116.35" y="65591.2" r="-92.25563460931846" s="22.830468193132283" class="strong">
+      <textfield>
+        <x>-109.15</x>
+        <y>-17.5</y>
+        <text><![CDATA["On the way" - Guide]]></text>
+        <annotations>r0-20 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="29_17533218" type="label" x="218249.95" y="65264.95" r="-92.25561962406614" s="12.108513492968708" class="body">
+      <textfield>
+        <x>-191.6</x>
+        <y>-17.5</y>
+        <text><![CDATA[Ein erster Schritt in Richtung Vision...]]></text>
+        <annotations>r0-40 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="30_17533218" type="label" x="217934.75" y="57240.8" r="-92.25561962406614" s="12.108513492968708" class="body">
+      <textfield>
+        <x>-191.6</x>
+        <y>-17.5</y>
+        <text><![CDATA[Ein erster Schritt in Richtung Vision...]]></text>
+        <annotations>r0-40 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="0_17394701" type="label" x="221326.8" y="75125.45" r="-142.12160725608516" s="10.612810438228935" class="body">
+      <textfield>
+        <x>-228.1</x>
+        <y>-17.5</y>
+        <text><![CDATA[Somit habe ich mehr Zeit für meine Familie!]]></text>
+        <annotations>r0-43 { color: #e0bb4a; }
+r0-43 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="0_9839474" type="image" x="248746.85" y="76527.5" r="177.47261039887488" s="1.0815883552345296">
+      <source w="1800" h="1167">191836608.jpg<url>191836608.jpg</url>
+      </source>
+      <sourceUrl>Team4_Interview2.jpg</sourceUrl>
+    <resource><id>
+        191836608
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/d/6/7/bc8a7f73b1c3b882481ba806dd65607a2dc24.jpg</url></resource></object>
+    <object id="3_9839474" type="image" x="251330.9" y="74033.05" r="100.70391527562111" s="1.0356678963604966">
+      <source w="1800" h="1350">191837566.jpg<url>191837566.jpg</url>
+      </source>
+      <sourceUrl>Ideen-Poster.jpg</sourceUrl>
+    <resource><id>
+        191837566
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/c/1/3/84a08fa6d0fbdbe868e07c8a1ef75f1fcbb79.jpg</url></resource></object>
+    <object id="0_9848915" type="youtube" x="214998.65" y="57319.7" r="-92.25560755509309" s="20.655583944841197" onFocus="start" onLeave="pause">
+      <source>9RCCXuRng0g</source>
+    </object>
+    <object id="1_9848915" type="youtube" x="215351.15" y="65353.15" r="-92.25560753161533" s="20.925123765292145" onFocus="start" onLeave="pause">
+      <source>xD9Y_c4xkq0</source>
+    </object>
+  </zui-table>
+  <path>
+    <s o="54_17490480"/>
+    <s o="41_17490480"/>
+    <s o="71_17490480"/>
+    <s o="75_17490480"/>
+    <s o="78_17490480"/>
+    <s o="76_17490480"/>
+    <s o="79_17490480"/>
+    <s o="77_17490480"/>
+    <s o="71_17490480"/>
+    <s o="36_17490480"/>
+    <s o="8_17490480"/>
+    <s o="13_17490480"/>
+    <s o="12_17490480"/>
+    <s o="9_17490480"/>
+    <s o="10_17490480"/>
+    <s o="14_17490480"/>
+    <s o="11_17490480"/>
+    <s o="31_17490480"/>
+    <s o="16_17490480"/>
+    <s o="72_17490480"/>
+    <s>
+      <buildin o="100_17490480"/>
+    </s>
+    <s>
+      <buildin o="101_17490480"/>
+    </s>
+    <s>
+      <buildin o="104_17490480"/>
+    </s>
+    <s o="73_17490480"/>
+    <s>
+      <buildin o="1_17533218"/>
+    </s>
+    <s>
+      <buildin o="2_17533218"/>
+    </s>
+    <s>
+      <buildin o="6_17533218"/>
+    </s>
+    <s o="14_17533218"/>
+    <s>
+      <buildin o="18_17533218"/>
+    </s>
+    <s>
+      <buildin o="19_17533218"/>
+    </s>
+    <s>
+      <buildin o="22_17533218"/>
+    </s>
+    <s o="15_17533218"/>
+    <s o="23_17533218"/>
+    <s o="0_9848915"/>
+    <s o="24_17533218"/>
+    <s o="1_9848915"/>
+    <s o="7_17533218"/>
+    <s>
+      <buildin o="13_17533218"/>
+    </s>
+    <s>
+      <buildin o="0_17394701"/>
+    </s>
+    <s>
+      <buildin o="12_17533218"/>
+    </s>
+    <s o="52_17490480"/>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('PTSans.swf');
+	fontFamily: body;
+}
+
+@font-face
+{
+	src: url('PTSans-B.swf');
+	fontFamily: strong;
+}
+
+@font-face
+{
+	src: url('PTSans-B.swf');
+	fontFamily: head;
+}
+
+ZCircle
+{
+	lockTintAlpha: 0.6;
+	borderAlpha: 1;
+	thickness: 100;
+	radius: 0;
+}
+
+ZPoly
+{
+	lockTintAlpha: 0.6;
+	thickness: 100;
+	gradEndAlpha: 0.9;
+	radius: 0;
+	borderAlpha: 1;
+	gradStartAlpha: 0.8;
+}
+
+Background
+{
+	gradEnd: #fff;
+	gradStart: #fff;
+}
+
+ZLabel
+{
+	padding: 1.2;
+}
+
+ZLabel.head
+{
+	fontFamily: head;
+	color: #000;
+}
+
+.line5
+{
+	gradStartColor: #194a99;
+	color: #194a99;
+	gradEndColor: #194a99;
+}
+
+.poly5
+{
+	borderThickness: 0;
+	borderColor: #333;
+	gradStartColor: #333;
+	gradEndColor: #333;
+}
+
+ZLabel.strong
+{
+	fontFamily: strong;
+	color: #194a99;
+}
+
+.line1
+{
+	gradStartColor: #efefef;
+	color: #efefef;
+	gradEndColor: #efefef;
+}
+
+.poly1
+{
+	borderThickness: 0;
+	borderColor: #efefef;
+	gradStartColor: #efefef;
+	gradEndColor: #efefef;
+}
+
+ZLabel.body
+{
+	fontFamily: body;
+	color: #333;
+}
+
+ZFrame.circle
+{
+	borderThickness: 0;
+	thickness: 8;
+	borderColor: #fff;
+	gradStartColor: #194a99;
+	gradEndColor: #194a99;
+}
+
+.line4
+{
+	gradStartColor: #318bff;
+	color: #318bff;
+	gradEndColor: #318bff;
+}
+
+.poly4
+{
+	borderThickness: 0;
+	borderColor: #194a99;
+	gradStartColor: #194a99;
+	gradEndColor: #194a99;
+}
+
+ZFrame.bracket
+{
+	borderThickness: 0;
+	thickness: 7;
+	borderColor: #fff;
+	gradStartColor: #318bff;
+	gradEndColor: #318bff;
+}
+
+.line2
+{
+	gradStartColor: #7a8082;
+	color: #7a8082;
+	gradEndColor: #7a8082;
+}
+
+.poly2
+{
+	borderThickness: 0;
+	borderColor: #7a8082;
+	gradStartColor: #7a8082;
+	gradEndColor: #7a8082;
+}
+
+ZFrame.roundrect
+{
+	borderThickness: 0;
+	borderColor: #97f1ff;
+	gradEndAlpha: 0.2;
+	gradEndColor: #318bff;
+	gradStartAlpha: 0.5;
+	gradStartColor: #318bff;
+}
+
+ZArrow
+{
+	borderThickness: 0;
+	borderColor: #7f7f7f;
+	gradStartColor: #333;
+	gradEndColor: #333;
+}
+
+.line3
+{
+	gradStartColor: #333;
+	color: #333;
+	gradEndColor: #333;
+}
+
+.poly3
+{
+	borderThickness: 0;
+	borderColor: #318bff;
+	gradStartColor: #318bff;
+	gradEndColor: #318bff;
+}
+
+ZLine
+{
+	color: #333;
+}
+
+ZCurveLine
+{
+	color: #333;
+}
+
+ZMarker
+{
+	alpha: 0.3;
+	color: #00e1ff;
+}
+
+Grid
+{
+	color: #ccc;
+}
+
+ZPath
+{
+	alpha: 1;
+	thickness: 3;
+	color: #40abe6;
+	textColor: #fff;
+}
+
+ZPath Ball.mid
+{
+	alpha: .5;
+	fillColor: #40abe6;
+	radius: 8;
+}
+
+ZPath Ball.base
+{
+	alpha: 1;
+	fillColor: #40abe6;
+	radius: 12;
+}
+
+]]></style>
+  <hash>2dd596596559ea324e3a8aca8d85fa33</hash>
+<sync><oid>cpb0pyust70q</oid><hash>2dd596596559ea324e3a8aca8d85fa33</hash></sync><config>kCWBr8Bssqjsc4ruCmTHoyDl3Ka0pq6h+V3cMAvC8oQ+mPgthKb875oqyfDotlNkGKTziXNKCZeSjvHonENzq1rXrAVTEKqPTbfJxptMP8DIBU1zyVohngqKgB5pG6YXIP99HPr/UWJvnopHZwvUozbnA3C+vBks/7H30y5kgRjbGvarPnQ2KiyjsiRbplAD3q0K2WIxsUURL11c121y74nKdVq8gCYxXKE+2FILL3vq+PNL/Ls0p5Y/hAX9MgbKTgGciLmCFIsvrfUK7PxkUCsjcr45OXqVaOjg9nnMCgcVKbfnMUOkF1eMZs+v/R6ghMqfUgVzOiEsy9SBa5HeEA==</config></zuiprezi>

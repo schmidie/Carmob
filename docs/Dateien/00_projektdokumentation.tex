@@ -1,22 +1,26 @@
-\documentclass{article}
+\documentclass[12pt,a4paper]{article} 
 \usepackage[latin1]{inputenc}
+\usepackage{mathpazo} % Get a font like Palatino
 \usepackage[T1]{fontenc}
-\usepackage{ngerman}
+\usepackage[ngerman]{babel} % German hypthenation
 \usepackage{graphicx}
 \usepackage{pdfpages}
+\usepackage{hyperref}
+
+\begin{document} 
  
 \title{Softwareprojekt:\\Kundenprojekt Web-Technologien II\\~\\Projektdokumentation\\ \small{- Team 4 -}}
-\author{\underline{Team 4 besteht aus}:\\Damla Durmaz (bis zum 18.05.2012),\\HongLiang Jiang, Nicolas Lehmann,\\Tobias Schmid, Benjamin Sch\"onburg }
+\author{HongLiang Jiang, Nicolas Lehmann,\\Tobias Schmid, Benjamin Sch\"onburg }
 \date{\today}
 
-
-\begin{document}
 
 \renewcommand\abstractname{Worum geht es in diesem Softwareprojekt?}
 \maketitle
 
 
 %%%%%%%%%%%%%%%%%%% BESCHREIBUNG DES SWP %%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\vspace{\fill}
 \begin{abstract}
 {\huge D}as Softwareprojekt Kundenprojekt Web-Technologien II simuliert ein reales, agiles Softwareprojekt in der freien Wirtschaft, im Speziellen im Unternehmen Carmeq in der Arbeitsgruppe Carmob. W\"ahrend des gesamten Softwareprojekts steht der Kunde im zentralen Fokus (Human Centered Design). Die Aufgabe der Teilnehmer dieses Softwareprojektes ist es eine Software zum Thema intermodales Reisen zu entwerfen und zu implementieren, die die Bed\"urfnisse der Mitarbeiter des Unternehmens Carmeq bez\"uglich deren durchgef\"uhrten Dienstreiseplanung und -durchf\"uhrung befriedigt. Die Projektarbeit umfasst die Bedarfsanalyse, die L\"osungsmodellierung, die Konzeptionierung der Software und der Implementierung dieser in einem agilen Prozess.\\
 Anstatt eine Gesamtl\"osung zu entwerfen finden vier Softwareprojekte parallel zueinander statt, die jeweils einen anderen Teilaspekte als eigenst\"andiges Softwareprojekt umsetzen.\\
@@ -24,6 +28,10 @@ Anstatt eine Gesamtl\"osung zu entwerfen finden vier Softwareprojekte parallel z
 Diese Projektdokumentation h\"alt den Verlauf der Arbeit von Team 4 fest. Diese Dokumentation ist nach Phasen und Wochen strukturiert und beschreibt die Aktivit\"aten des Teams w\"ahrend des Projekts, sowie auftretende Probleme und zentrale Entscheidungen und beschreibt zus\"atzlich die Ergebnisse jeder Phase der Projektarbeit.
 \end{abstract}
 
+\vspace{\fill}
+\pagebreak
+
+\setcounter{page}{1}
 
 %%%%%%%%%%%%%%%%%%% INHALTSVERZEICHNIS %%%%%%%%%%%%%%%%%%%
 
@@ -53,10 +61,10 @@ Wir haben uns f\"ur \textit{GoogleDocs} als zentrale Arbeitsplattform entschiede
 Wir haben aus den Vorschl\"agen der einzelnen Teammitglieder einen \textit{Interviewleitfaden} erstellt und diesen im Team in Form eines simulierten Kundeninterviews erfolgreich getestet.
 
 \begin{itemize}
-\item Interviewleitfaden (PDF)
+\item Interviewleitfaden (siehe Anhang)
 \end{itemize}
 
-\includepdf[pages=1-4]{01_interviewleitfaden.pdf}
+
 
 \section{Phase: Analyse, Modellierung und Konzeption}
 
@@ -87,23 +95,15 @@ Wir haben uns f\"ur die Abschlusspr\"asentation entschieden die beiden L\"osunge
 Wir haben die \textit{Interviews ausgewertet} und als Basis f\"ur die Erstellung von \textit{Nutzerkategorien} verwendet. Durch die Selektion von \textit{Nutzerkategorien} haben wir eine \textit{Persona} erstellt und diese zur Erstellung eines \textit{Point of Views} verwendet. Unser erster L\"osungsansatz war eine Kombination aus den Clustern \textit{Social Network} und \textit{ONE4ALL}. Diesen L\"osungsansatz haben wir trotz weiteren L\"osungsans\"atzen und seiner Mehrdimensionalit\"at favorisiert, wodurch er letztlich einer der zwei konkreten L\"osungen wurde, die wir f\"ur die \textit{Kick-Off-Pr\"asentation} ausgew\"ahlt haben. Wir haben eine \textit{Kick-Off-Pr\"asentation} erstellt, die zwei konkrete L\"osungen beinhaltete.
 
 \begin{itemize}
-\item Interviewauswertungen (PDF)
-\item Nutzerkategorien (PDF)
-\item Persona (PDF)
-\item Point Of View (PDF)
-\item Softwarel\"osung (JPG)
-\item Kick-Off-Pr\"asentation (PDF)
+\item Interviewauswertungen (siehe Anhang)
+\item Nutzerkategorien (siehe Anhang)
+\item Persona (siehe Anhang)
+\item Point Of View (siehe Anhang)
+\item Ideen einer Softwarel\"osung (siehe Anhang)
+\item Kick-Off-Pr\"asentation (siehe Anhang)
 \end{itemize}
 
-\includepdf[pages=1-12]{02_interviews_abschriften.pdf}
-\includepdf[pages=1-9]{03_nutzerkategorien_persona_pov.pdf}
-\begin{center}
-\includegraphics[width=12cm]{04_softwareloesung01.jpg}\\
-\includegraphics[width=12cm]{04_softwareloesung02_001.jpg}\\
-\includegraphics[width=12cm]{04_softwareloesung02_002.jpg}\\
-\includegraphics[width=12cm]{04_softwareloesung02_003.jpg}\\
-\end{center}
-\includepdf[pages=1-18]{05_kick_off_praesentation.pdf}
+
 
 \section{Phase: Rekonzeption}
 
@@ -125,42 +125,13 @@ Wir haben zu erst verschiedene \textit{Paper-Prototypen} entwickelt und diese an
 Wir haben mehrere \textit{Papier-Prototypen} entwickelt, beim Kunden getestet und daraus \textit{Userstories} mit einer groben Aufwandabsch\"atzung abgeleitet.
 
 \begin{itemize}
-\item Paper-Prototyps (PDF)
-\item Verhaltensanalysen (PDF)
-\item konvergenter Paper-Prototyp (PNG)
-\item Userstories und Szenarien (PDF)
+\item Paper-Prototyps (siehe Anhang)
+\item Verhaltensanalysen (siehe Anhang)
+\item Weiterer Paper-Prototyp (siehe Anhang)
+\item Userstories und Szenarien (siehe Anhang)
 \end{itemize}
 
-\includepdf[pages=1-1]{06_paperprototyp01_000.pdf}
-\includepdf[pages=1-1]{06_paperprototyp01_001.pdf}
-\includepdf[pages=1-1]{06_paperprototyp01_002.pdf}
-\includepdf[pages=1-1]{06_paperprototyp01_003.pdf}
-\includepdf[pages=1-1]{06_paperprototyp01_004.pdf}
-\includepdf[pages=1-5]{06_paperprototyp02.pdf}
-\includepdf[pages=1-3]{06_paperprototyp03.pdf}
-\includepdf[pages=1-2]{07_verhaltensanalyse01.pdf}
-\includepdf[pages=1-7]{07_verhaltensanalyse02.pdf}
-\includepdf[pages=1-6]{07_verhaltensanalyse03.pdf}
-\begin{center}
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_000.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_001.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_002.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_003.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_004.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_005.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_006.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_007.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_008.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_009.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_010.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_011.png}\\
-\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_012.png}
-\end{center}
-\includepdf[pages=1-13]{09_userstories_szenarien01.pdf}
-\includepdf[pages=1-13]{09_userstories_szenarien02.pdf}
-\includepdf[pages=1-3]{00_iterationsplanung03.pdf}
-\includepdf[pages=1-5]{00_iterationsplanung04.pdf}
-\includepdf[pages=1-6]{00_iterationsplanung05.pdf}
+
 
 \section{Phase: Rekonzeption und 1. Iteration}
 
@@ -191,21 +162,11 @@ Unabh\"angig von den ben\"otigten Entit\"atstypen (Trip, Connection, Transportat
 Wir haben die Papier-Prototypen mehrfach weiterentwickelt bis wir einen finalen \textit{konvergenten Papier-Prototypen} erzeugen konnten den wir als Basis f\"ur die \textit{Implementierung des Grundger\"ust unserer Softwarel\"osung} verwendet haben. Wir haben ein ERDD f\"ur das Datenmodell erzeugt.
 
 \begin{itemize}
-\item finaler Paper-Prototype (PNG)
+\item Finaler Paper-Prototype (siehe Anhang)
 \item Datenmodelle erstellt (Quellcode)
-\item ERDD erstellt (PNG)
+\item ERDD erstellt (siehe Anhang)
 \end{itemize}
 
-\begin{center}
-\includegraphics[width=12cm]{10_finaler_paperprototyp_001.png}\\
-\includegraphics[width=12cm]{10_finaler_paperprototyp_002.png}\\
-\includegraphics[width=12cm]{10_finaler_paperprototyp_003.png}\\
-\includegraphics[width=12cm]{10_finaler_paperprototyp_004.png}\\
-\includegraphics[width=12cm]{10_finaler_paperprototyp_005.png}\\
-\includegraphics[width=12cm]{10_finaler_paperprototyp_006.png}\\
-\includegraphics[width=12cm]{10_finaler_paperprototyp_007.png}\\
-\includegraphics[width=12cm]{11_erdd.png}
-\end{center}
 \newpage
 
 \section{Phase: 2. Iteration}
@@ -306,7 +267,6 @@ Wir haben uns als erste Schnittstelle zu den anderen Teams das Team 1 ausgesucht
 \item CO$_2$-Berechnung (Quellcode)
 \end{itemize}
 
-\includepdf[pages=1-9]{12_bedienungsanleitung.pdf}
 
 \section{Phase: 5. Iteration}
 
@@ -329,12 +289,11 @@ Der Produktname wird \textit{Twot} lauten. Als Marketingkonzept soll die Persona
 Wir haben die Projektdokumentation im Quelltext und in Schriftform abgeschlossen. Nach der Erarbeitung eines Marketingkonzepts haben wir die Abschlusspr\"asentation auf verschiedenen Plattformen fertig gestellt.
 
 \begin{itemize}
-\item Projektdokumentation (PDF)
+\item Projektdokumentation (siehe Anhang)
 \item vollst\"andiges Marketingkonzept (siehe Konzept Abschlusspr\"asentation)
-\item Konzept Abschlusspr\"asentation (PDF)
+\item Konzept Abschlusspr\"asentation (siehe Anhang)
 \end{itemize}
 
-\includepdf[pages=1-9]{13_abschlusspraesentation_konzept.pdf}
 
 \section{Phase: Abschlusspr\"asentation}
 
@@ -360,7 +319,7 @@ Wir haben uns dazu entschieden die Pr\"asentation in drei Teilen zu strukturiere
 
 \subsection{SVN Spline}
 
-Link: \texttt{http://dev.spline.de}
+Link: \texttt{https://dev.spline.de/trac/swp\_sose2012\_kundenproject2\_team4/}
 
 \subsection{GitHub}
 
@@ -376,5 +335,170 @@ git push heroku master
 \end{verbatim}
 
 Link: \texttt{http://twot.herokuapp.com}
+
+\newpage
+
+
+
+%% ANHANG %%
+
+\section{Anhang}
+
+In den n\"achsten Abschnitten befinden sich die Dokumente und Grafiken, welche im Verlauf des Projektes erstellt worden sind. Dabei sind die gesamten Dokumente bzw. Grafiken hier eingebunden. Die einzelnen Dokumente sind auf der Githubseite unter: \\ \texttt{https://github.com/schmidie/Carmob/tree/master/docs/Dateien} \\ verf\"ugbar.
+
+\newpage
+\vspace*{40mm}
+\subsection{InterviewLeitfaden}
+Auf den folgenden Seiten ist der Interviewleitfaden dargestellt.
+
+
+% InterviewLeitfaden
+\includepdf[pages=1-4]{01_interviewleitfaden.pdf}
+
+\newpage
+\vspace*{40mm}
+%Interviews, etc
+\subsection{Interview-Abschriften}
+
+Ein teil der Interviews wurde digitalisiert. Im Folgenden sind diese Abschriften dargestellt.
+
+\includepdf[pages=1-12]{02_interviews_abschriften.pdf}
+
+\newpage
+\vspace*{40mm}
+\subsection{Persona und POV}
+
+Die ausgearbeitete Persona und der Point-of-View ist in diesem Abschnitt dargestellt.
+
+\includepdf[pages=1-9]{03_nutzerkategorien_persona_pov.pdf}
+
+\newpage
+\vspace*{40mm}
+\subsection{Ideen einer Softwarel\"osung}
+\begin{center}
+\includegraphics[width=12cm]{04_softwareloesung01.jpg}\\
+\includegraphics[width=12cm]{04_softwareloesung02_001.jpg}\\
+\includegraphics[width=12cm]{04_softwareloesung02_002.jpg}\\
+\includegraphics[width=12cm]{04_softwareloesung02_003.jpg}\\
+\end{center}
+
+\newpage
+\vspace*{40mm}
+\subsection{Kick off Pr\"asentation}
+
+Die Pr\"asentation f\"ur die Kick-off Veranstaltung ist in diesem Abschnitt eingebunden.
+
+\includepdf[pages=1-18]{05_kick_off_praesentation.pdf}
+
+\newpage
+\vspace*{40mm}
+% PP
+\subsection{Erste Paper-Prototyps}
+
+Es wurden verschiedene Paper-Prototyps von verschiedenen Team-Mitgliedern erstellt. In diesem Abschnitt sind eine der ersten Paper-Prototyps dargestellt.
+
+\includepdf[pages=1-1]{06_paperprototyp01_000.pdf}
+\includepdf[pages=1-1]{06_paperprototyp01_001.pdf}
+\includepdf[pages=1-1]{06_paperprototyp01_002.pdf}
+\includepdf[pages=1-1]{06_paperprototyp01_003.pdf}
+\includepdf[pages=1-1]{06_paperprototyp01_004.pdf}
+\includepdf[pages=1-5]{06_paperprototyp02.pdf}
+\includepdf[pages=1-3]{06_paperprototyp03.pdf}
+
+\newpage
+\vspace*{40mm}
+\subsection{Verhaltensanalysen}
+
+Die GUI Verhaltensanalysen und dessen Auswertungen sind in diesem Abschnitt dargestellt.
+
+\includepdf[pages=1-2]{07_verhaltensanalyse01.pdf}
+\includepdf[pages=1-7]{07_verhaltensanalyse02.pdf}
+\includepdf[pages=1-6]{07_verhaltensanalyse03.pdf}
+
+\newpage
+\vspace*{40mm}
+\subsection{Weitere Paper-Prototyps}
+
+Weitere Paper-Prototyps wurden erstellt und sind im Folgenden aufgezeigt.
+
+\begin{center}
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_000.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_001.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_002.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_003.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_004.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_005.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_006.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_007.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_008.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_009.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_010.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_011.png}\\
+\includegraphics[width=12cm]{08_konvergenter_paperprototyp01_012.png}
+\end{center}
+
+\newpage
+\vspace*{40mm}
+\subsection{Paper Prototyps und die Userstories}
+
+In folgenden Dokumenten sind die ausgearbeiteten Userstories enthalten.
+
+\includepdf[pages=1-13]{09_userstories_szenarien01.pdf}
+\includepdf[pages=1-13]{09_userstories_szenarien02.pdf}
+
+\newpage
+\vspace*{40mm}
+\subsection{Iterationsplanungen}
+
+Folgende Dokumente entahlten die Iterationsplanungen der jeweilligen Iteration.
+
+\includepdf[pages=1-3]{00_iterationsplanung03.pdf}
+\includepdf[pages=1-5]{00_iterationsplanung04.pdf}
+\includepdf[pages=1-6]{00_iterationsplanung05.pdf}
+
+\newpage
+\vspace*{40mm}
+%finaler PP
+\subsection{Finaler Paper-Prototyp}
+
+Es wurde ein weiterer Paper Prototyp erstellt, welcher in diesem Abschnitt dargestellt ist.
+
+\begin{center}
+\includegraphics[width=12cm]{10_finaler_paperprototyp_001.png}\\
+\includegraphics[width=12cm]{10_finaler_paperprototyp_002.png}\\
+\includegraphics[width=12cm]{10_finaler_paperprototyp_003.png}\\
+\includegraphics[width=12cm]{10_finaler_paperprototyp_004.png}\\
+\includegraphics[width=12cm]{10_finaler_paperprototyp_005.png}\\
+\includegraphics[width=12cm]{10_finaler_paperprototyp_006.png}\\
+\includegraphics[width=12cm]{10_finaler_paperprototyp_007.png}\\
+\end{center}
+
+\newpage
+\vspace*{40mm}
+\subsection{ERD Diagramm}
+
+Ein ERD Diagramm wurde erstellt und ist hier dargestellt.
+
+\begin{center}
+\includegraphics[width=12cm]{11_erdd.png}
+\end{center}
+
+\newpage
+\vspace*{40mm}
+\subsection{Bedienungsanleitung}
+
+Eine Bedienungsanleitung wurde angefertigt und ist auf den folgenden Seiten eingebunden.
+
+%Bedienungsanleitung
+\includepdf[pages=1-9]{12_bedienungsanleitung.pdf}
+
+\newpage
+\vspace*{40mm}
+\subsection{Abschlusspr\"asentation}
+
+Die Abschlusspr\"asentation ist in diesem Abschnitt eingebunden.
+
+%Abschlusspräsentation
+\includepdf[pages=1-9]{13_abschlusspraesentation_konzept.pdf}
 
 \end{document}
